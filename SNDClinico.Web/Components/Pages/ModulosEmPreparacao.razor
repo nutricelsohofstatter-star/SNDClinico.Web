@@ -1,0 +1,36 @@
+@page "/triagem"
+@page "/mapa-dieta-pediatria"
+@page "/npo"
+@page "/abreviacao-jejum"
+@page "/aceitacao-alimentar"
+@page "/configuracoes"
+@inject NavigationManager Navegacao
+
+<PageTitle>@Titulo | SND CLÍNICO</PageTitle>
+
+<div class="placeholder-page">
+    <span class="placeholder-kicker">SND CLÍNICO</span>
+    <h1>@Titulo</h1>
+    <p>Este módulo faz parte da estrutura planejada. Vamos desenvolver o conteúdo e as funcionalidades dele nas próximas etapas.</p>
+    <div class="placeholder-card">
+        <div class="placeholder-icon">✦</div>
+        <div>
+            <strong>Estrutura pronta para receber o módulo</strong>
+            <p>A navegação superior já está pronta. Este módulo será desenvolvido depois do Mapa de Dietas Adulto.</p>
+        </div>
+    </div>
+    <a href="/mapa-dieta-adulto" class="placeholder-link">Abrir Mapa de Dietas Adulto →</a>
+</div>
+
+@code {
+    private string Titulo => new Uri(Navegacao.Uri).AbsolutePath.TrimEnd('/').ToLowerInvariant() switch
+    {
+        "/triagem" => "Triagem",
+        "/mapa-dieta-pediatria" => "Mapa de Dieta Pediatria",
+        "/npo" => "NPO",
+        "/abreviacao-jejum" => "Abreviação de Jejum",
+        "/aceitacao-alimentar" => "Aceitação Alimentar",
+        "/configuracoes" => "Configurações",
+        _ => "Módulo"
+    };
+}

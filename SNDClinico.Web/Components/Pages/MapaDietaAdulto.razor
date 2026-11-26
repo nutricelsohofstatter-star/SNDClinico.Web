@@ -1,0 +1,212 @@
+@page "/mapa-dieta-adulto"
+
+<PageTitle>Mapa de Dietas Adulto | SND CLÍNICO</PageTitle>
+
+<div class="mapa-v4">
+    <header class="v4-heading">
+        <div>
+            <span class="v4-eyebrow">TERAPIA NUTRICIONAL <span>/</span> ADULTOS</span>
+            <h1>Mapa de Dietas Adulto</h1>
+            <p>Gestão diária das dietas e acompanhamento nutricional.</p>
+        </div>
+        <div class="v4-status"><span class="v4-status-dot"></span> Rascunho</div>
+    </header>
+
+    <section class="v4-controls" aria-label="Data e ações do mapa">
+        <div class="v4-date-card" title="A seleção de datas estará disponível na próxima etapa">
+            <span class="v4-calendar" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg>
+            </span>
+            <div><span>DATA DO MAPA</span><strong>29/10/2026</strong></div>
+        </div>
+        <div class="v4-control-actions">
+            <button type="button" class="v4-btn" disabled title="Em desenvolvimento">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg>
+                Copiar mapa anterior
+            </button>
+            <button type="button" class="v4-btn v4-btn-primary" disabled title="Em desenvolvimento">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><path d="M12 5v14M5 12h14"/></svg>
+                Adicionar paciente
+            </button>
+            <span class="v4-action-divider" aria-hidden="true"></span>
+            <button type="button" class="v4-btn v4-btn-icontext" disabled title="Exportação PDF em desenvolvimento">PDF</button>
+            <button type="button" class="v4-btn v4-btn-icontext" disabled title="Exportação Excel em desenvolvimento">Excel</button>
+            <button type="button" class="v4-btn v4-btn-finish" disabled title="Finalização em desenvolvimento">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+                Finalizar mapa
+            </button>
+        </div>
+    </section>
+
+    <section class="v4-overview" aria-label="Resumo do mapa">
+        <article class="v4-metric v4-metric-all">
+            <span class="v4-metric-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 6a3 3 0 0 1 0 6M18 15a5 5 0 0 1 3 5"/></svg></span>
+            <div><span>Pacientes no mapa</span><strong>@QuantidadePacientes</strong></div>
+            <span class="v4-metric-mini">Total</span>
+        </article>
+        <article class="v4-metric v4-metric-done">
+            <span class="v4-metric-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.5 2.5L16 9"/></svg></span>
+            <div><span>Conferidos</span><strong>@QuantidadeConferidos</strong></div>
+            <span class="v4-metric-mini">Revisados</span>
+        </article>
+        <article class="v4-metric v4-metric-wait">
+            <span class="v4-metric-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <div><span>Pendentes</span><strong>@QuantidadePendentes</strong></div>
+            <span class="v4-metric-mini">A conferir</span>
+        </article>
+    </section>
+
+    <section class="v4-table-panel" aria-label="Relação de pacientes no mapa de dietas">
+        <div class="v4-table-title">
+            <div>
+                <div class="v4-table-heading">
+                    <span class="v4-table-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10M15 10v10"/></svg></span>
+                    <h2>Relação de pacientes</h2>
+                    <span class="v4-count">@QuantidadePacientes pacientes</span>
+                </div>
+                <p>UTI A–J fixas no início · Demais pacientes em lista contínua</p>
+            </div>
+            <span class="v4-table-note">Planilha compacta · Sem filtros</span>
+        </div>
+
+        <div class="v4-table-viewport">
+            <table class="v4-table">
+                <caption class="v4-sr-only">Mapa de dietas da data 29 de outubro de 2026, com dados fictícios.</caption>
+                <colgroup>
+                    <col class="v4-col-patient" />
+                    <col class="v4-col-age" />
+                    <col class="v4-col-state" />
+                    <col class="v4-col-eval" />
+                    <col class="v4-col-conditions" />
+                    <col class="v4-col-diet" />
+                    <col class="v4-col-supplement" />
+                    <col class="v4-col-number" /><col class="v4-col-number" />
+                    <col class="v4-col-number" /><col class="v4-col-number" />
+                    <col class="v4-col-number" /><col class="v4-col-number" />
+                    <col class="v4-col-actions" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col">Paciente <span class="v4-head-sub">/ Leito</span></th>
+                        <th scope="col">Idade</th>
+                        <th scope="col">Estado <span class="v4-head-sub">nutricional</span></th>
+                        <th scope="col">Avaliação <span class="v4-head-sub">/ Reav.</span></th>
+                        <th scope="col">Condições <span class="v4-head-sub">VM · Êm · Dia</span></th>
+                        <th scope="col">Dieta</th>
+                        <th scope="col">Suplemento</th>
+                        <th scope="col" title="Volume prescrito (mL)">Vol. <span class="v4-head-sub">presc.</span></th>
+                        <th scope="col" title="Volume infundido (mL)">Vol. <span class="v4-head-sub">infund.</span></th>
+                        <th scope="col" title="VET estimado (kcal)">VET <span class="v4-head-sub">estim.</span></th>
+                        <th scope="col" title="VET prescrito (kcal)">VET <span class="v4-head-sub">presc.</span></th>
+                        <th scope="col" title="Proteína estimada (g)">PTN <span class="v4-head-sub">estim.</span></th>
+                        <th scope="col" title="Proteína prescrita (g)">PTN <span class="v4-head-sub">presc.</span></th>
+                        <th scope="col" class="v4-col-last">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var linha in Linhas)
+                    {
+                        @if (linha.Paciente is null)
+                        {
+                            <tr class="v4-empty-row">
+                                <td class="v4-patient-cell"><span class="v4-empty-bed">@linha.Leito</span></td>
+                                <td class="v4-empty-fill" colspan="13"></td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td class="v4-patient-cell" data-label="Paciente / Leito">
+                                    <strong class="v4-patient-name" title="@linha.Paciente">@linha.Paciente</strong>
+                                    <div class="v4-patient-meta">
+                                        <span class="v4-bed-tag">@linha.Leito</span>
+                                        <span class="v4-patient-check @(linha.Conferido ? "is-done" : "is-wait")">
+                                            <span aria-hidden="true">@(linha.Conferido ? "✓" : "·")</span> @(linha.Conferido ? "Conferido" : "Pendente")
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="v4-age" data-label="Idade">@linha.Idade</td>
+                                <td data-label="Estado nutricional" title="@linha.EstadoNutricional">@(linha.EstadoNutricional ?? "—")</td>
+                                <td data-label="Avaliação / Reavaliação">@(linha.Avaliacao ?? "—")</td>
+                                <td data-label="Condições clínicas">
+                                    <div class="v4-conditions" title="Ventilação mecânica, êmese e diarreia">
+                                        <span class="v4-condition"><abbr title="Ventilação mecânica">VM</abbr><b class="@EstiloSimNao(linha.VentilacaoMecanica)">@TextoSimNao(linha.VentilacaoMecanica)</b></span>
+                                        <span class="v4-condition"><abbr title="Êmese">Êm</abbr><b class="@EstiloSimNao(linha.Emese)">@TextoSimNao(linha.Emese)</b></span>
+                                        <span class="v4-condition"><abbr title="Diarreia">Dia</abbr><b class="@EstiloSimNao(linha.Diarreia)">@TextoSimNao(linha.Diarreia)</b></span>
+                                    </div>
+                                </td>
+                                <td data-label="Dieta" class="v4-diet" title="@linha.Dieta">@(linha.Dieta ?? "—")</td>
+                                <td data-label="Suplemento" class="v4-supplement" title="@linha.Suplemento">@(linha.Suplemento ?? "—")</td>
+                                <td data-label="Volume prescrito (mL)" class="v4-numeric" title="Volume prescrito">@NumeroSemUnidade(linha.VolumePrescrito)</td>
+                                <td data-label="Volume infundido (mL)" class="v4-numeric" title="Volume infundido">@NumeroSemUnidade(linha.VolumeInfundido)</td>
+                                <td data-label="VET estimado (kcal)" class="v4-numeric" title="VET estimado">@NumeroSemUnidade(linha.VetEstimado)</td>
+                                <td data-label="VET prescrito (kcal)" class="v4-numeric" title="VET prescrito">@NumeroSemUnidade(linha.VetPrescrito)</td>
+                                <td data-label="Proteína estimada (g)" class="v4-numeric" title="Proteína estimada">@NumeroSemUnidade(linha.ProteinaEstimada)</td>
+                                <td data-label="Proteína prescrita (g)" class="v4-numeric" title="Proteína prescrita">@NumeroSemUnidade(linha.ProteinaPrescrita)</td>
+                                <td data-label="Ações" class="v4-actions-cell">
+                                    <div class="v4-row-actions">
+                                        <button type="button" disabled title="Editar paciente (em desenvolvimento)" aria-label="Editar @linha.Paciente"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><path d="m15 5 4 4M4 20l4.5-1 11-11a2.1 2.1 0 0 0-3-3l-11 11L4 20Z"/></svg></button>
+                                        <button type="button" disabled title="Excluir do mapa (em desenvolvimento)" aria-label="Excluir @linha.Paciente"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><path d="M4 7h16M10 7V4h4v3m4 0-1 13H7L6 7M10 11v6M14 11v6"/></svg></button>
+                                        <button type="button" disabled title="Transferir ou dar alta (em desenvolvimento)" aria-label="Mais opções para @linha.Paciente"><svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <footer class="v4-table-footer">
+            <span>10 leitos fixos da UTI · @QuantidadeOutrosLeitos pacientes nos demais leitos</span>
+            <span class="v4-demo-indicator"><i></i> Dados fictícios para prévia</span>
+        </footer>
+    </section>
+
+    <div class="v4-demo-notice" role="note">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px!important;height:16px!important;max-width:16px!important;max-height:16px!important;display:block;flex:0 0 16px;fill:none!important;stroke:currentColor;"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+        <span><strong>Prévia visual baseada no PSICOEDUCA+.</strong> As ações, exportações, edições e o salvamento ainda não foram implementados. A tabela usa somente dados fictícios.</span>
+    </div>
+</div>
+
+@code {
+    private static string TextoSimNao(bool? valor) => valor is null ? "—" : valor.Value ? "Sim" : "Não";
+    private static string EstiloSimNao(bool? valor) => valor is null ? "v4-tag v4-tag-missing" : valor.Value ? "v4-tag v4-tag-yes" : "v4-tag v4-tag-no";
+    private static string NumeroSemUnidade(string? texto) => string.IsNullOrWhiteSpace(texto) ? "—" : texto.Replace(" mL", "").Replace(" kcal", "").Replace(" g", "");
+    private int QuantidadePacientes => Linhas.Count(l => l.Paciente is not null);
+    private int QuantidadeConferidos => Linhas.Count(l => l.Paciente is not null && l.Conferido);
+    private int QuantidadePendentes => QuantidadePacientes - QuantidadeConferidos;
+    private int QuantidadeOutrosLeitos => Linhas.Count(l => l.Paciente is not null && !l.Leito.StartsWith("UTI ", StringComparison.Ordinal));
+
+    private readonly List<LinhaMapa> Linhas = new()
+    {
+        new() { Leito="UTI A", Paciente="Maria Oliveira", Idade="72 anos", EstadoNutricional="Desnutrição moderada", Avaliacao="Reavaliação", VentilacaoMecanica=true, Emese=false, Diarreia=false, Dieta="Enteral + NPT", Suplemento="Just 2x", VolumePrescrito="1.500 mL", VolumeInfundido="1.200 mL", VetEstimado="1.800 kcal", VetPrescrito="1.600 kcal", ProteinaEstimada="90 g", ProteinaPrescrita="85 g", Conferido=true },
+        new() { Leito="UTI B", Paciente="João Silva", Idade="64 anos", EstadoNutricional="Eutrofia", Avaliacao=null, VentilacaoMecanica=false, Emese=false, Diarreia=true, Dieta="VO + Branda", Suplemento="Ensure 1x", VolumePrescrito=null, VolumeInfundido=null, VetEstimado="2.000 kcal", VetPrescrito="1.800 kcal", ProteinaEstimada="100 g", ProteinaPrescrita="95 g", Conferido=false },
+        new() { Leito="UTI C" }, new() { Leito="UTI D" }, new() { Leito="UTI E" },
+        new() { Leito="UTI F" }, new() { Leito="UTI G" }, new() { Leito="UTI H" },
+        new() { Leito="UTI I" }, new() { Leito="UTI J" },
+        new() { Leito="201-A", Paciente="Ana Costa", Idade="58 anos", EstadoNutricional="Sobrepeso", Avaliacao="Avaliação", VentilacaoMecanica=false, Emese=false, Diarreia=false, Dieta="VO + Hipossódica", Suplemento=null, VolumePrescrito=null, VolumeInfundido=null, VetEstimado="1.750 kcal", VetPrescrito="1.700 kcal", ProteinaEstimada="75 g", ProteinaPrescrita="70 g", Conferido=true },
+        new() { Leito="202-B", Paciente="Carlos Souza", Idade="76 anos", EstadoNutricional=null, Avaliacao=null, VentilacaoMecanica=false, Emese=null, Diarreia=null, Dieta="NPO", Suplemento=null, VolumePrescrito=null, VolumeInfundido=null, VetEstimado=null, VetPrescrito=null, ProteinaEstimada=null, ProteinaPrescrita=null, Conferido=false },
+        new() { Leito="203-A", Paciente="Paula Mendes", Idade="47 anos", EstadoNutricional="Eutrofia", Avaliacao=null, VentilacaoMecanica=false, Emese=false, Diarreia=false, Dieta="VO", Suplemento="Just 2x + Ensure 1x", VolumePrescrito=null, VolumeInfundido=null, VetEstimado="1.900 kcal", VetPrescrito="1.850 kcal", ProteinaEstimada="85 g", ProteinaPrescrita="80 g", Conferido=false }
+    };
+
+    private sealed class LinhaMapa
+    {
+        public string Leito { get; set; } = "";
+        public string? Paciente { get; set; }
+        public string? Idade { get; set; }
+        public string? EstadoNutricional { get; set; }
+        public string? Avaliacao { get; set; }
+        public bool? VentilacaoMecanica { get; set; }
+        public bool? Emese { get; set; }
+        public bool? Diarreia { get; set; }
+        public string? Dieta { get; set; }
+        public string? Suplemento { get; set; }
+        public string? VolumePrescrito { get; set; }
+        public string? VolumeInfundido { get; set; }
+        public string? VetEstimado { get; set; }
+        public string? VetPrescrito { get; set; }
+        public string? ProteinaEstimada { get; set; }
+        public string? ProteinaPrescrita { get; set; }
+        public bool Conferido { get; set; }
+    }
+}

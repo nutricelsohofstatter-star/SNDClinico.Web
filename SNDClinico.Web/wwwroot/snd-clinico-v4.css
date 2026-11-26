@@ -1,0 +1,147 @@
+/* SND CLÍNICO | Mapa de Dietas Adulto V4
+   CSS global carregado pelo MainLayout para evitar problemas de cache ou escopo do Blazor.
+   Não modifica o menu lateral ou os demais módulos.
+*/
+.mapa-v4,
+.mapa-v4 * {box-sizing:border-box;}
+.mapa-v4 {color:#1b304a;font-family:Inter,"Segoe UI",Arial,sans-serif;min-width:0;width:100%;}
+.mapa-v4 svg {width:16px;height:16px;display:block;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round;}
+.mapa-v4 .v4-heading {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px;}
+.mapa-v4 .v4-eyebrow {color:#7290b0;display:block;font-size:9px;letter-spacing:1.3px;font-weight:800;margin-bottom:5px;}
+.mapa-v4 .v4-eyebrow span {margin:0 6px;color:#bbc9d7;}
+.mapa-v4 h1 {font-size:26px;letter-spacing:-.7px;line-height:1.2;font-weight:760;margin:0;}
+.mapa-v4 .v4-heading p {font-size:11px;color:#8295aa;margin:5px 0 0;}
+.mapa-v4 .v4-status {border:1px solid #f1dfba;background:#fff7e8;border-radius:999px;padding:7px 13px;font-size:10px;font-weight:750;color:#a77631;white-space:nowrap;display:flex;align-items:center;gap:7px;}
+.mapa-v4 .v4-status-dot {width:7px;height:7px;border-radius:50%;background:#eaaa4d;}
+.mapa-v4 .v4-controls {display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff;border:1px solid #e0e9f4;border-radius:12px;padding:10px 13px;margin-bottom:10px;box-shadow:0 3px 13px rgba(22,54,84,.026);}
+.mapa-v4 .v4-date-card {display:flex;align-items:center;gap:9px;min-width:160px;}
+.mapa-v4 .v4-calendar {height:32px;width:32px;display:grid;place-items:center;background:#eaf4ff;color:#367fc6;border-radius:9px;}
+.mapa-v4 .v4-calendar svg {width:17px;height:17px;}
+.mapa-v4 .v4-date-card>div {display:flex;flex-direction:column;gap:3px;}
+.mapa-v4 .v4-date-card>div span {font-size:9px;font-weight:800;letter-spacing:.6px;color:#90a3b8;}
+.mapa-v4 .v4-date-card strong {font-size:13px;color:#203c5b;}
+.mapa-v4 .v4-control-actions {display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+.mapa-v4 .v4-btn {border:1px solid #dce7f2;min-height:32px;display:inline-flex;align-items:center;justify-content:center;gap:6px;background:white;color:#476684;padding:7px 11px;font:700 10.5px Inter,"Segoe UI",Arial,sans-serif;border-radius:8px;white-space:nowrap;}
+.mapa-v4 .v4-btn svg {width:13px;height:13px;}
+.mapa-v4 .v4-btn-primary {background:#347fc9;border-color:#347fc9;color:#fff;}
+.mapa-v4 .v4-btn-finish {background:#f8fbff;border-color:#b9d5ee;color:#2f75b8;}
+.mapa-v4 .v4-btn-icontext {min-width:45px;}
+.mapa-v4 .v4-btn:disabled {opacity:.93;cursor:not-allowed;}
+.mapa-v4 .v4-action-divider {height:20px;width:1px;background:#e5ebf2;margin:0 3px;}
+.mapa-v4 .v4-overview {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:12px;}
+.mapa-v4 .v4-metric {min-width:0;display:flex;align-items:center;gap:12px;background:white;border:1px solid #e1e9f3;border-radius:12px;padding:11px 14px;min-height:67px;box-shadow:0 3px 12px rgba(33,60,87,.02);}
+.mapa-v4 .v4-metric-icon {display:grid;place-items:center;flex:none;width:39px;height:39px;border-radius:10px;background:#e8f3ff;color:#347fc9;}
+.mapa-v4 .v4-metric-icon svg {width:19px;height:19px;}
+.mapa-v4 .v4-metric-done .v4-metric-icon {background:#e8f8f0;color:#1e9965;}
+.mapa-v4 .v4-metric-wait .v4-metric-icon {background:#fff4df;color:#d09936;}
+.mapa-v4 .v4-metric>div {display:flex;flex-direction:column;gap:2px;min-width:0;}
+.mapa-v4 .v4-metric>div span {color:#6c8097;font-size:10.5px;font-weight:700;}
+.mapa-v4 .v4-metric>div strong {color:#1e3856;font-size:21px;line-height:1.05;letter-spacing:-.4px;}
+.mapa-v4 .v4-metric-mini {margin-left:auto;color:#9aabbc;font-size:10px;white-space:nowrap;}
+.mapa-v4 .v4-table-panel {min-width:0;width:100%;background:#fff;border:1px solid #dfe8f2;border-radius:13px;overflow:hidden;box-shadow:0 9px 28px rgba(23,56,89,.035);}
+.mapa-v4 .v4-table-title {display:flex;justify-content:space-between;align-items:center;gap:8px;padding:13px 14px 12px;}
+.mapa-v4 .v4-table-heading {display:flex;gap:8px;align-items:center;}
+.mapa-v4 .v4-table-icon {width:25px;height:25px;border-radius:8px;background:#eaf4ff;color:#317cc5;display:grid;place-items:center;}
+.mapa-v4 .v4-table-icon svg {width:14px;height:14px;}
+.mapa-v4 h2 {margin:0;color:#1d3855;font-size:14px;font-weight:760;line-height:1.3;}
+.mapa-v4 .v4-count {background:#edf5ff;color:#5680a9;font-size:9.5px;font-weight:750;border-radius:99px;padding:4px 8px;white-space:nowrap;}
+.mapa-v4 .v4-table-title p {font-size:10px;color:#94a5b8;margin:5px 0 0 32px;line-height:1.4;}
+.mapa-v4 .v4-table-note {color:#9aabbb;font-size:10px;text-align:right;}
+.mapa-v4 .v4-table-viewport {width:100%;max-height:min(59vh,620px);overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#bdccdd #f4f8fc;overscroll-behavior-y:contain;}
+.mapa-v4 .v4-table {table-layout:fixed;width:100%;max-width:100%;min-width:0;border-spacing:0;border-collapse:separate;font-size:11px;color:#405772;}
+/* Total = 100%. Os 6 campos de Volumes, VET e Proteína continuam separados. */
+.mapa-v4 .v4-col-patient {width:14.8%;}
+.mapa-v4 .v4-col-age {width:4.0%;}
+.mapa-v4 .v4-col-state {width:9.5%;}
+.mapa-v4 .v4-col-eval {width:7.7%;}
+.mapa-v4 .v4-col-conditions {width:8.9%;}
+.mapa-v4 .v4-col-diet {width:8.5%;}
+.mapa-v4 .v4-col-supplement {width:8.0%;}
+.mapa-v4 .v4-col-number {width:5.15%;}
+.mapa-v4 .v4-col-actions {width:7.7%;}
+.mapa-v4 .v4-table th,.mapa-v4 .v4-table td {min-width:0;border-bottom:1px solid #ebf0f6;text-align:left;vertical-align:middle;overflow-wrap:anywhere;word-break:normal;padding:9px 5px;}
+.mapa-v4 .v4-table thead th {position:sticky;top:0;z-index:2;background:#edf4fb;border-top:1px solid #e7edf4;border-bottom:1px solid #dce6f1;line-height:1.2;font-size:9.5px;color:#52708d;font-weight:800;letter-spacing:.02px;height:44px;}
+.mapa-v4 .v4-head-sub {display:block;color:#7089a3;font-weight:700;margin-top:2px;}
+.mapa-v4 .v4-table tbody td {height:56px;line-height:1.35;}
+.mapa-v4 .v4-table th:nth-child(n+8):nth-child(-n+13),.mapa-v4 .v4-table td:nth-child(n+8):nth-child(-n+13) {text-align:center;}
+.mapa-v4 .v4-table th:nth-child(8),.mapa-v4 .v4-table th:nth-child(10),.mapa-v4 .v4-table th:nth-child(12) {box-shadow:inset 1px 0 0 #dce7f1;}
+.mapa-v4 .v4-table td:nth-child(8),.mapa-v4 .v4-table td:nth-child(10),.mapa-v4 .v4-table td:nth-child(12) {box-shadow:inset 1px 0 0 #edf2f7;}
+.mapa-v4 .v4-table tbody tr:nth-child(even) td {background:#fbfcfe;}
+.mapa-v4 .v4-table tbody tr:hover td {background:#f5f9ff;}
+.mapa-v4 .v4-table .v4-patient-cell {padding-left:10px;}
+.mapa-v4 .v4-patient-name {display:block;color:#203d5b;font-size:11.5px;font-weight:780;line-height:1.3;}
+.mapa-v4 .v4-patient-meta {display:flex;align-items:center;flex-wrap:wrap;gap:3px 5px;margin-top:5px;}
+.mapa-v4 .v4-bed-tag {display:inline-flex;align-items:center;border-radius:4px;background:#eaf1fa;color:#456c92;padding:2px 4px;font-size:9.2px;font-weight:800;white-space:nowrap;}
+.mapa-v4 .v4-patient-check {white-space:nowrap;font-size:9px;font-weight:750;line-height:1.2;}
+.mapa-v4 .v4-patient-check.is-done {color:#269566;}
+.mapa-v4 .v4-patient-check.is-wait {color:#bf872e;}
+.mapa-v4 .v4-age {white-space:nowrap;letter-spacing:-.3px;font-size:10px;}
+.mapa-v4 .v4-conditions {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;align-items:center;}
+.mapa-v4 .v4-condition {display:flex;gap:3px;align-items:center;min-width:0;}
+.mapa-v4 .v4-condition abbr {text-decoration:none;color:#617992;font-size:9.2px;font-weight:800;white-space:nowrap;}
+.mapa-v4 .v4-tag {display:inline-flex;align-items:center;justify-content:center;padding:2px 4px;border-radius:4px;font-size:9px;font-weight:800;white-space:nowrap;line-height:1.3;}
+.mapa-v4 .v4-tag-yes {color:#c33f4d;background:#feeeee;}
+.mapa-v4 .v4-tag-no {color:#238653;background:#e9f7ef;}
+.mapa-v4 .v4-tag-missing {color:#8494a4;background:#f1f4f8;}
+.mapa-v4 .v4-diet {font-weight:760;color:#2c75b7;}
+.mapa-v4 .v4-supplement {color:#52657d;}
+.mapa-v4 .v4-numeric {white-space:nowrap;font-size:10.6px;font-variant-numeric:tabular-nums;letter-spacing:-.2px;}
+.mapa-v4 .v4-actions-cell {padding:5px 3px !important;}
+.mapa-v4 .v4-row-actions {display:flex;align-items:center;justify-content:center;gap:3px;}
+.mapa-v4 .v4-row-actions button {display:grid;place-items:center;width:22px;height:24px;padding:0;border:1px solid #e0ebf5;border-radius:6px;color:#3d77ac;background:#f2f8ff;}
+.mapa-v4 .v4-row-actions button:nth-child(2) {background:#fff8f8;border-color:#f4e5e5;color:#b45d68;}
+.mapa-v4 .v4-row-actions button:nth-child(3) {background:white;color:#7e92aa;}
+.mapa-v4 .v4-row-actions button:disabled {cursor:not-allowed;opacity:.9;}
+.mapa-v4 .v4-row-actions button svg {width:12px;height:12px;}
+.mapa-v4 .v4-empty-row td,.mapa-v4 .v4-table tbody tr:nth-child(even).v4-empty-row td {height:34px;background:#f8fafc;color:#8195aa;border-bottom:1px solid #ebeff5;}
+.mapa-v4 .v4-empty-row .v4-patient-cell {font-size:10px;font-weight:750;}
+.mapa-v4 .v4-empty-bed {color:#6685a4;}
+.mapa-v4 .v4-table .v4-empty-fill {padding:0;}
+.mapa-v4 .v4-table-footer {border-top:1px solid #e3ecf5;padding:10px 14px;display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;background:#fcfdff;color:#8399af;font-size:10px;}
+.mapa-v4 .v4-demo-indicator {display:flex;align-items:center;gap:6px;}
+.mapa-v4 .v4-demo-indicator i {width:6px;height:6px;background:#8cb5d9;border-radius:50%;}
+.mapa-v4 .v4-demo-notice {margin-top:10px;display:flex;gap:9px;align-items:flex-start;border:1px solid #dceaf6;background:#f0f6fd;border-radius:9px;padding:9px 11px;color:#718ca5;font-size:10.5px;line-height:1.45;}
+.mapa-v4 .v4-demo-notice svg {width:15px;height:15px;color:#4689bf;flex:none;}
+.mapa-v4 .v4-demo-notice strong {color:#39709d;}
+.mapa-v4 .v4-sr-only {position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+@media (max-width:1390px) {
+  .mapa-v4 .v4-table {font-size:10px;}
+  .mapa-v4 .v4-table th,.mapa-v4 .v4-table td {padding-left:4px;padding-right:4px;}
+  .mapa-v4 .v4-table .v4-patient-cell {padding-left:8px;}
+  .mapa-v4 .v4-table thead th {font-size:9px;}
+  .mapa-v4 .v4-patient-name {font-size:10.7px;}
+  .mapa-v4 .v4-conditions {gap:2px;}
+  .mapa-v4 .v4-condition {gap:2px;}
+  .mapa-v4 .v4-condition abbr {font-size:8px;}
+  .mapa-v4 .v4-tag {font-size:8.4px;padding:2px 3px;}
+  .mapa-v4 .v4-numeric {font-size:10px;}
+}
+@media (max-width:1199px) {
+  /* Em janelas estreitas, os registros assumem formato de cards, sem rolagem horizontal. */
+  .mapa-v4 .v4-table-viewport {max-height:none;overflow:visible;}
+  .mapa-v4 .v4-table, .mapa-v4 .v4-table tbody {display:block;width:100%;}
+  .mapa-v4 .v4-table colgroup,.mapa-v4 .v4-table thead {display:none;}
+  .mapa-v4 .v4-table tbody tr {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;border-bottom:1px solid #e2eaf4;padding:8px 11px;}
+  .mapa-v4 .v4-table tbody td {display:block;height:auto;min-height:41px;border-bottom:none !important;padding:5px 7px !important;font-size:10px;}
+  .mapa-v4 .v4-table tbody td::before {content:attr(data-label);display:block;color:#8ba0b5;font-weight:750;font-size:9px;line-height:1.2;margin-bottom:3px;}
+  .mapa-v4 .v4-table tbody td.v4-patient-cell {grid-column:span 2;}
+  .mapa-v4 .v4-table tbody td:nth-child(5),.mapa-v4 .v4-table tbody td:nth-child(6),.mapa-v4 .v4-table tbody td:nth-child(7) {grid-column:span 2;}
+  .mapa-v4 .v4-table tbody td.v4-actions-cell {grid-column:span 1;}
+  .mapa-v4 .v4-conditions {display:flex;flex-wrap:wrap;gap:6px;}
+  .mapa-v4 .v4-empty-row {display:flex !important;align-items:center;padding:7px 15px !important;}
+  .mapa-v4 .v4-empty-row td.v4-patient-cell {min-height:24px !important;padding:4px !important;}
+  .mapa-v4 .v4-empty-row .v4-empty-fill {display:none;}
+  .mapa-v4 .v4-empty-row td::before {display:none !important;}
+}
+@media (max-width:700px) {
+  .mapa-v4 .v4-heading {align-items:flex-start;}
+  .mapa-v4 h1 {font-size:21px;}
+  .mapa-v4 .v4-overview {gap:6px;}
+  .mapa-v4 .v4-metric {padding:9px 7px;gap:6px;min-height:58px;}
+  .mapa-v4 .v4-metric-icon,.mapa-v4 .v4-metric-mini {display:none;}
+  .mapa-v4 .v4-metric>div strong {font-size:20px;}
+  .mapa-v4 .v4-metric>div span {font-size:9px;}
+  .mapa-v4 .v4-table tbody tr {grid-template-columns:repeat(3,minmax(0,1fr));}
+  .mapa-v4 .v4-table tbody td:nth-child(5),.mapa-v4 .v4-table tbody td:nth-child(6),.mapa-v4 .v4-table tbody td:nth-child(7) {grid-column:span 2;}
+  .mapa-v4 .v4-table-note {display:none;}
+}

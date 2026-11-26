@@ -1,0 +1,33 @@
+﻿
+@using Microsoft.AspNetCore.Components.Authorization
+
+<Router AppAssembly="typeof(Program).Assembly"
+        NotFoundPage="typeof(Pages.NotFound)">
+
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="routeData"
+                            DefaultLayout="typeof(Layout.MainLayout)">
+
+            <NotAuthorized>
+                <LayoutView Layout="typeof(Layout.MainLayout)">
+                    <div class="snd-access-required">
+                        <h2>Acesso necessário</h2>
+                        <p>Você precisa entrar no sistema para acessar esta página.</p>
+                        <a href="/acesso" class="snd-access-button">
+                            Ir para o login
+                        </a>
+                    </div>
+                </LayoutView>
+            </NotAuthorized>
+
+            <Authorizing>
+                <LayoutView Layout="typeof(Layout.MainLayout)">
+                    <p>Verificando autenticação...</p>
+                </LayoutView>
+            </Authorizing>
+
+        </AuthorizeRouteView>
+
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+</Router>

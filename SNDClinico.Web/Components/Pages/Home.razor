@@ -1,0 +1,320 @@
+﻿@page "/"
+
+<PageTitle>SND Hospitalar | Painel inicial</PageTitle>
+
+<main class="snd-dashboard">
+
+    <header class="snd-header">
+        <div class="snd-header-inner">
+
+            <a href="/" class="snd-brand">
+                <div class="snd-brand-logo">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <path d="M15 3h10v12h12v10H25v12H15V25H3V15h12V3Z"
+                              fill="currentColor" />
+                    </svg>
+                </div>
+
+                <div class="snd-brand-name">
+                    <strong>SND Hospitalar</strong>
+                    <span>Gestão de Nutrição Hospitalar</span>
+                </div>
+            </a>
+
+            <div class="snd-header-separator"></div>
+
+            <div class="snd-hospital-name">
+                Hospital São Sebastião Mártir
+            </div>
+
+            <div class="snd-header-right">
+                <div class="snd-team">
+                    <span class="snd-team-avatar">
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="1.8"
+                             stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </span>
+                    <span>Equipe de Nutrição</span>
+                    <span class="snd-chevron">⌄</span>
+                </div>
+
+                <form method="post" action="/sair" class="snd-logout-form">
+                    <AntiforgeryToken />
+                    <button type="submit" class="snd-logout-button">
+                        <svg viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="1.8"
+                             stroke-linecap="round" stroke-linejoin="round"
+                             aria-hidden="true">
+                            <path d="M10 17l5-5-5-5" />
+                            <path d="M15 12H3" />
+                            <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6" />
+                        </svg>
+                        <span>Sair</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="snd-container">
+
+        <!-- APRESENTAÇÃO SEM CARD -->
+        <section class="snd-welcome">
+            <div class="snd-welcome-date">
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.8"
+                     stroke-linecap="round" stroke-linejoin="round"
+                     aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="16" rx="2" />
+                    <path d="M16 3v4M8 3v4M3 11h18" />
+                </svg>
+                @DataAtual
+            </div>
+
+            <h1>Boa noite!</h1>
+            <p>Boas-vindas ao SND Hospitalar do Hospital São Sebastião Mártir.</p>
+        </section>
+
+        <!-- MÓDULOS -->
+        <section class="snd-modules">
+
+            <div class="snd-section-heading">
+                <div class="snd-section-label">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1" />
+                        <rect x="14" y="3" width="7" height="7" rx="1" />
+                        <rect x="3" y="14" width="7" height="7" rx="1" />
+                        <rect x="14" y="14" width="7" height="7" rx="1" />
+                    </svg>
+                    <span>MÓDULOS</span>
+                </div>
+
+                <h2>Onde você quer trabalhar hoje?</h2>
+            </div>
+
+            <div class="snd-module-grid">
+
+                <!-- SND CLÍNICO -->
+                <a href="/clinico" class="snd-module-card clinical-card">
+
+                    <div class="snd-module-image">
+                        <img src="/images/modulo-clinico.jpg"
+                             alt="Nutricionista acompanhando paciente hospitalizado" />
+
+                        <div class="snd-image-shade"></div>
+                        <div class="snd-image-decoration clinical-decoration"></div>
+
+                        <div class="snd-image-heading">
+                            <div class="snd-module-icon clinical-icon">
+                                <svg viewBox="0 0 24 24" fill="none"
+                                     stroke="currentColor" stroke-width="1.8"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 4v5a4 4 0 0 0 8 0V4" />
+                                    <path d="M6 4H4v3M14 4h2v3" />
+                                    <path d="M10 13v2a5 5 0 0 0 10 0v-2" />
+                                    <circle cx="20" cy="11" r="2" />
+                                    <circle cx="6" cy="3" r="1" />
+                                    <circle cx="14" cy="3" r="1" />
+                                </svg>
+                            </div>
+
+                            <div class="snd-image-title">
+                                <span>ASSISTÊNCIA NUTRICIONAL</span>
+                                <h3>SND Clínico</h3>
+                            </div>
+
+                            <span class="snd-image-arrow">↗</span>
+                        </div>
+                    </div>
+
+                    <div class="snd-card-details">
+                        <p>
+                            Assistência nutricional: triagens, mapas de dietas,
+                            acompanhamento de pacientes, NPO e abreviação de jejum.
+                        </p>
+
+                        <div class="snd-card-bottom">
+                            <span class="snd-action clinical-action">
+                                Abrir módulo
+                                <svg viewBox="0 0 24 24" fill="none"
+                                     stroke="currentColor" stroke-width="2"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M13 6l6 6-6 6" />
+                                </svg>
+                            </span>
+
+                            <!-- ILUSTRAÇÃO CLÍNICA -->
+                            <div class="snd-card-decoration clinical-card-decoration">
+                                <svg viewBox="0 0 100 100" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+
+                                    <rect x="23" y="20" width="54" height="69"
+                                          rx="10" fill="#E8F3FF"
+                                          stroke="currentColor" stroke-width="2.5" />
+
+                                    <rect x="38" y="12" width="24" height="15"
+                                          rx="5" fill="#FFFFFF"
+                                          stroke="currentColor" stroke-width="2.5" />
+
+                                    <rect x="31" y="34" width="38" height="12"
+                                          rx="4" fill="#D2E8FF" />
+
+                                    <path d="M40 40h8M44 36v8"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" />
+
+                                    <path d="M34 57l4 4 7-8"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+
+                                    <path d="M51 57h15"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" />
+
+                                    <path d="M34 73l4 4 7-8"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+
+                                    <path d="M51 73h15"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" />
+
+                                    <circle cx="73" cy="25" r="10"
+                                            fill="#0877DF" />
+
+                                    <path d="M73 19v12M67 25h12"
+                                          stroke="white" stroke-width="2.5"
+                                          stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- SND PRODUÇÃO -->
+                <a href="/producao" class="snd-module-card production-card">
+
+                    <div class="snd-module-image">
+                        <img src="/images/modulo-producao.jpg"
+                             alt="Equipe preparando refeições na cozinha hospitalar" />
+
+                        <div class="snd-image-shade"></div>
+                        <div class="snd-image-decoration production-decoration"></div>
+
+                        <div class="snd-image-heading">
+                            <div class="snd-module-icon production-icon">
+                                <svg viewBox="0 0 24 24" fill="none"
+                                     stroke="currentColor" stroke-width="1.8"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M6 10a4 4 0 0 1 7-2.5A4.5 4.5 0 0 1 21 11a4 4 0 0 1-2 3.5V20H5v-5.5A4 4 0 0 1 6 10Z" />
+                                    <path d="M9 20v-4h6v4M12 3v2M8 5l1 1" />
+                                </svg>
+                            </div>
+
+                            <div class="snd-image-title">
+                                <span>GESTÃO DA ALIMENTAÇÃO</span>
+                                <h3>SND Produção</h3>
+                            </div>
+
+                            <span class="snd-image-arrow">↗</span>
+                        </div>
+                    </div>
+
+                    <div class="snd-card-details">
+                        <p>
+                            Alimentação hospitalar: cadastro de alimentos,
+                            fichas técnicas, planejamento de cardápios e custos.
+                        </p>
+
+                        <div class="snd-card-bottom">
+                            <span class="snd-action production-action">
+                                Abrir módulo
+                                <svg viewBox="0 0 24 24" fill="none"
+                                     stroke="currentColor" stroke-width="2"
+                                     stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M13 6l6 6-6 6" />
+                                </svg>
+                            </span>
+
+                            <!-- ILUSTRAÇÃO PRODUÇÃO -->
+                            <div class="snd-card-decoration production-card-decoration">
+                                <svg viewBox="0 0 100 100" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+
+                                    <path d="M24 43C24 32 33 25 44 25C51 25 57 29 61 35C66 32 73 34 77 39C83 47 78 57 70 60V69H30V60C26 56 24 50 24 43Z"
+                                          fill="#DDF8F6"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linejoin="round" />
+
+                                    <path d="M37 69V78H65V69"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+
+                                    <path d="M45 25C44 19 47 15 52 13"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" />
+
+                                    <path d="M30 83h40"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" />
+
+                                    <path d="M17 20v21M23 20v21M29 20v21M17 31h12M23 41v43"
+                                          stroke="currentColor" stroke-width="2.2"
+                                          stroke-linecap="round" />
+
+                                    <path d="M83 19C75 31 75 43 83 50V84"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" stroke-linejoin="round" />
+
+                                    <path d="M83 19v31"
+                                          stroke="currentColor" stroke-width="2.5"
+                                          stroke-linecap="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- RODAPÉ -->
+        <footer class="snd-footer">
+            <div class="snd-footer-left">
+                <strong>SND HOSPITALAR</strong>
+                <span class="snd-footer-divider"></span>
+                <span>Plataforma integrada de gestão nutricional hospitalar</span>
+            </div>
+
+            <div class="snd-footer-right">
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="1.7"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 12h4l3-8 4 16 3-8h6" />
+                </svg>
+                <span>Hospital São Sebastião Mártir</span>
+            </div>
+        </footer>
+
+    </div>
+</main>
+
+
+
+@code {
+    private DateTime Agora => DateTime.Now;
+
+    private string DataAtual =>
+        Agora.ToString(
+            "dd 'de' MMMM 'de' yyyy '('dddd')'",
+            new System.Globalization.CultureInfo("pt-BR")
+        );
+}

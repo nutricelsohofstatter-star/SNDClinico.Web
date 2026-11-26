@@ -1,0 +1,1059 @@
+
+/* =====================================================
+   SND HOSPITALAR - HOME PREMIUM
+   Layout compacto para visualização em 100%
+   ===================================================== */
+
+.snd-dashboard {
+    --navy: #10294d;
+    --blue: #0877df;
+    --blue-dark: #0756bd;
+    --cyan: #08aeb8;
+    --text: #344256;
+    --muted: #667085;
+    min-height: 100vh;
+    color: var(--text);
+    background: radial-gradient(ellipse at 15% 0%, #e8f3ff 0%, transparent 42%), linear-gradient(135deg, #f7faff, #eff5fd);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+    .snd-dashboard *,
+    .snd-dashboard *::before,
+    .snd-dashboard *::after {
+        box-sizing: border-box;
+    }
+
+/* CABEÇALHO */
+
+.snd-header {
+    width: 100%;
+    background: rgba(255,255,255,.92);
+    border-bottom: 1px solid #e1eaf5;
+    backdrop-filter: blur(18px);
+}
+
+.snd-header-inner {
+    width: 92%;
+    max-width: 1450px;
+    min-height: 70px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.snd-brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--navy);
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.snd-brand-logo {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: linear-gradient(145deg, #16a9fa, #0862ce);
+    color: white;
+    box-shadow: 0 6px 15px rgba(8,119,223,.23);
+}
+
+    .snd-brand-logo svg {
+        width: 28px;
+        height: 28px;
+    }
+
+.snd-brand-name {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+    .snd-brand-name strong {
+        font-size: 19px;
+        font-weight: 800;
+        letter-spacing: -.7px;
+    }
+
+    .snd-brand-name span {
+        color: #667085;
+        font-size: 11px;
+    }
+
+.snd-header-separator {
+    height: 32px;
+    width: 1px;
+    background: #d5e1ef;
+}
+
+.snd-hospital-name {
+    color: #475467;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.snd-header-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.snd-header-button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #dce7f4;
+    border-radius: 50%;
+    background: white;
+    color: #1b579c;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+    .snd-header-button:hover {
+        background: #eaf4ff;
+        transform: translateY(-2px);
+    }
+
+.snd-team {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 6px 12px 6px 7px;
+    border: 1px solid #d8e6f8;
+    border-radius: 30px;
+    background: linear-gradient(120deg, #edf6ff, #e1edff);
+    color: #174c89;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.snd-team-avatar {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #16a9fa, #0862ce);
+    color: white;
+}
+
+    .snd-team-avatar svg {
+        width: 18px;
+        height: 18px;
+    }
+
+.snd-chevron {
+    font-size: 16px;
+    color: #6e89ad;
+}
+
+/* CONTAINER */
+
+.snd-container {
+    width: 92%;
+    max-width: 1450px;
+    margin: auto;
+    padding: 17px 0 12px;
+}
+
+/* BANNER */
+
+.snd-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 170px;
+    display: flex;
+    align-items: center;
+    padding: 24px 38px;
+    border-radius: 22px;
+    background: #103b70;
+    box-shadow: 0 12px 27px rgba(20,65,115,.13);
+    animation: sndFadeUp .65s ease both;
+}
+
+.snd-hero-photo {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background-image: url("https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1800&q=85");
+    background-size: cover;
+    background-position: center 48%;
+    opacity: .9;
+}
+
+.snd-hero-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: linear-gradient( 90deg, #10294f 0%, rgba(11,57,111,.98) 34%, rgba(10,83,151,.80) 60%, rgba(8,93,161,.10) 100% );
+}
+
+.snd-hero-lines {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 75% 20%, rgba(255,255,255,.13), transparent 25%), repeating-linear-gradient( 130deg, transparent 0, transparent 95px, rgba(255,255,255,.035) 96px, transparent 97px );
+}
+
+.snd-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+}
+
+.snd-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #d2e4f8;
+    font-size: 12px;
+    text-transform: lowercase;
+}
+
+    .snd-date svg {
+        width: 16px;
+        height: 16px;
+    }
+
+.snd-hero-title {
+    border-left: 4px solid #14c8e4;
+    padding-left: 18px;
+    margin-left: -1px;
+}
+
+    .snd-hero-title h1 {
+        margin: 0;
+        color: white;
+        font-size: clamp(34px, 3.2vw, 45px);
+        line-height: 1.1;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+    }
+
+.snd-hero-content p {
+    margin: 8px 0 0 22px;
+    color: #f0f6ff;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.snd-hero-subtitle {
+    display: block;
+    margin: 3px 0 0 22px;
+    color: #d3e5f8;
+    font-size: 13px;
+}
+
+/* TÍTULO DOS MÓDULOS */
+
+.snd-modules {
+    margin-top: 22px;
+    animation: sndFadeUp .75s ease .08s both;
+}
+
+.snd-section-heading {
+    margin-bottom: 14px;
+}
+
+.snd-section-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 4px;
+    color: #0875d8;
+}
+
+    .snd-section-label svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .snd-section-label span {
+        font-size: 12px;
+        font-weight: 850;
+        letter-spacing: 1.6px;
+    }
+
+.snd-section-heading h2 {
+    margin: 0;
+    color: #273444;
+    font-size: clamp(22px, 2.1vw, 27px);
+    font-weight: 800;
+    letter-spacing: -.8px;
+}
+
+/* MÓDULOS */
+
+.snd-module-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.snd-module-card {
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #dce8f6;
+    border-radius: 21px;
+    background: rgba(255,255,255,.94);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 0 7px 17px rgba(31,75,126,.065);
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, border-color .35s ease;
+    animation: sndFadeUp .8s ease both;
+}
+
+.production-card {
+    animation-delay: .13s;
+}
+
+.snd-module-card:hover {
+    transform: translateY(-4px);
+    border-color: #b9d9f5;
+    box-shadow: 0 16px 30px rgba(31,75,126,.12);
+}
+
+.snd-module-card:focus-visible {
+    outline: 3px solid #55a9ef;
+    outline-offset: 4px;
+}
+
+/* FOTOGRAFIA */
+
+.snd-module-image {
+    position: relative;
+    height: clamp(180px, 26vh, 225px);
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #dceafa;
+}
+
+    .snd-module-image > img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        transition: transform .8s cubic-bezier(.2,.7,.2,1);
+    }
+
+.snd-module-card:hover .snd-module-image > img {
+    transform: scale(1.045);
+}
+
+.snd-image-shade {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( 180deg, rgba(6,27,51,.02) 15%, rgba(6,27,51,.05) 42%, rgba(6,27,51,.82) 100% );
+    transition: background .3s ease;
+}
+
+.snd-module-card:hover .snd-image-shade {
+    background: linear-gradient( 180deg, rgba(6,27,51,.06) 10%, rgba(6,27,51,.15) 40%, rgba(6,27,51,.91) 100% );
+}
+
+/* DETALHES DECORATIVOS DA IMAGEM */
+
+.snd-image-decoration {
+    position: absolute;
+    width: 230px;
+    height: 105px;
+    right: -55px;
+    bottom: -70px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 50%;
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
+
+.clinical-decoration {
+    box-shadow: 0 -13px 0 -12px rgba(44,169,255,.8);
+}
+
+.production-decoration {
+    box-shadow: 0 -13px 0 -12px rgba(14,225,213,.8);
+}
+
+/* TÍTULO SOBRE A FOTOGRAFIA */
+
+.snd-image-heading {
+    position: absolute;
+    left: 22px;
+    right: 20px;
+    bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    z-index: 2;
+}
+
+.snd-module-icon {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    color: white;
+    box-shadow: 0 7px 18px rgba(0,0,0,.2);
+    transition: transform .3s ease;
+}
+
+    .snd-module-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+
+.clinical-icon {
+    background: linear-gradient(145deg, #19aaff, #4a42e9);
+    box-shadow: 0 7px 20px rgba(20,101,232,.32);
+}
+
+.production-icon {
+    background: linear-gradient(145deg, #12d9d1, #0098a9);
+    box-shadow: 0 7px 20px rgba(0,166,178,.3);
+}
+
+.snd-module-card:hover .snd-module-icon {
+    transform: translateY(-3px) scale(1.04);
+}
+
+.snd-image-title {
+    flex: 1;
+}
+
+    .snd-image-title > span {
+        display: block;
+        margin-bottom: 4px;
+        color: rgba(255,255,255,.88);
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 1.1px;
+    }
+
+    .snd-image-title h3 {
+        margin: 0;
+        color: white;
+        font-size: 25px;
+        font-weight: 800;
+        letter-spacing: -.7px;
+        text-shadow: 0 2px 8px rgba(0,0,0,.22);
+    }
+
+.snd-image-arrow {
+    width: 39px;
+    height: 39px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 50%;
+    background: rgba(255,255,255,.17);
+    color: white;
+    font-size: 21px;
+    backdrop-filter: blur(8px);
+    transition: transform .3s ease, background .3s ease;
+}
+
+.snd-module-card:hover .snd-image-arrow {
+    transform: translate(3px,-3px);
+    background: rgba(255,255,255,.32);
+}
+
+/* PARTE INFERIOR DOS CARTÕES */
+
+.snd-card-details {
+    position: relative;
+    overflow: hidden;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 23px 15px;
+    background: radial-gradient(circle at 96% 110%, rgba(46,146,230,.14), transparent 35%), #fff;
+}
+
+.production-card .snd-card-details {
+    background: radial-gradient(circle at 96% 110%, rgba(0,183,190,.15), transparent 35%), #fff;
+}
+
+.snd-card-details > p {
+    position: relative;
+    z-index: 1;
+    max-width: 90%;
+    min-height: 38px;
+    margin: 0 0 10px;
+    color: #475467;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.snd-card-bottom {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.snd-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 6px 14px rgba(0,0,0,.11);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+    .snd-action svg {
+        width: 18px;
+        height: 18px;
+        transition: transform .25s ease;
+    }
+
+.clinical-action {
+    background: linear-gradient(110deg, #087ce2, #0755c4);
+}
+
+.production-action {
+    background: linear-gradient(110deg, #08b7bd, #008c9e);
+}
+
+.snd-module-card:hover .snd-action {
+    transform: translateY(-2px);
+    box-shadow: 0 9px 18px rgba(0,0,0,.15);
+}
+
+    .snd-module-card:hover .snd-action svg {
+        transform: translateX(4px);
+    }
+
+/* ILUSTRAÇÕES DECORATIVAS */
+
+.snd-card-decoration {
+    width: 57px;
+    height: 57px;
+    display: grid;
+    place-items: center;
+    opacity: .98;
+    transition: transform .3s ease;
+}
+
+    .snd-card-decoration svg {
+        width: 100%;
+        height: 100%;
+        overflow: visible;
+    }
+
+.clinical-card-decoration {
+    color: #0873dc;
+    filter: drop-shadow(0 3px 4px rgba(8,115,220,.08));
+}
+
+.production-card-decoration {
+    color: #009eac;
+    filter: drop-shadow(0 3px 4px rgba(0,158,172,.08));
+}
+
+.snd-module-card:hover .snd-card-decoration {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* RODAPÉ */
+
+.snd-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 22px;
+    padding: 13px 5px;
+    border-top: 1px solid #d3e1f1;
+    color: #667085;
+    font-size: 11px;
+}
+
+.snd-footer-left,
+.snd-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+    .snd-footer-left strong {
+        color: #475467;
+        font-size: 11px;
+        font-weight: 850;
+        letter-spacing: 1px;
+    }
+
+.snd-footer-divider {
+    height: 22px;
+    width: 1px;
+    background: #c9d9eb;
+}
+
+.snd-footer-right svg {
+    width: 25px;
+    height: 25px;
+    color: #487fc1;
+}
+
+/* ANIMAÇÕES */
+
+@keyframes sndFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* AJUSTE PARA MONITORES COM ALTURA MENOR */
+
+@media (min-width: 701px) and (max-height: 800px) {
+    .snd-header-inner {
+        min-height: 64px;
+    }
+
+    .snd-container {
+        padding-top: 12px;
+        padding-bottom: 8px;
+    }
+
+    .snd-hero {
+        min-height: 145px;
+        padding: 19px 32px;
+    }
+
+    .snd-hero-title h1 {
+        font-size: 37px;
+    }
+
+    .snd-modules {
+        margin-top: 17px;
+    }
+
+    .snd-section-heading {
+        margin-bottom: 10px;
+    }
+
+        .snd-section-heading h2 {
+            font-size: 24px;
+        }
+
+    .snd-module-image {
+        height: clamp(155px, 24vh, 195px);
+    }
+
+    .snd-card-details {
+        min-height: 112px;
+        padding: 12px 19px;
+    }
+
+        .snd-card-details > p {
+            font-size: 12px;
+            min-height: 34px;
+            margin-bottom: 7px;
+        }
+
+    .snd-action {
+        padding: 9px 17px;
+        font-size: 12px;
+    }
+
+    .snd-card-decoration {
+        width: 48px;
+        height: 48px;
+    }
+
+    .snd-footer {
+        margin-top: 14px;
+        padding: 9px 5px;
+    }
+}
+
+/* TELAS MÉDIAS */
+
+@media (max-width: 1000px) {
+    .snd-header-inner {
+        gap: 17px;
+    }
+
+    .snd-hospital-name {
+        font-size: 12px;
+    }
+
+    .snd-module-image {
+        height: 190px;
+    }
+
+    .snd-image-title h3 {
+        font-size: 22px;
+    }
+
+    .snd-card-details {
+        padding: 14px;
+    }
+
+        .snd-card-details > p {
+            font-size: 12px;
+        }
+}
+
+/* CELULARES E TELAS ESTREITAS */
+
+@media (max-width: 700px) {
+    .snd-header-inner {
+        min-height: 68px;
+    }
+
+    .snd-header-separator,
+    .snd-hospital-name,
+    .snd-header-button {
+        display: none;
+    }
+
+    .snd-brand-logo {
+        width: 39px;
+        height: 39px;
+    }
+
+    .snd-brand-name strong {
+        font-size: 17px;
+    }
+
+    .snd-brand-name span {
+        font-size: 10px;
+    }
+
+    .snd-team {
+        font-size: 10px;
+        gap: 6px;
+    }
+
+    .snd-container {
+        padding-top: 15px;
+    }
+
+    .snd-hero {
+        min-height: 185px;
+        padding: 22px 19px;
+        border-radius: 18px;
+    }
+
+    .snd-hero-title h1 {
+        font-size: 34px;
+    }
+
+    .snd-hero-content p {
+        margin-left: 18px;
+        font-size: 12px;
+    }
+
+    .snd-hero-subtitle {
+        margin-left: 18px;
+        font-size: 11px;
+    }
+
+    .snd-modules {
+        margin-top: 22px;
+    }
+
+    .snd-section-heading h2 {
+        font-size: 22px;
+    }
+
+    .snd-module-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .snd-module-image {
+        height: 215px;
+    }
+
+    .snd-image-heading {
+        left: 16px;
+        right: 16px;
+        bottom: 15px;
+        gap: 10px;
+    }
+
+    .snd-module-icon {
+        width: 47px;
+        height: 47px;
+        min-width: 47px;
+    }
+
+        .snd-module-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+    .snd-image-title h3 {
+        font-size: 20px;
+    }
+
+    .snd-image-title > span {
+        font-size: 8px;
+    }
+
+    .snd-card-details {
+        min-height: 125px;
+        padding: 15px;
+    }
+
+        .snd-card-details > p {
+            font-size: 12px;
+        }
+
+    .snd-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 10px;
+    }
+
+    .snd-footer-left {
+        flex-wrap: wrap;
+        gap: 9px;
+    }
+}
+
+/* ACESSIBILIDADE */
+
+@media (prefers-reduced-motion: reduce) {
+    .snd-dashboard *,
+    .snd-dashboard *::before,
+    .snd-dashboard *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* =====================================================
+   ALINHAMENTO GERAL DA TELA INICIAL
+   ===================================================== */
+
+/* Uma única largura de referência para todo o conteúdo */
+.snd-container {
+    width: calc(100% - 120px);
+    max-width: 1370px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Banner acompanha exatamente o mesmo alinhamento */
+.snd-hero {
+    width: 100%;
+}
+
+/* Título e módulos seguem a mesma referência */
+.snd-modules {
+    width: 100%;
+}
+
+/* Os cartões ocupam toda a largura disponível */
+.snd-module-grid {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* Rodapé alinhado com os cartões e banner */
+.snd-footer {
+    width: 100%;
+}
+
+/* Telas menores */
+@media (max-width: 700px) {
+    .snd-container {
+        width: calc(100% - 32px);
+    }
+}
+
+
+/* =====================================================
+   AJUSTES DA HOME: SEM BANNER, TEXTO CINZA E LOGOUT
+   ===================================================== */
+
+.snd-header-right {
+    gap: 12px;
+}
+
+.snd-logout-form {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.snd-logout-button {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 15px;
+    border: 1px solid #d8e0e8;
+    border-radius: 22px;
+    background: #fff;
+    color: #475467;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+    .snd-logout-button svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    .snd-logout-button:hover {
+        border-color: #c5d0dc;
+        background: #f3f5f7;
+        color: #263445;
+        transform: translateY(-1px);
+    }
+
+    .snd-logout-button:focus-visible {
+        outline: 3px solid rgba(8, 119, 223, .25);
+        outline-offset: 3px;
+    }
+
+.snd-container {
+    padding-top: 30px;
+}
+
+.snd-modules {
+    margin-top: 0;
+}
+
+.snd-section-heading {
+    margin-bottom: 18px;
+}
+
+.snd-section-label {
+    color: #52657a;
+}
+
+.snd-section-heading h2 {
+    color: #273444;
+}
+
+.snd-card-details > p {
+    color: #475467;
+}
+
+.snd-footer {
+    color: #667085;
+}
+
+.snd-footer-left strong {
+    color: #475467;
+}
+
+@media (max-width: 700px) {
+    .snd-header-right {
+        gap: 8px;
+    }
+
+    .snd-logout-button {
+        min-height: 36px;
+        padding: 0 11px;
+        font-size: 11px;
+    }
+
+    .snd-container {
+        padding-top: 22px;
+    }
+}
+
+
+/* =====================================================
+   APRESENTAÇÃO DA HOME - TEXTO LIVRE, SEM BANNER/CARD
+   ===================================================== */
+
+.snd-welcome {
+    padding: 8px 0 0;
+    margin: 0 0 46px;
+    color: #344054;
+    animation: sndFadeUp .55s ease both;
+}
+
+.snd-welcome-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 9px;
+    color: #667085;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: lowercase;
+}
+
+    .snd-welcome-date svg {
+        width: 16px;
+        height: 16px;
+        color: #667085;
+    }
+
+.snd-welcome h1 {
+    margin: 0 0 7px;
+    color: #273444;
+    font-size: clamp(29px, 3vw, 36px);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -1.1px;
+}
+
+.snd-welcome p {
+    margin: 0 0 4px;
+    color: #475467;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.snd-modules {
+    margin-top: 0;
+}
+
+@media (max-width: 700px) {
+    .snd-welcome {
+        margin-bottom: 36px;
+    }
+
+        .snd-welcome h1 {
+            font-size: 29px;
+        }
+
+        .snd-welcome p {
+            font-size: 13px;
+        }
+}
