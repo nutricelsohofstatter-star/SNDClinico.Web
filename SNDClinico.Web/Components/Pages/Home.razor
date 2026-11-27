@@ -339,7 +339,7 @@
 
 
 @code {
-    private DateTime Agora => DateTime.Now;
+    private DateTime Agora => DateTime.UtcNow.AddHours(-3);
 
     private string Saudacao => Agora.Hour switch
     {
