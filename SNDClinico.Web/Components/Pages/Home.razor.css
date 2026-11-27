@@ -1136,3 +1136,13 @@
         padding-bottom: 14px;
     }
 }
+
+
+/* Imagens 3D usadas exclusivamente nas ilustrações inferiores dos cards. */
+.snd-card-decoration img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    overflow: visible;
+}
