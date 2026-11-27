@@ -1057,3 +1057,82 @@
             font-size: 13px;
         }
 }
+
+
+/* =====================================================
+   AJUSTE VISUAL HOME - ÍCONES 3D E RODAPÉ NO FUNDO
+   Escopo restrito à apresentação da página inicial.
+   ===================================================== */
+
+/* Mantém o rodapé junto à base da janela sem sobrepor conteúdo. */
+.snd-dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.snd-container {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.snd-footer {
+    margin-top: auto;
+    padding-bottom: 18px;
+}
+
+/* Acabamento tridimensional dos ícones dos módulos. */
+.snd-module-icon {
+    position: relative;
+    isolation: isolate;
+    border: 1px solid rgba(255,255,255,.42);
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,.55),
+        inset 0 -5px 10px rgba(0,35,110,.18),
+        0 9px 18px rgba(0,0,0,.22),
+        0 3px 0 rgba(0,35,110,.16);
+}
+
+.snd-module-icon::before {
+    content: "";
+    position: absolute;
+    inset: 5px 8px auto;
+    height: 36%;
+    border-radius: 12px 12px 50% 50%;
+    background: linear-gradient(180deg, rgba(255,255,255,.36), rgba(255,255,255,0));
+    pointer-events: none;
+    z-index: -1;
+}
+
+.snd-module-icon svg {
+    width: 34px;
+    height: 34px;
+    overflow: visible;
+    filter: drop-shadow(0 2px 2px rgba(0,35,90,.22));
+}
+
+.clinical-icon {
+    background: linear-gradient(145deg, #58C8FF 0%, #2679F2 48%, #5142D9 100%);
+}
+
+.production-icon {
+    background: linear-gradient(145deg, #6BF2E6 0%, #12C9C5 48%, #008C9E 100%);
+}
+
+.snd-module-card:hover .snd-module-icon {
+    transform: translateY(-4px) rotate(-2deg) scale(1.06);
+}
+
+/* Em telas baixas, o rodapé acompanha o fluxo natural sem cobrir os cards. */
+@media (max-height: 620px) and (min-width: 701px) {
+    .snd-footer {
+        margin-top: 22px;
+    }
+}
+
+@media (max-width: 700px) {
+    .snd-footer {
+        margin-top: 26px;
+        padding-bottom: 14px;
+    }
+}
