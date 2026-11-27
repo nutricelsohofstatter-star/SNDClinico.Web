@@ -1,0 +1,22 @@
+@page "/mapa-adulto"
+@inject HospitalStore Store
+<PageTitle>Mapa de dieta adulto | SND Clínico</PageTitle>
+<div class="app-page">
+<header class="hero compact"><div class="hero-icon">▤</div><div><span class="eyebrow">SND CLÍNICO</span><h1>Mapa de <em>Dieta Adulto</em></h1><p>Organização diária das prescrições e suplementos</p></div><a href="/" class="btn pale close-action">Voltar</a></header>
+<nav class="actions"><a href="/" class="btn pale">Início</a><a href="/triagem" class="btn sky">Triagem</a><label class="inline-date">Data <input type="date" value="@data.ToString("yyyy-MM-dd")" @onchange="AlterarData"/></label><button class="btn blue" @onclick="Criar">Abrir mapa do dia</button></nav>
+@if(mapa is null){<section class="panel empty">Selecione a data e clique em <b>Abrir mapa do dia</b>. O mapa anterior será copiado automaticamente se existir.</section>}
+else {<section class="panel"><div class="section-heading"><div class="section-icon">▤</div><div><h2>Mapa de @mapa.Data.ToString("dd/MM/yyyy")</h2><p>Copie o dia anterior, confira altas e atualize as dietas.</p></div></div><div class="table-scroll"><table><thead><tr><th>Paciente</th><th>Leito</th><th>Tipo de dieta</th><th>Suplemento</th><th>Observações</th><th></th></tr></thead><tbody>
+@foreach(var item in mapa.Itens.ToList()){<tr @key="item.PacienteId"><td>@item.Nome</td><td>@item.Leito</td><td><input value="@item.TipoDieta" @onchange="e => AtualizarDieta(item.PacienteId, e)" /></td><td><input value="@item.Suplemento" @onchange="e => AtualizarSuplemento(item.PacienteId, e)" /></td><td><input value="@item.Observacoes" @onchange="e => AtualizarObservacoes(item.PacienteId, e)" /></td><td><button class="small-button danger" @onclick="()=>Remover(item.PacienteId)">Retirar</button></td></tr>}
+</tbody></table></div><div class="bottom-actions"><button class="btn sky" @onclick="IncluirPacientes">＋ Incluir pacientes da triagem</button><button class="btn blue" @onclick="SalvarMapa">Salvar mapa</button></div>@if(!string.IsNullOrWhiteSpace(mensagem)){<p class="success-text">@mensagem</p>}</section>}
+<div class="note">Protótipo: não contém prescrição clínica validada, cálculo energético ou integração com o Salux.</div>
+</div>
+@code {private DateTime data=DateTime.Today;private MapaDieta? mapa;private string mensagem="";
+private void AlterarData(ChangeEventArgs e){if(DateTime.TryParse(e.Value?.ToString(),out var d)){data=d;mapa=null;mensagem="";}}
+private void Criar(){mapa=Store.ObterOuCriarMapa(data);IncluirPacientes();mensagem="Mapa de demonstração aberto.";}
+private void IncluirPacientes(){if(mapa is null)return;foreach(var p in Store.Pacientes().Where(p=>p.Unidade!="Pediatria")){if(!mapa.Itens.Any(x=>x.PacienteId==p.Id))mapa.Itens.Add(new MapaItem(p.Id,p.Nome,p.Leito,"Oral","",""));}}
+private void Remover(int id){mapa?.Itens.RemoveAll(x=>x.PacienteId==id);}
+private void AtualizarDieta(int id, ChangeEventArgs e) => Atualizar(id, "dieta", e.Value?.ToString());
+private void AtualizarSuplemento(int id, ChangeEventArgs e) => Atualizar(id, "suplemento", e.Value?.ToString());
+private void AtualizarObservacoes(int id, ChangeEventArgs e) => Atualizar(id, "obs", e.Value?.ToString());
+private void Atualizar(int id,string campo,string? valor){if(mapa is null)return;var i=mapa.Itens.FindIndex(x=>x.PacienteId==id);if(i<0)return;var old=mapa.Itens[i];mapa.Itens[i]=campo switch{"dieta"=>old with{TipoDieta=valor??""},"suplemento"=>old with{Suplemento=valor??""},_=>old with{Observacoes=valor??""}};}
+private void SalvarMapa(){if(mapa is null)return;Store.SalvarMapa(mapa);mensagem="Mapa salvo na memória da aplicação (demonstração).";}}

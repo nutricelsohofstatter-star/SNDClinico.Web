@@ -1,0 +1,321 @@
+
+@page "/"
+@inject HospitalStore Store
+
+<PageTitle>SND Clínico | Início</PageTitle>
+
+<div class="snd-home">
+
+    <!-- CABEÇALHO -->
+    <div class="snd-topo">
+
+        <aside class="snd-painel">
+            <div class="snd-painel-titulo">
+                <span class="snd-icone">⚙️</span>
+                <div>
+                    <strong>Painel do sistema</strong>
+                    <small>Acesso e preferências</small>
+                </div>
+            </div>
+
+            <div class="snd-painel-botoes">
+                <a href="/configuracoes" class="snd-btn-azul">
+                    ⚙ Configurações
+                </a>
+                <a href="/" class="snd-btn-claro">
+                    ⌂ Início
+                </a>
+            </div>
+
+            <small class="snd-versao">
+                SND Clínico • Versão demonstrativa
+            </small>
+        </aside>
+
+        <header class="snd-banner">
+            <div class="snd-marca">
+                <div class="snd-logo">🏥</div>
+                <div>
+                    <span class="snd-sobretitulo">
+                        NUTRIÇÃO HOSPITALAR
+                    </span>
+                    <h1>SND <span>Clínico</span></h1>
+                    <p>Gestão da nutrição clínica hospitalar</p>
+                </div>
+            </div>
+
+            <div class="snd-ilustracao" aria-hidden="true">
+                <span>✚</span>
+                <span>📋</span>
+                <span>🥗</span>
+            </div>
+        </header>
+
+    </div>
+
+    <!-- BOTÕES PRINCIPAIS -->
+    <nav class="snd-atalhos">
+        <a href="/triagem" class="snd-atalho">
+            <span>🩺</span> Triagem nutricional
+        </a>
+
+        <a href="/triagem" class="snd-atalho">
+            <span>👤</span> Pacientes internados
+        </a>
+
+        <a href="/mapa-adulto" class="snd-atalho">
+            <span>📋</span> Mapa de dieta adulto
+        </a>
+
+        <a href="/mapa-adulto" class="snd-atalho">
+            <span>🍽️</span> Dietas e suplementos
+        </a>
+
+        <a href="/configuracoes" class="snd-atalho">
+            <span>⚙️</span> Configurações
+        </a>
+    </nav>
+
+    <!-- CONTEÚDO -->
+    <div class="snd-corpo">
+
+        <!-- CALENDÁRIO À ESQUERDA -->
+        <aside class="snd-calendario snd-card">
+
+            <div class="snd-titulo-card">
+                <span>🗓️</span>
+                <strong>Calendário</strong>
+            </div>
+
+            <div class="snd-mes">
+                <button type="button" @onclick="MesAnterior">
+                    ‹
+                </button>
+
+                <strong>
+                    @mesReferencia.ToString(
+                        "MMMM 'de' yyyy",
+                        Cultura)
+                </strong>
+
+                <button type="button" @onclick="ProximoMes">
+                    ›
+                </button>
+            </div>
+
+            <div class="snd-grade-dias">
+                @foreach (var nome in DiasSemana)
+                {
+                    <span class="snd-semana">@nome</span>
+                }
+
+                @for (var i = 0; i < EspacosInicio; i++)
+                {
+                    <span></span>
+                }
+
+                @for (var dia = 1; dia <= DiasMes; dia++)
+                {
+                    var data = new DateTime(
+                        mesReferencia.Year,
+                        mesReferencia.Month,
+                        dia);
+
+                    <button type="button"
+                            class="snd-dia @(data.Date == dataSelecionada.Date ? "ativo" : "")"
+                            @onclick="() => SelecionarData(data)">
+                        @dia
+                    </button>
+                }
+            </div>
+
+            <div class="snd-calendario-rodape">
+                Data selecionada:
+                @dataSelecionada.ToString("dd/MM/yyyy")
+            </div>
+        </aside>
+
+        <!-- PAINEL À DIREITA -->
+        <main class="snd-conteudo">
+
+            <section class="snd-data-painel snd-card">
+                <div class="snd-data-info">
+                    <span class="snd-data-icone">🗓️</span>
+                    <div>
+                        <small>HOJE / DATA SELECIONADA</small>
+                        <h2>
+                            @dataSelecionada.ToString(
+                                "dddd, dd 'de' MMMM 'de' yyyy",
+                                Cultura)
+                        </h2>
+                        <p>Gestão dos registros hospitalares</p>
+                    </div>
+                </div>
+
+                <div class="snd-navegacao-data">
+                    <button type="button" @onclick="DiaAnterior">‹</button>
+
+                    <input type="date"
+                           value="@dataSelecionada.ToString("yyyy-MM-dd")"
+                           @onchange="AlterarData" />
+
+                    <button type="button" @onclick="IrParaHoje">
+                        Hoje
+                    </button>
+
+                    <button type="button" @onclick="ProximoDia">›</button>
+                </div>
+            </section>
+
+            <section class="snd-filtros snd-card">
+                <span class="snd-filtro selecionado">
+                    Visão geral
+                </span>
+                <a href="/triagem" class="snd-filtro">
+                    Triagens
+                </a>
+                <a href="/mapa-adulto" class="snd-filtro">
+                    Mapas de dietas
+                </a>
+            </section>
+
+            <section class="snd-resumo snd-card">
+                <div class="snd-titulo-card">
+                    <span>📊</span>
+                    <strong>Resumo assistencial</strong>
+                </div>
+
+                <div class="snd-indicadores">
+                    <div class="snd-indicador">
+                        <small>Pacientes cadastrados</small>
+                        <strong>@Store.Pacientes().Count</strong>
+                        <span>Base demonstrativa</span>
+                    </div>
+
+                    <div class="snd-indicador">
+                        <small>Triagens realizadas</small>
+                        <strong>
+                            @Store.Pacientes().Count(
+                                p => p.Triagem == "Realizada")
+                        </strong>
+                        <span>Triagens registradas</span>
+                    </div>
+
+                    <div class="snd-indicador">
+                        <small>Triagens pendentes</small>
+                        <strong>
+                            @Store.Pacientes().Count(
+                                p => p.Triagem != "Realizada")
+                        </strong>
+                        <span>Aguardando avaliação</span>
+                    </div>
+
+                    <div class="snd-indicador">
+                        <small>Mapas diários</small>
+                        <strong>@Store.Mapas().Count</strong>
+                        <span>Mapas cadastrados</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="snd-modulos snd-card">
+                <div class="snd-titulo-card">
+                    <span>🏥</span>
+                    <strong>Módulos hospitalares</strong>
+                </div>
+
+                <a href="/triagem" class="snd-modulo">
+                    <span class="snd-modulo-icone">🩺</span>
+                    <div>
+                        <strong>Triagem nutricional</strong>
+                        <small>
+                            Cadastro, avaliação e classificação
+                            nutricional dos pacientes
+                        </small>
+                    </div>
+                    <b>Acessar</b>
+                </a>
+
+                <a href="/mapa-adulto" class="snd-modulo">
+                    <span class="snd-modulo-icone">📋</span>
+                    <div>
+                        <strong>Mapa de dieta adulto</strong>
+                        <small>
+                            Acompanhamento diário de dietas
+                            e suplementos
+                        </small>
+                    </div>
+                    <b>Acessar</b>
+                </a>
+
+                <a href="/configuracoes" class="snd-modulo">
+                    <span class="snd-modulo-icone">⚙️</span>
+                    <div>
+                        <strong>Configurações</strong>
+                        <small>
+                            Métodos e parâmetros de triagem
+                        </small>
+                    </div>
+                    <b>Acessar</b>
+                </a>
+            </section>
+
+        </main>
+    </div>
+
+    <p class="snd-aviso">
+        Protótipo demonstrativo. Não utilizar dados reais
+        de pacientes nesta versão.
+    </p>
+</div>
+
+@code {
+    private readonly System.Globalization.CultureInfo Cultura =
+        new("pt-BR");
+
+    private readonly string[] DiasSemana =
+        { "SEG", "TER", "QUA", "QUI", "SEX", "SÁB", "DOM" };
+
+    private DateTime dataSelecionada = DateTime.Today;
+
+    private DateTime mesReferencia =
+        new(DateTime.Today.Year, DateTime.Today.Month, 1);
+
+    private int DiasMes =>
+        DateTime.DaysInMonth(
+            mesReferencia.Year,
+            mesReferencia.Month);
+
+    private int EspacosInicio =>
+        ((int)mesReferencia.DayOfWeek + 6) % 7;
+
+    private void SelecionarData(DateTime data)
+    {
+        dataSelecionada = data;
+        mesReferencia = new DateTime(data.Year, data.Month, 1);
+    }
+
+    private void MesAnterior() =>
+        mesReferencia = mesReferencia.AddMonths(-1);
+
+    private void ProximoMes() =>
+        mesReferencia = mesReferencia.AddMonths(1);
+
+    private void DiaAnterior() =>
+        SelecionarData(dataSelecionada.AddDays(-1));
+
+    private void ProximoDia() =>
+        SelecionarData(dataSelecionada.AddDays(1));
+
+    private void IrParaHoje() =>
+        SelecionarData(DateTime.Today);
+
+    private void AlterarData(
+        Microsoft.AspNetCore.Components.ChangeEventArgs e)
+    {
+        if (DateTime.TryParse(e.Value?.ToString(), out var nova))
+        {
+            SelecionarData(nova);
+        }
+    }
+}

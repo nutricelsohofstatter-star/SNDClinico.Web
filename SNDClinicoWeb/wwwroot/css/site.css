@@ -1,0 +1,518 @@
+
+/* =========================================
+   SND CLÍNICO - HOME PSICOEDUCA+
+   ========================================= */
+
+.snd-home {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 18px;
+    font-family: Inter, Arial, sans-serif;
+    color: #101c30;
+}
+
+    .snd-home * {
+        box-sizing: border-box;
+    }
+
+    .snd-home a {
+        text-decoration: none;
+    }
+
+/* CABEÇALHO */
+
+.snd-topo {
+    display: grid;
+    grid-template-columns: 318px minmax(0, 1fr);
+    gap: 16px;
+}
+
+.snd-painel,
+.snd-banner,
+.snd-card {
+    border: 1px solid #d0e2f7;
+    border-radius: 20px;
+    box-shadow: 0 5px 18px rgba(37,84,131,.04);
+}
+
+.snd-painel {
+    min-height: 169px;
+    padding: 20px 16px 14px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.snd-painel-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+    .snd-painel-titulo strong {
+        display: block;
+        font-size: 14px;
+        font-weight: 800;
+    }
+
+    .snd-painel-titulo small {
+        display: block;
+        margin-top: 5px;
+        color: #6a85a9;
+        font-size: 11px;
+    }
+
+.snd-icone {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    background: #e5f2ff;
+    border-radius: 10px;
+    font-size: 23px;
+}
+
+.snd-painel-botoes {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 9px;
+}
+
+    .snd-painel-botoes a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 800;
+    }
+
+.snd-btn-azul {
+    background: linear-gradient(#3897f6, #1372e9);
+    color: white;
+}
+
+.snd-btn-claro {
+    background: #f8fbff;
+    border: 1px solid #c7ddf6;
+    color: #1f3553;
+}
+
+.snd-versao {
+    text-align: center;
+    font-size: 10px;
+    color: #547eae;
+}
+
+/* BANNER */
+
+.snd-banner {
+    min-height: 169px;
+    position: relative;
+    overflow: hidden;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient( 100deg, #eff8ff 0%, #dfedfd 45%, #abd9fa 100% );
+}
+
+.snd-marca {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    position: relative;
+    z-index: 2;
+}
+
+.snd-logo {
+    font-size: 48px;
+}
+
+.snd-sobretitulo {
+    color: #4c80bc;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.snd-marca h1 {
+    font-size: 34px;
+    margin: 4px 0 6px;
+    color: #111827;
+    font-weight: 800;
+}
+
+    .snd-marca h1 span {
+        color: #4c8cde;
+    }
+
+.snd-marca p {
+    margin: 0;
+    color: #60718c;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.snd-ilustracao {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 64px;
+    opacity: .43;
+    pointer-events: none;
+}
+
+/* BOTÕES */
+
+.snd-atalhos {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 28px 0 20px;
+}
+
+.snd-atalho {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 15px;
+    min-height: 53px;
+    border: 1px solid #c6e0fa;
+    border-radius: 13px;
+    background: linear-gradient(#f5fbff, #deeeff);
+    color: #101c30;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+    .snd-atalho span {
+        font-size: 24px;
+    }
+
+    .snd-atalho:hover {
+        background: #cfe7ff;
+    }
+
+/* ORGANIZAÇÃO PRINCIPAL */
+
+.snd-corpo {
+    display: grid;
+    grid-template-columns: 390px minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+}
+
+.snd-card {
+    background: white;
+    padding: 19px;
+}
+
+.snd-titulo-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+    .snd-titulo-card span {
+        font-size: 27px;
+    }
+
+/* CALENDÁRIO */
+
+.snd-mes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+    .snd-mes button,
+    .snd-navegacao-data button {
+        width: 35px;
+        height: 35px;
+        border-radius: 11px;
+        border: 1px solid #c9dcf2;
+        background: white;
+        color: #3b6494;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+.snd-grade-dias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    text-align: center;
+}
+
+.snd-semana {
+    font-size: 10px;
+    font-weight: 800;
+    color: #71839b;
+    padding: 9px 0;
+}
+
+.snd-dia {
+    min-height: 45px;
+    border: 0;
+    border-radius: 11px;
+    background: transparent;
+    color: #273c54;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+    .snd-dia:hover {
+        background: #e7f3ff;
+    }
+
+    .snd-dia.ativo {
+        background: #318ef0;
+        color: white;
+        box-shadow: 0 5px 11px #348ee93a;
+    }
+
+.snd-calendario-rodape {
+    margin-top: 20px;
+    color: #6b829c;
+    font-size: 11px;
+}
+
+/* PAINEL DO DIA */
+
+.snd-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;
+}
+
+.snd-data-painel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: linear-gradient(110deg, white, #eef6ff);
+}
+
+.snd-data-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.snd-data-icone {
+    font-size: 38px;
+}
+
+.snd-data-info small {
+    font-size: 10px;
+    font-weight: 800;
+    color: #6084b4;
+}
+
+.snd-data-info h2 {
+    margin: 4px 0;
+    font-size: 19px;
+    text-transform: capitalize;
+}
+
+.snd-data-info p {
+    margin: 0;
+    color: #6883a7;
+    font-size: 11px;
+}
+
+.snd-navegacao-data {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+    .snd-navegacao-data input {
+        width: 140px;
+        min-width: 0;
+        border: 1px solid #c9dcf2;
+        border-radius: 10px;
+        padding: 9px;
+    }
+
+    .snd-navegacao-data button:nth-of-type(2) {
+        width: auto;
+        padding: 0 12px;
+        font-size: 12px;
+        background: #dceeff;
+        font-weight: 800;
+    }
+
+/* FILTROS */
+
+.snd-filtros {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.snd-filtro {
+    padding: 10px 15px;
+    border: 1px solid #dae5f3;
+    border-radius: 30px;
+    color: #445d7e;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+    .snd-filtro.selecionado {
+        background: #90bceb;
+        border-color: #75a6de;
+        color: #152943;
+    }
+
+/* INDICADORES */
+
+.snd-indicadores {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 9px;
+}
+
+.snd-indicador {
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    border: 1px solid #dce7f6;
+    border-radius: 12px;
+}
+
+    .snd-indicador small {
+        font-size: 11px;
+        color: #597697;
+        font-weight: 700;
+    }
+
+    .snd-indicador strong {
+        font-size: 28px;
+        font-weight: 800;
+        color: #2f79be;
+    }
+
+    .snd-indicador span {
+        font-size: 10px;
+        color: #8b9eb1;
+    }
+
+/* MÓDULOS */
+
+.snd-modulo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 99px;
+    margin-top: 11px;
+    padding: 16px;
+    border: 1px solid #d8e5f8;
+    border-radius: 16px;
+    background: linear-gradient(110deg, white, #f7faff);
+    color: #101c30;
+}
+
+    .snd-modulo:hover {
+        border-color: #8bb8f0;
+    }
+
+.snd-modulo-icone {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    background: #e5f1ff;
+    border-radius: 15px;
+    font-size: 32px;
+}
+
+.snd-modulo div {
+    flex: 1;
+}
+
+.snd-modulo strong {
+    display: block;
+    font-size: 15px;
+}
+
+.snd-modulo small {
+    display: block;
+    margin-top: 7px;
+    font-size: 12px;
+    color: #657c98;
+}
+
+.snd-modulo b {
+    color: #3379bb;
+    font-size: 11px;
+}
+
+.snd-aviso {
+    margin-top: 20px;
+    color: #6c8298;
+    font-size: 12px;
+}
+
+/* ADAPTAÇÃO PARA TELAS MENORES */
+
+@media (max-width: 1100px) {
+    .snd-topo,
+    .snd-corpo {
+        grid-template-columns: 1fr;
+    }
+
+    .snd-indicadores {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .snd-data-painel {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 650px) {
+    .snd-home {
+        padding: 10px;
+    }
+
+    .snd-ilustracao {
+        display: none;
+    }
+
+    .snd-indicadores {
+        grid-template-columns: 1fr;
+    }
+
+    .snd-atalhos {
+        justify-content: flex-start;
+    }
+
+    .snd-marca h1 {
+        font-size: 26px;
+    }
+
+    .snd-data-info h2 {
+        font-size: 16px;
+    }
+}

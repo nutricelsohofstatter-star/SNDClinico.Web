@@ -992,30 +992,30 @@
         background: linear-gradient(145deg, #f2f8ff, #e8f3ff);
     }
 
-    .food-empty-illustration svg {
-        display: block;
-        width: 72px;
-        height: 72px;
-    }
+        .food-empty-illustration svg {
+            display: block;
+            width: 72px;
+            height: 72px;
+        }
 
     .food-empty {
         padding: 42px 18px !important;
         text-align: center;
     }
 
-    .food-empty strong {
-        display: block;
-        color: #244b70;
-        font-size: 13px;
-        font-weight: 750;
-    }
+        .food-empty strong {
+            display: block;
+            color: #244b70;
+            font-size: 13px;
+            font-weight: 750;
+        }
 
-    .food-empty span {
-        display: block;
-        margin-top: 6px;
-        color: #7890a8;
-        font-size: 11px;
-    }
+        .food-empty span {
+            display: block;
+            margin-top: 6px;
+            color: #7890a8;
+            font-size: 11px;
+        }
 
     @@media print {
         @@page {
@@ -1033,25 +1033,25 @@
             page-break-after: avoid;
         }
 
-        .menu-print-header h1 {
-            margin: 0 0 4px;
-            font-size: 19pt;
-            line-height: 1.2;
-            font-weight: 800;
-        }
+            .menu-print-header h1 {
+                margin: 0 0 4px;
+                font-size: 19pt;
+                line-height: 1.2;
+                font-weight: 800;
+            }
 
-        .menu-print-header p {
-            margin: 0 0 8px;
-            color: #526b85;
-            font-size: 10pt;
-        }
+            .menu-print-header p {
+                margin: 0 0 8px;
+                color: #526b85;
+                font-size: 10pt;
+            }
 
-        .menu-print-header h2 {
-            margin: 8px 0 3px;
-            font-size: 14pt;
-            font-weight: 800;
-            text-transform: uppercase;
-        }
+            .menu-print-header h2 {
+                margin: 8px 0 3px;
+                font-size: 14pt;
+                font-weight: 800;
+                text-transform: uppercase;
+            }
 
         .menu-print-period {
             color: #526b85;
@@ -3162,7 +3162,7 @@
     }
 
     /* Cada refeição ocupa uma linha própria; quantidade fica abaixo do nome.
-                               Isso impede que palavras como "Desjejum" sejam quebradas letra por letra. */
+                                                                       Isso impede que palavras como "Desjejum" sejam quebradas letra por letra. */
     .prod-app .menu-planner-page .menu-school-meal-heading {
         display: flex !important;
         flex-direction: column !important;
@@ -3429,7 +3429,7 @@
     .reports-page {
         max-width: 1600px;
         margin: 0 auto;
-        padding: 18px 10px 42px;
+        padding: 18px 0 42px;
     }
 
     .reports-page-heading {
@@ -3917,8 +3917,8 @@
         .stock-embedded .stock-topbar {
             display: flex;
             align-items: center;
-            gap: 14px;
-            margin: 0 0 20px;
+            gap: 0;
+            margin: 0 0 26px;
             padding: 0;
             border: 0;
             background: transparent;
@@ -3931,8 +3931,8 @@
 
         .stock-embedded .stock-heading-row {
             display: flex;
-            align-items: center;
-            gap: 14px;
+            align-items: flex-start;
+            gap: 0;
         }
 
         .stock-embedded .stock-heading-icon {
@@ -3950,6 +3950,7 @@
             justify-content: center;
             gap: 7px;
             min-width: 0;
+            width: 100%;
         }
 
         .stock-embedded .stock-eyebrow {
@@ -4042,20 +4043,24 @@
         .stock-embedded .stock-category-icon {
             display: grid;
             place-items: center;
-            width: 54px;
-            height: 54px;
-            flex: 0 0 54px;
+            width: 64px;
+            height: 64px;
+            flex: 0 0 64px;
             margin: 0;
-            border-radius: 12px;
-            background: linear-gradient(145deg,#edf7ff,#e2f0fc);
-            box-shadow: inset 0 0 0 1px #d3e8f8;
-            overflow: hidden;
+            padding: 0;
+            border: 0;
+            border-radius: 0;
+            background: transparent;
+            box-shadow: none;
+            overflow: visible;
         }
 
             .stock-embedded .stock-category-icon img {
-                width: 48px;
-                height: 48px;
+                display: block;
+                width: 64px;
+                height: 64px;
                 object-fit: contain;
+                filter: drop-shadow(0 4px 5px rgba(23,82,132,.12));
             }
 
             .stock-embedded .stock-category-icon svg {
@@ -5103,13 +5108,13 @@
         border-radius: 0;
     }
 
-    .stock-embedded .stock-expiry-heading-icon img {
-        display: block;
-        width: 62px;
-        height: 62px;
-        object-fit: contain;
-        filter: drop-shadow(0 4px 5px rgba(23, 82, 132, .12));
-    }
+        .stock-embedded .stock-expiry-heading-icon img {
+            display: block;
+            width: 62px;
+            height: 62px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 5px rgba(23, 82, 132, .12));
+        }
 
     .stock-embedded .stock-expiry-heading h2 {
         margin: 0 0 4px;
@@ -5344,6 +5349,974 @@
         font-size: 22px;
         cursor: pointer;
     }
+
+
+    /* =========================================================
+                                               CABEÇALHOS PADRONIZADOS — FICHAS, RELATÓRIOS E ESTOQUE
+                                               Referência: cabeçalho do Planejamento de Cardápios.
+                                               Ajuste exclusivamente visual; não altera dados ou operações.
+                                               ========================================================= */
+
+    .prod-app .recipe-page,
+    .prod-app .reports-page,
+    .prod-app .stock-embedded {
+        box-sizing: border-box !important;
+        padding: 14px 8px 38px !important;
+    }
+
+        .prod-app .recipe-page .recipe-lovable-hero,
+        .prod-app .reports-page .reports-page-heading,
+        .prod-app .stock-embedded .stock-topbar {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            gap: 22px !important;
+            width: 100% !important;
+            min-height: 72px !important;
+            margin: 0 0 22px !important;
+            padding: 0 !important;
+            background: transparent !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .prod-app .recipe-page .snd-page-title-group,
+        .prod-app .reports-page .reports-page-heading,
+        .prod-app .stock-embedded .stock-heading-row {
+            display: flex !important;
+            flex: 1 1 auto !important;
+            flex-direction: row !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            gap: 15px !important;
+            min-width: 0 !important;
+        }
+
+        .prod-app .recipe-page .snd-page-title-icon,
+        .prod-app .reports-page .reports-page-heading-icon,
+        .prod-app .stock-embedded .stock-heading-icon {
+            display: block !important;
+            position: static !important;
+            flex: 0 0 64px !important;
+            width: 64px !important;
+            height: 64px !important;
+            min-width: 64px !important;
+            min-height: 64px !important;
+            max-width: 64px !important;
+            max-height: 64px !important;
+            object-fit: contain !important;
+            object-position: center !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        .prod-app .reports-page .reports-page-heading-icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+            .prod-app .reports-page .reports-page-heading-icon img {
+                display: block !important;
+                width: 64px !important;
+                height: 64px !important;
+                max-width: 64px !important;
+                max-height: 64px !important;
+                object-fit: contain !important;
+            }
+
+        .prod-app .recipe-page .snd-page-title-copy,
+        .prod-app .reports-page .reports-page-heading-copy,
+        .prod-app .stock-embedded .stock-heading-copy {
+            display: flex !important;
+            flex: 1 1 auto !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            gap: 0 !important;
+            min-width: 0 !important;
+        }
+
+        .prod-app .recipe-page .recipe-lovable-hero h1,
+        .prod-app .reports-page .reports-page-heading h1,
+        .prod-app .stock-embedded .stock-topbar h1 {
+            margin: 0 0 6px !important;
+            color: #17395f !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 28px !important;
+            font-weight: 800 !important;
+            line-height: 1.2 !important;
+            letter-spacing: -.75px !important;
+        }
+
+        .prod-app .recipe-page .recipe-lovable-hero p,
+        .prod-app .reports-page .reports-page-heading p,
+        .prod-app .stock-embedded .stock-topbar p {
+            margin: 0 !important;
+            color: #647d97 !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            line-height: 1.55 !important;
+        }
+
+        .prod-app .recipe-page .recipe-lovable-hero .food-new-button,
+        .prod-app .stock-embedded .stock-top-actions {
+            flex: 0 0 auto !important;
+            margin-left: auto !important;
+        }
+
+    @@media(max-width:600px) {
+        .prod-app .recipe-page,
+        .prod-app .reports-page,
+        .prod-app .stock-embedded {
+            padding: 14px 8px 30px !important;
+        }
+
+            .prod-app .recipe-page .recipe-lovable-hero,
+            .prod-app .reports-page .reports-page-heading,
+            .prod-app .stock-embedded .stock-topbar {
+                align-items: center !important;
+                gap: 12px !important;
+                min-height: 64px !important;
+                margin-bottom: 18px !important;
+            }
+
+            .prod-app .recipe-page .snd-page-title-group,
+            .prod-app .reports-page .reports-page-heading,
+            .prod-app .stock-embedded .stock-heading-row {
+                gap: 11px !important;
+            }
+
+            .prod-app .recipe-page .snd-page-title-icon,
+            .prod-app .reports-page .reports-page-heading-icon,
+            .prod-app .stock-embedded .stock-heading-icon,
+            .prod-app .reports-page .reports-page-heading-icon img {
+                flex-basis: 56px !important;
+                width: 56px !important;
+                height: 56px !important;
+                min-width: 56px !important;
+                min-height: 56px !important;
+                max-width: 56px !important;
+                max-height: 56px !important;
+            }
+
+            .prod-app .recipe-page .recipe-lovable-hero h1,
+            .prod-app .reports-page .reports-page-heading h1,
+            .prod-app .stock-embedded .stock-topbar h1 {
+                font-size: 23px !important;
+            }
+
+            .prod-app .recipe-page .recipe-lovable-hero p,
+            .prod-app .reports-page .reports-page-heading p,
+            .prod-app .stock-embedded .stock-topbar p {
+                font-size: 12px !important;
+            }
+    }
+
+    /* Configurações em cards e modais */
+    .settings-page {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 12px 8px 34px;
+        color: #234764;
+    }
+
+    .settings-heading-modern {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        gap: 16px !important;
+        width: 100%;
+        margin: 0 0 22px !important;
+        text-align: left !important;
+    }
+
+        .settings-heading-modern > img {
+            display: block !important;
+            width: 76px !important;
+            height: 76px !important;
+            min-width: 76px;
+            object-fit: contain !important;
+            flex: 0 0 76px !important;
+            filter: drop-shadow(0 5px 8px #174c7820);
+        }
+
+        .settings-heading-modern > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            min-width: 0;
+        }
+
+        .settings-heading-modern h1 {
+            margin: 0 0 7px;
+            color: #123b62;
+            font-size: 34px;
+            font-weight: 850;
+            letter-spacing: -.8px;
+        }
+
+        .settings-heading-modern p {
+            margin: 0;
+            color: #71879b;
+            font-size: 14px;
+        }
+
+    .settings-intro-modern {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 17px 19px;
+        margin-bottom: 18px;
+        border: 1px solid #d8e7f3;
+        border-radius: 14px;
+        background: linear-gradient(110deg,#f5faff,#fff);
+    }
+
+        .settings-intro-modern .settings-intro-icon {
+            width: 54px;
+            height: 54px;
+            flex: 0 0 54px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #e6f2fc;
+            color: #1475bb;
+            font-size: 21px;
+        }
+
+            .settings-intro-modern .settings-intro-icon img {
+                width: 52px;
+                height: 52px;
+                object-fit: contain;
+                filter: drop-shadow(0 3px 5px #174c7820);
+            }
+
+        .settings-intro-modern strong {
+            display: block;
+            color: #214d70;
+            font-size: 14px;
+            font-weight: 850;
+        }
+
+        .settings-intro-modern p {
+            margin: 4px 0 0;
+            color: #74899d;
+            font-size: 12px;
+        }
+
+    .settings-grid-modern {
+        display: grid;
+        grid-template-columns: repeat(3,minmax(0,1fr));
+        grid-auto-rows: 160px;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .settings-card-button {
+        position: relative;
+        min-width: 0;
+        min-height: 160px;
+        height: 160px;
+        display: grid;
+        grid-template-columns: 56px minmax(0,1fr) auto;
+        grid-template-rows: minmax(0,1fr) 43px;
+        align-items: center;
+        gap: 10px 12px;
+        padding: 17px 18px 13px;
+        border: 1px solid #d8e6f1;
+        border-radius: 15px;
+        background: #fff;
+        text-align: left;
+        cursor: pointer;
+        box-shadow: 0 4px 16px #193b5b08;
+        transition: transform .16s,border-color .16s,box-shadow .16s;
+    }
+
+        .settings-card-button:hover {
+            transform: translateY(-2px);
+            border-color: #9fc5e1;
+            box-shadow: 0 9px 22px #193b5b12;
+        }
+
+    .settings-card-icon {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        place-items: center;
+        border-radius: 13px;
+        background: #eaf4fc;
+        overflow: visible;
+    }
+
+        .settings-card-icon img {
+            display: block;
+            width: 66px;
+            height: 66px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px #174c7820);
+        }
+
+    .settings-card-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-top: 2px;
+        min-width: 0;
+    }
+
+        .settings-card-copy strong {
+            color: #20496b;
+            font-size: 15px;
+            font-weight: 850;
+        }
+
+        .settings-card-copy small {
+            color: #7b8fa2;
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+    .settings-card-button > b {
+        min-width: 25px;
+        height: 25px;
+        display: grid;
+        place-items: center;
+        padding: 0 7px;
+        border-radius: 20px;
+        background: #f0f5f9;
+        color: #56748e;
+        font-size: 11px;
+    }
+
+    .settings-card-action {
+        grid-column: 1/-1;
+        grid-row: 2;
+        align-self: center;
+        justify-self: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: min(62%,240px);
+        min-width: 150px;
+        height: 39px;
+        margin: 0 auto;
+        padding: 0 16px;
+        border: 1px solid #0874bd;
+        border-radius: 9px;
+        background: linear-gradient(135deg,#1686cf,#0867ad);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 850;
+        box-shadow: 0 4px 10px #0874bd25;
+        text-align: center;
+    }
+
+    .settings-footnote {
+        margin-top: 17px;
+        color: #8295a6;
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    .settings-modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1200;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px;
+        background: #102a40a6;
+        backdrop-filter: blur(3px);
+    }
+
+    .settings-modal {
+        width: min(620px,100%);
+        max-height: 82vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid #dce7f0;
+        border-radius: 17px;
+        background: #fff;
+        box-shadow: 0 24px 70px #102a4050;
+    }
+
+    .settings-modal-brandbar {
+        flex: 0 0 auto;
+        min-height: 58px;
+    }
+
+    .settings-modal-heading {
+        flex: 0 0 auto;
+        padding: 17px 22px 15px;
+        border-bottom: 1px solid #e7eef4;
+        background: #fff;
+    }
+
+        .settings-modal-heading h2 {
+            margin: 0 0 4px;
+            color: #173f62;
+            font-size: 21px;
+            font-weight: 850;
+        }
+
+        .settings-modal-heading p {
+            margin: 0;
+            color: #7b8fa2;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+    .settings-modal-body {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        overflow: auto;
+        padding: 20px 22px;
+    }
+
+    .settings-environment-tabs {
+        display: flex;
+        gap: 7px;
+        padding: 4px;
+        border-radius: 10px;
+        background: #f1f6fa;
+    }
+
+        .settings-environment-tabs button {
+            flex: 1;
+            height: 37px;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            color: #648097;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+            .settings-environment-tabs button.active {
+                background: #fff;
+                color: #126eae;
+                box-shadow: 0 2px 7px #193b5b12;
+            }
+
+    .settings-modal-add {
+        display: flex;
+        gap: 8px;
+    }
+
+        .settings-modal-add input {
+            flex: 1;
+            min-width: 0;
+            height: 42px;
+            padding: 0 12px;
+            border: 1px solid #d5e3ee;
+            border-radius: 9px;
+            color: #294b68;
+            font-size: 12px;
+        }
+
+
+    .settings-modal-add-turma {
+        display: grid;
+        grid-template-columns: minmax(0,1fr) minmax(0,1fr) auto;
+        gap: 8px;
+    }
+
+        .settings-modal-add-turma button {
+            min-height: 42px;
+            white-space: nowrap;
+        }
+
+    .settings-modal-list .settings-modal-remove {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background: #fff0ef;
+        color: #c6534d;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1;
+    }
+
+        .settings-modal-list .settings-modal-remove:hover {
+            background: #ffe2df;
+            color: #a83c36;
+        }
+
+    @@media(max-width:600px) {
+        .settings-modal-add-turma {
+            grid-template-columns: 1fr 1fr;
+        }
+
+            .settings-modal-add-turma button {
+                grid-column: 1 / -1;
+            }
+    }
+
+    .settings-modal-add button, .settings-modal-footer button {
+        border: 0;
+        border-radius: 9px;
+        padding: 0 15px;
+        background: linear-gradient(135deg,#1686cf,#0867ad);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 850;
+        cursor: pointer;
+    }
+
+    .settings-modal-list {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        max-height: 350px;
+        overflow: auto;
+    }
+
+        .settings-modal-list > div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            min-height: 42px;
+            padding: 7px 10px 7px 13px;
+            border: 1px solid #e4edf4;
+            border-radius: 9px;
+            background: #fbfdff;
+            color: #355875;
+            font-size: 12px;
+        }
+
+        .settings-modal-list button {
+            min-width: 30px;
+            height: 29px;
+            padding: 0 8px;
+            border: 0;
+            border-radius: 7px;
+            background: #fff0ef;
+            color: #b75d57;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+            .settings-modal-list button:disabled {
+                opacity: .35;
+                cursor: not-allowed;
+            }
+
+    .settings-modal-empty {
+        margin: 0;
+        padding: 18px;
+        border: 1px dashed #d6e4ef;
+        border-radius: 10px;
+        color: #8296a8;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .settings-modal-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        padding: 13px 22px;
+        border-top: 1px solid #e8eef3;
+        background: #fbfdff;
+    }
+
+        .settings-modal-footer span {
+            color: #8295a6;
+            font-size: 10px;
+        }
+
+        .settings-modal-footer button {
+            height: 38px;
+        }
+
+    .stock-dialog-body select {
+        min-height: 40px;
+        padding: 0 10px;
+        border: 1px solid #d5e3ee;
+        border-radius: 9px;
+        background: #fff;
+        color: #294b68;
+    }
+
+    @@media(max-width:1000px) {
+        .settings-grid-modern {
+            grid-template-columns: repeat(2,minmax(0,1fr));
+            grid-auto-rows: 160px;
+        }
+    }
+
+    @@media(max-width:620px) {
+        .settings-grid-modern {
+            grid-template-columns: 1fr;
+            grid-auto-rows: 150px;
+        }
+
+        .settings-card-button {
+            height: 150px;
+            min-height: 150px;
+        }
+
+        .settings-card-action {
+            width: min(75%,260px);
+        }
+
+        .settings-heading-modern > img {
+            width: 60px !important;
+            height: 60px !important;
+            min-width: 60px;
+            flex-basis: 60px !important;
+        }
+
+        .settings-heading-modern h1 {
+            font-size: 27px;
+        }
+
+        .settings-modal-add {
+            flex-direction: column;
+        }
+
+            .settings-modal-add button {
+                height: 40px;
+            }
+
+        .settings-modal-backdrop {
+            padding: 8px;
+        }
+
+        .settings-modal {
+            max-height: 90vh;
+        }
+
+        .settings-modal-heading {
+            padding: 14px 16px 13px;
+        }
+
+            .settings-modal-heading h2 {
+                font-size: 19px;
+            }
+    }
+
+    /* AJUSTE VISUAL — AÇÕES DO PLANEJAMENTO E ELEMENTOS EXCLUSIVOS DA IMPRESSÃO */
+    .prod-app .menu-planner-page .menu-planner-actions {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 8px !important;
+    }
+
+        .prod-app .menu-planner-page .menu-planner-actions .menu-action {
+            min-height: 40px !important;
+            height: 40px !important;
+            padding: 0 13px !important;
+            border: 1px solid #d5e2ed !important;
+            border-radius: 9px !important;
+            background: #ffffff !important;
+            color: #285d85 !important;
+            box-shadow: 0 2px 7px rgba(28, 67, 99, .06) !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 11px !important;
+            font-weight: 750 !important;
+            line-height: 1 !important;
+            transition: background .15s ease, border-color .15s ease, box-shadow .15s ease !important;
+        }
+
+            .prod-app .menu-planner-page .menu-planner-actions .menu-action:hover {
+                background: #f5f9fc !important;
+                border-color: #a9c7de !important;
+                box-shadow: 0 3px 9px rgba(28, 67, 99, .09) !important;
+                transform: none !important;
+            }
+
+            .prod-app .menu-planner-page .menu-planner-actions .menu-action svg {
+                width: 15px !important;
+                height: 15px !important;
+                stroke: currentColor !important;
+                stroke-width: 1.8 !important;
+            }
+
+    /* Identificação do nutricionista aparece somente no documento impresso. */
+    .prod-app .menu-planner-page .menu-print-footer {
+        display: none !important;
+    }
+
+    @@media print {
+        .prod-app .menu-planner-page .menu-print-footer {
+            display: flex !important;
+        }
+    }
+
+    @@media (max-width: 900px) {
+        .prod-app .menu-planner-page .menu-planner-actions {
+            width: auto !important;
+            justify-content: flex-start !important;
+        }
+    }
+
+    @@media (max-width: 600px) {
+        .prod-app .menu-planner-page .menu-planner-actions {
+            width: 100% !important;
+            display: grid !important;
+            grid-template-columns: 1fr 1fr !important;
+        }
+
+            .prod-app .menu-planner-page .menu-planner-actions .menu-action {
+                width: 100% !important;
+                min-width: 0 !important;
+                padding: 0 8px !important;
+                font-size: 10px !important;
+            }
+    }
+
+    /* =========================================================
+                       MENU LATERAL — REFINAMENTO VISUAL SND HOSPITALAR
+                       ========================================================= */
+    .prod-app {
+        --snd-sidebar-width: 248px;
+        display: flex !important;
+        align-items: stretch !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+    }
+
+        .prod-app .prod-main {
+            flex: 1 1 auto !important;
+            min-width: 0 !important;
+            width: auto !important;
+        }
+
+        .prod-app .prod-sidebar {
+            box-sizing: border-box !important;
+            width: var(--snd-sidebar-width) !important;
+            min-width: var(--snd-sidebar-width) !important;
+            flex: 0 0 var(--snd-sidebar-width) !important;
+            height: 100vh !important;
+            min-height: 100vh !important;
+            position: sticky !important;
+            top: 0 !important;
+            align-self: flex-start !important;
+            overflow-y: auto !important;
+            padding: 22px 12px 16px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            background: #ffffff !important;
+            border-right: 1px solid #e5edf4 !important;
+            transition: width .22s ease, min-width .22s ease, flex-basis .22s ease, padding .22s ease !important;
+            z-index: 20;
+        }
+
+        .prod-app .prod-menu-heading {
+            min-height: 28px !important;
+            margin: 0 5px 10px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            gap: 8px !important;
+        }
+
+        .prod-app .prod-menu-label {
+            margin: 0 !important;
+            color: #8293a5 !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 10px !important;
+            font-weight: 850 !important;
+            letter-spacing: 1.15px !important;
+            line-height: 1.2 !important;
+            white-space: nowrap !important;
+        }
+
+
+        .prod-app .prod-navigation {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 5px !important;
+            width: 100% !important;
+            min-width: 0 !important;
+        }
+
+            .prod-app .prod-navigation .prod-nav-item {
+                position: relative !important;
+                box-sizing: border-box !important;
+                width: 100% !important;
+                min-height: 43px !important;
+                padding: 0 12px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 13px !important;
+                border: 1px solid transparent !important;
+                border-radius: 10px !important;
+                background: transparent !important;
+                color: #355674 !important;
+                text-align: left !important;
+                font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+                font-size: 12px !important;
+                font-weight: 550 !important;
+                line-height: 1.35 !important;
+                cursor: pointer !important;
+                box-shadow: none !important;
+                transition: background .16s ease, color .16s ease, border-color .16s ease !important;
+            }
+
+                .prod-app .prod-navigation .prod-nav-item:hover {
+                    background: #f5f9fc !important;
+                    color: #155f99 !important;
+                    border-color: #edf3f8 !important;
+                    transform: none !important;
+                }
+
+                .prod-app .prod-navigation .prod-nav-item.active {
+                    background: #e7f2fc !important;
+                    border-color: #e7f2fc !important;
+                    color: #075fa8 !important;
+                    font-weight: 750 !important;
+                }
+
+                    .prod-app .prod-navigation .prod-nav-item.active::before {
+                        content: "" !important;
+                        position: absolute !important;
+                        left: -1px !important;
+                        top: 8px !important;
+                        bottom: 8px !important;
+                        width: 3px !important;
+                        border-radius: 0 4px 4px 0 !important;
+                        background: #0878d1 !important;
+                    }
+
+            .prod-app .prod-navigation .prod-nav-icon {
+                width: 19px !important;
+                height: 19px !important;
+                min-width: 19px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                color: #597b9a !important;
+            }
+
+            .prod-app .prod-navigation .prod-nav-item.active .prod-nav-icon {
+                color: #0872c4 !important;
+            }
+
+            .prod-app .prod-navigation .prod-nav-icon svg {
+                display: block !important;
+                width: 18px !important;
+                height: 18px !important;
+                fill: none !important;
+                stroke: currentColor !important;
+                stroke-width: 1.7 !important;
+                stroke-linecap: round !important;
+                stroke-linejoin: round !important;
+            }
+
+        .prod-app .prod-sidebar-bottom {
+            margin-top: auto !important;
+            padding: 14px 0 0 !important;
+        }
+
+        .prod-app .prod-sidebar-divider {
+            height: 1px !important;
+            margin: 0 5px 14px !important;
+            background: #e7edf3 !important;
+        }
+
+        .prod-app .prod-back-link {
+            min-height: 34px !important;
+            margin: 0 3px 13px !important;
+            padding: 0 9px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+            border-radius: 8px !important;
+            color: #54718c !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 10px !important;
+            line-height: 1.25 !important;
+            font-weight: 550 !important;
+            text-decoration: none !important;
+            white-space: nowrap !important;
+            transition: background .16s ease, color .16s ease !important;
+        }
+
+            .prod-app .prod-back-link .prod-back-text {
+                font-size: 10px !important;
+                line-height: 1.25 !important;
+                font-weight: 550 !important;
+            }
+
+            .prod-app .prod-back-link:hover {
+                background: #f4f8fb !important;
+                color: #176eae !important;
+            }
+
+        .prod-app .prod-back-icon {
+            width: 17px !important;
+            min-width: 17px !important;
+            text-align: center !important;
+            font-size: 14px !important;
+            line-height: 1 !important;
+        }
+
+        .prod-app .prod-sidebar-footer {
+            min-height: 25px !important;
+            padding: 0 9px !important;
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            color: #8093a5 !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 8px !important;
+            font-weight: 800 !important;
+            letter-spacing: 1px !important;
+            white-space: nowrap !important;
+        }
+
+        .prod-app .prod-footer-dot {
+            width: 7px !important;
+            height: 7px !important;
+            min-width: 7px !important;
+            border-radius: 50% !important;
+            background: #18b887 !important;
+            box-shadow: 0 0 0 3px #e5f7f1 !important;
+        }
+
+        .prod-app .prod-navigation .prod-nav-item:focus-visible,
+        .prod-app .prod-back-link:focus-visible {
+            outline: 2px solid rgba(8,117,207,.35) !important;
+            outline-offset: 2px !important;
+        }
+
+    @@media (max-width: 900px) {
+        .prod-app .prod-sidebar {
+            width: 226px !important;
+            min-width: 226px !important;
+            flex-basis: 226px !important;
+        }
+    }
+
+    @@media print {
+        .prod-app .prod-menu-heading {
+            display: none !important;
+        }
+    }
 </style>
 
 <div class="prod-app">
@@ -5362,11 +6335,13 @@
             </div>
         </a>
 
-        <div class="prod-menu-label">MENU PRINCIPAL</div>
+        <div class="prod-menu-heading">
+            <div class="prod-menu-label">MENU PRINCIPAL</div>
+        </div>
 
         <nav class="prod-navigation">
 
-            <button class="@MenuClass("alimentos")" @onclick="AbrirAlimentos">
+            <button class="@MenuClass("alimentos")" title="Cadastro de alimentos" @onclick="AbrirAlimentos">
                 <span class="prod-nav-icon">
                     <svg viewBox="0 0 24 24">
                         <path d="M12 21c-4.5-2.5-7-6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 4-2.5 7.5-7 10Z" />
@@ -5376,7 +6351,7 @@
                 <span>Cadastro de alimentos</span>
             </button>
 
-            <button class="@MenuClass("fichas")" @onclick="AbrirFichas">
+            <button class="@MenuClass("fichas")" title="Fichas técnicas" @onclick="AbrirFichas">
                 <span class="prod-nav-icon">
                     <svg viewBox="0 0 24 24">
                         <path d="M7 3h7l5 5v13H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" />
@@ -5386,7 +6361,7 @@
                 <span>Fichas técnicas</span>
             </button>
 
-            <button class="@MenuClass("cardapios")" @onclick="AbrirCardapios">
+            <button class="@MenuClass("cardapios")" title="Planejamento de cardápios" @onclick="AbrirCardapios">
                 <span class="prod-nav-icon">
                     <svg viewBox="0 0 24 24">
                         <rect x="3" y="4" width="18" height="17" rx="3" />
@@ -5396,7 +6371,7 @@
                 <span>Planejamento de cardápios</span>
             </button>
 
-            <button class="@MenuClass("relatorios")" @onclick="AbrirRelatorios">
+            <button class="@MenuClass("relatorios")" title="Relatórios" @onclick="AbrirRelatorios">
                 <span class="prod-nav-icon">
                     <svg viewBox="0 0 24 24">
                         <path d="M4 19V5M4 19h17" />
@@ -5406,7 +6381,7 @@
                 <span>Relatórios</span>
             </button>
 
-            <button class="@MenuClass("estoque")" @onclick="AbrirEstoque">
+            <button class="@MenuClass("estoque")" title="Estoque interno" @onclick="AbrirEstoque">
                 <span class="prod-nav-icon">
                     <svg viewBox="0 0 24 24">
                         <path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9Z" />
@@ -5416,7 +6391,7 @@
                 <span>Estoque interno</span>
             </button>
 
-            <button class="@MenuClass("configuracoes")" @onclick="AbrirConfiguracoes">
+            <button class="@MenuClass("configuracoes")" title="Configurações" @onclick="AbrirConfiguracoes">
                 <span class="prod-nav-icon">
                     <svg viewBox="0 0 24 24"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" /><path d="m19.4 15 .1.1a1.8 1.8 0 0 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3 .9v.2a1.8 1.8 0 0 1-3.6 0v-.2a1.8 1.8 0 0 0-3-.9l-.1.1a1.8 1.8 0 0 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-.9-3h-.2a1.8 1.8 0 0 1 0-3.6h.2a1.8 1.8 0 0 0 .9-3l-.1-.1a1.8 1.8 0 0 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3-.9v-.2a1.8 1.8 0 0 1 3.6 0v.2a1.8 1.8 0 0 0 3 .9l.1-.1a1.8 1.8 0 0 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 .9 3h.2a1.8 1.8 0 0 1 0 3.6h-.2a1.8 1.8 0 0 0-.9 3Z" /></svg>
                 </span>
@@ -5428,9 +6403,9 @@
         <div class="prod-sidebar-bottom">
             <div class="prod-sidebar-divider"></div>
 
-            <a href="/" class="prod-back-link">
-                <span>←</span>
-                Voltar ao painel inicial
+            <a href="/" class="prod-back-link" title="Voltar ao painel inicial">
+                <span class="prod-back-icon">←</span>
+                <span class="prod-back-text">Voltar ao painel inicial</span>
             </a>
 
             <div class="prod-sidebar-footer">
@@ -5451,7 +6426,7 @@
 
                     <div class="food-page-heading">
                         <div class="snd-page-title-group">
-                            <img class="snd-page-title-icon" src="images/icons/ico_alimentos.png" alt="" />
+
                             <div class="snd-page-title-copy">
                                 <h1>Cadastro de alimentos</h1>
                                 <p>
@@ -5758,7 +6733,7 @@
                         }
                         <div class="recipe-lovable-hero">
                             <div class="snd-page-title-group">
-                                <img class="snd-page-title-icon" src="images/icons/ico_fichas_tecnicas.png" alt="" />
+
                                 <div class="snd-page-title-copy">
                                     <h1>Fichas técnicas</h1>
                                     <p>Preparações com ingredientes, rendimento, custo e composição nutricional calculados automaticamente.</p>
@@ -5812,7 +6787,7 @@
                 <section class="menu-planner-page">
                     <div class="menu-planner-heading">
                         <div class="snd-page-title-group">
-                            <img class="snd-page-title-icon" src="images/icons/ico_cardapios.png" alt="" />
+
                             <div class="snd-page-title-copy">
                                 <h1>Planejamento de Cardápios</h1>
                                 <p>Organize as refeições da semana e suas preparações por modalidade.</p>
@@ -5884,11 +6859,6 @@
                         <label>CRN<input @bind="CRNResponsavel" placeholder="Ex.: CRN-2 12345" /></label>
                     </div>
                 </section>
-
-                <div class="menu-scope-note">
-                    <span class="menu-note-icon">i</span>
-                    <div><strong>@(AmbienteCardapio == "Hospital" ? "Cardápio geral hospitalar" : $"Cardápio infantil · {TurmaSelecionada}")</strong><p>@(AmbienteCardapio == "Hospital" ? "Planejamento semanal organizado por modalidades e preparações." : "Planejamento independente da turma. Se uma refeição não for oferecida em determinado dia, deixe a célula vazia.")</p></div>
-                </div>
 
                 @if (AmbienteCardapio == "Hospital")
                 {
@@ -6000,19 +6970,15 @@
                     <div><span>Nutricionista responsável:</span><strong>@NomeNutricionistaResponsavel</strong></div>
                     <div><span>CRN:</span><strong>@CRNResponsavel</strong></div>
                 </footer>
-                <div class="menu-planner-footnote"><span>ⓘ</span> Planejamentos salvos no PostgreSQL. Cardápios específicos podem herdar a base geral ou manter preparações próprias.</div>
             </section>
         }
             else if (secaoSelecionada == "relatorios")
         {
             <section class="reports-page">
                 <header class="reports-page-heading">
-                    <span class="reports-page-heading-icon" aria-hidden="true">
-                        <img src="images/icons/ico_relatorios_header_v2.png" alt="" style="display:block;width:58px !important;height:58px !important;max-width:none !important;max-height:none !important;object-fit:contain !important;flex:0 0 58px !important;" />
-                    </span>
                     <div class="reports-page-heading-copy">
                         <h1>Relatórios</h1>
-                        <p>Consulte exemplos demonstrativos de custos, produção, cardápios, doações e informações nutricionais.</p>
+                        <p>Consulte os custos do planejamento e os indicadores de produção, cardápios, doações e nutrição.</p>
                     </div>
                 </header>
 
@@ -6039,7 +7005,7 @@
                     <div class="reports-modal-backdrop" @onclick="FecharSeletorRelatorio">
                         <section class="reports-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="reports-selector-title" @onclick:stopPropagation="true">
                             <header class="reports-modal-header">
-                                <span class="reports-modal-header-icon"><img src="images/icons/ico_relatorios.png" alt="" /></span>
+                                <span class="reports-modal-header-icon"><img src="@IconeCategoriaRelatorio(CategoriaRelatorioSelecionada)" alt="" /></span>
                                 <div class="reports-modal-header-copy">
                                     <h2 id="reports-selector-title">@TituloCategoriaRelatorio</h2>
                                     <p>Escolha o relatório que deseja consultar.</p>
@@ -6055,7 +7021,7 @@
                                     @foreach (var opcao in OpcoesCategoriaSelecionada)
                                     {
                                         <button type="button" class="reports-option-card @(RelatorioSelecionado == opcao ? "selected" : "")" @onclick="() => RelatorioSelecionado = opcao">
-                                            <span class="reports-option-document"><img src="images/icons/ico_relatorios.png" alt="" /></span>
+                                            <span class="reports-option-document"><img src="@IconeCategoriaRelatorio(CategoriaRelatorioSelecionada)" alt="" /></span>
                                             <span>@opcao</span>
                                             <i>@(RelatorioSelecionado == opcao ? "✓" : "→")</i>
                                         </button>
@@ -6075,13 +7041,13 @@
                     <div class="reports-modal-backdrop" @onclick="FecharVisualizacaoRelatorio">
                         <section class="reports-modal-dialog reports-modal-wide" role="dialog" aria-modal="true" aria-labelledby="reports-preview-title" @onclick:stopPropagation="true">
                             <header class="reports-modal-header">
-                                <span class="reports-modal-header-icon"><img src="images/icons/ico_relatorios.png" alt="" /></span>
+                                <span class="reports-modal-header-icon"><img src="@IconeCategoriaRelatorio(CategoriaRelatorioSelecionada)" alt="" /></span>
                                 <div class="reports-modal-header-copy">
                                     <h2 id="reports-preview-title">@RelatorioSelecionado</h2>
-                                    <p>@TituloCategoriaRelatorio · Período demonstrativo</p>
+                                    <p>@TituloCategoriaRelatorio · @DataInicialFiltroRelatorio.ToString("dd/MM/yyyy") a @DataFinalFiltroRelatorio.ToString("dd/MM/yyyy")</p>
                                 </div>
                                 <div class="reports-preview-header-actions">
-                                    <span class="reports-demo-pill"><i></i> Dados de demonstração</span>
+                                    <span class="reports-demo-pill"><i></i> @(CategoriaRelatorioSelecionada == "custos" ? "Dados do planejamento" : "Dados de demonstração")</span>
                                     <button type="button" class="reports-modal-close" aria-label="Fechar relatório" @onclick="FecharVisualizacaoRelatorio">×</button>
                                 </div>
                             </header>
@@ -6095,72 +7061,358 @@
                                         <button type="button" class="@(PeriodoRelatorio == "Ano atual" ? "active" : "")" @onclick='() => DefinirPeriodoRelatorio("Ano atual")'>Este ano</button>
                                         <button type="button" class="@(PeriodoRelatorio == "Personalizado" ? "active" : "")" @onclick='() => PeriodoRelatorio = "Personalizado"'>Personalizado</button>
                                     </div>
-                                    <div class="reports-filter-grid">
-                                        <div class="reports-filter-field"><label>Data inicial</label><input type="date" @bind="DataInicialFiltroRelatorio" /></div>
-                                        <div class="reports-filter-field"><label>Data final</label><input type="date" @bind="DataFinalFiltroRelatorio" /></div>
-                                        <div class="reports-filter-field">
-                                            <label>Refeição</label><select @bind="RefeicaoFiltroRelatorio">
-                                            <option>Todas</option>@foreach (var item in RefeicoesPlanejamento) {
-                                            <option>@item</option>
-                                        }
-                                    </select>
-                                </div>
+                                    @if (CategoriaRelatorioSelecionada == "custos")
+                                    {
+                                        <div class="reports-filter-grid reports-cost-filter-grid">
+                                            <div class="reports-filter-field"><label>Data inicial</label><input type="date" @bind="DataInicialFiltroRelatorio" /></div>
+                                            <div class="reports-filter-field"><label>Data final</label><input type="date" @bind="DataFinalFiltroRelatorio" /></div>
+                                            <div class="reports-filter-field"><label>Ambiente</label><select value="@AmbienteFiltroRelatorio" @onchange="AlterarAmbienteFiltroRelatorio"><option value="Hospital">Hospital</option><option value="Escolinha">Escolinha</option></select></div>
+                                            <div class="reports-filter-field">
+                                                <label>@(AmbienteFiltroRelatorio == "Escolinha" ? "Turma" : "Setor / escopo")</label><select @bind="EscopoFiltroRelatorio">
+                                                <option>Todos</option>@foreach (var item in EscoposRelatorioDisponiveis) {
+                                                <option value="@item">@item</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="reports-filter-field">
+                                        <label>Refeição</label><select @bind="RefeicaoFiltroRelatorio">
+                                        <option>Todas</option>@foreach (var item in (AmbienteFiltroRelatorio == "Escolinha" ? RefeicoesEscolinha : RefeicoesHospital)) {
+                                        <option value="@item">@item</option>
+                                    }
+                                </select>
+                            </div>
+                            @if (AmbienteFiltroRelatorio == "Hospital")
+                            {
                                 <div class="reports-filter-field">
                                     <label>Modalidade</label><select @bind="ModalidadeFiltroRelatorio">
                                     <option>Todas</option>@foreach (var item in ModalidadesCardapio) {
-                                    <option>@item</option>
+                                    <option value="@item">@item</option>
                                 }
                             </select>
                         </div>
-                        <div class="reports-filter-field">
-                            <label>Preparação</label><select @bind="PreparacaoFiltroRelatorio">
-                            <option>Todas</option>@foreach (var item in Fichas.Select(x => x.Nome).Distinct().OrderBy(x => x)) {
-                            <option>@item</option>
-                        }
-                    </select>
+                    }
+                    <div class="reports-filter-field">
+                        <label>Preparação</label><select @bind="PreparacaoFiltroRelatorio">
+                        <option>Todas</option>@foreach (var item in Fichas.Select(x => x.Nome).Distinct().OrderBy(x => x)) {
+                        <option value="@item">@item</option>
+                    }
+                </select>
+            </div>
+        </div>
+    }
+                                    else
+    {
+        <div class="reports-filter-grid">
+            <div class="reports-filter-field"><label>Data inicial</label><input type="date" @bind="DataInicialFiltroRelatorio" /></div>
+            <div class="reports-filter-field"><label>Data final</label><input type="date" @bind="DataFinalFiltroRelatorio" /></div>
+            <div class="reports-filter-field">
+                <label>Refeição</label><select @bind="RefeicaoFiltroRelatorio">
+                <option>Todas</option>@foreach (var item in RefeicoesPlanejamento) {
+                <option value="@item">@item</option>
+            }
+        </select>
+    </div>
+    <div class="reports-filter-field">
+        <label>Modalidade</label><select @bind="ModalidadeFiltroRelatorio">
+        <option>Todas</option>@foreach (var item in ModalidadesCardapio) {
+        <option value="@item">@item</option>
+    }
+</select>
+</div>
+<div class="reports-filter-field">
+    <label>Preparação</label><select @bind="PreparacaoFiltroRelatorio">
+    <option>Todas</option>@foreach (var item in Fichas.Select(x => x.Nome).Distinct().OrderBy(x => x)) {
+    <option value="@item">@item</option>
+}
+</select>
+</div>
+</div>
+        }
+<div class="reports-filter-actions"><button type="button" class="reports-action-btn reports-action-clear" @onclick="LimparFiltrosRelatorio">↺ Limpar filtros</button><button type="button" class="reports-action-btn reports-action-apply" @onclick="AplicarFiltrosRelatorio">✓ Atualizar relatório</button></div>
+        @if (FiltrosRelatorioAplicados)
+{
+    <div class="reports-filter-summary"><strong>Consulta aplicada:</strong> @ResumoFiltrosRelatorio</div>
+}
+</div>
+    @if (CategoriaRelatorioSelecionada == "custos")
+{
+    @if (CarregandoRelatorio)
+    {
+        <div class="reports-cost-state"><span class="reports-cost-spinner"></span><strong>Calculando custos do planejamento...</strong></div>
+    }
+    else if (!string.IsNullOrWhiteSpace(ErroRelatorio))
+    {
+        <div class="reports-cost-state reports-cost-error"><strong>Não foi possível gerar o relatório</strong><span>@ErroRelatorio</span></div>
+    }
+    else if (LinhasRelatorioCusto.Count == 0)
+    {
+        <div class="reports-cost-state"><strong>Nenhum planejamento encontrado</strong><span>Não há refeições planejadas para o ambiente e período selecionados. Confira os filtros ou cadastre o planejamento de cardápios.</span></div>
+    }
+    else
+    {
+        @if (RelatorioSelecionado == "Custo por refeição / paciente")
+        {
+            <div class="reports-v2-kpis reports-cost-kpis reports-cost-kpis-compact">
+                <article class="reports-v2-kpi">
+                    <span>DIAS CONSULTADOS</span>
+                    <strong>@DiasComPlanejamentoRelatorio</strong>
+                    <small>Dias com planejamento no período</small>
+                </article>
+                <article class="reports-v2-kpi">
+                    <span>REFEIÇÕES PLANEJADAS</span>
+                    <strong>@TotalRefeicoesPlanejadasRelatorio.ToString("N0", Cultura)</strong>
+                    <small>Quantidade usada como ponderação</small>
+                </article>
+                <article class="reports-v2-kpi">
+                    <span>MODALIDADES</span>
+                    <strong>@ModalidadesExibicaoRelatorio.Count</strong>
+                    <small>Modalidades encontradas na consulta</small>
+                </article>
+            </div>
+
+            <div class="reports-v2-table-card reports-cost-matrix-card">
+                <div class="reports-v2-card-heading">
+                    <div>
+                        <h3>Custo individual por dia, refeição e modalidade</h3>
+                        <p>Valor de uma porção/paciente. Os totais à direita somam o custo unitário das refeições para cada modalidade.</p>
+                    </div>
+                    <span class="reports-row-count">@DiasComPlanejamentoRelatorio dia(s)</span>
+                </div>
+                <div class="reports-table-wrap reports-cost-matrix-wrap">
+                    <table class="reports-table reports-v2-table reports-cost-table reports-cost-matrix">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">DATA</th>
+                                @foreach (var refeicao in RefeicoesExibicaoRelatorio)
+                                {
+                                    <th colspan="@ModalidadesExibicaoRelatorio.Count">@refeicao.ToUpperInvariant()</th>
+                                }
+                                <th colspan="@ModalidadesExibicaoRelatorio.Count">TOTAL UNITÁRIO DO DIA</th>
+                            </tr>
+                            <tr>
+                                @foreach (var refeicao in RefeicoesExibicaoRelatorio)
+                                {
+                                    @foreach (var modalidade in ModalidadesExibicaoRelatorio)
+                                    {
+                                        <th>@AbreviarModalidadeRelatorio(modalidade)</th>
+                                    }
+                                }
+                                @foreach (var modalidade in ModalidadesExibicaoRelatorio)
+                                {
+                                    <th>@AbreviarModalidadeRelatorio(modalidade)</th>
+                                }
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dia in LinhasRelatorioCusto.Select(x => x.Dia.Date).Distinct().OrderBy(x => x))
+                            {
+                                <tr>
+                                    <td><strong>@dia.ToString("dd/MM/yyyy")</strong></td>
+                                    @foreach (var refeicao in RefeicoesExibicaoRelatorio)
+                                    {
+                                        @foreach (var modalidade in ModalidadesExibicaoRelatorio)
+                                        {
+                                            var custo = CustoUnitarioDiaRelatorio(dia, refeicao, modalidade);
+                                            <td class="reports-cost-value-cell">@(custo.HasValue ? custo.Value.ToString("C2", Cultura) : "—")</td>
+                                        }
+                                    }
+                                    @foreach (var modalidade in ModalidadesExibicaoRelatorio)
+                                    {
+                                        var totalUnitario = TotalUnitarioDiaModalidadeRelatorio(dia, modalidade);
+                                        <td class="reports-cost-total-cell">@(totalUnitario.HasValue ? totalUnitario.Value.ToString("C2", Cultura) : "—")</td>
+                                    }
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>MÉDIA DO PERÍODO</strong></td>
+                                @foreach (var refeicao in RefeicoesExibicaoRelatorio)
+                                {
+                                    @foreach (var modalidade in ModalidadesExibicaoRelatorio)
+                                    {
+                                        var media = MediaCustoRefeicaoModalidadeRelatorio(refeicao, modalidade);
+                                        <td>@(media.HasValue ? media.Value.ToString("C2", Cultura) : "—")</td>
+                                    }
+                                }
+                                @foreach (var modalidade in ModalidadesExibicaoRelatorio)
+                                {
+                                    var mediaDiaria = MediaTotalUnitarioModalidadeRelatorio(modalidade);
+                                    <td><strong>@(mediaDiaria.HasValue ? mediaDiaria.Value.ToString("C2", Cultura) : "—")</strong></td>
+                                }
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="reports-cost-matrix-note">
+                    <strong>Como ler:</strong> cada valor representa o custo unitário de uma refeição para aquela modalidade. A média do período é ponderada pela quantidade planejada. O total unitário diário soma as refeições da mesma modalidade, sem somar modalidades diferentes entre si.
                 </div>
             </div>
-            <div class="reports-filter-actions"><button type="button" class="reports-action-btn reports-action-clear" @onclick="LimparFiltrosRelatorio">↺ Limpar filtros</button><button type="button" class="reports-action-btn reports-action-apply" @onclick="AplicarFiltrosRelatorio">✓ Atualizar relatório</button></div>
-            @if (FiltrosRelatorioAplicados)
-            {
-                <div class="reports-filter-summary"><strong>Consulta aplicada:</strong> @ResumoFiltrosRelatorio</div>
-            }
-        </div>
-        <div class="reports-v2-kpis">
-            @foreach (var kpi in IndicadoresDemoRelatorio)
-            {
-                <article class="reports-v2-kpi"><span>@kpi.Label</span><strong>@kpi.Value</strong><small>@kpi.Note</small></article>
-            }
-        </div>
-        <div class="reports-v2-chart-card">
-            <div class="reports-v2-card-heading"><div><h3>@TituloGraficoRelatorio</h3><p>Visualização consolidada dos dados do período</p></div><span class="reports-chart-legend"><i></i> Resultado</span></div>
-            <div class="reports-v2-bars">
-                @foreach (var barra in DadosGraficoRelatorio)
+        }
+        else if (RelatorioSelecionado == "Custo total diário do planejamento")
+        {
+            <div class="reports-v2-kpis reports-cost-kpis">
+                <article class="reports-v2-kpi">
+                    <span>REFEIÇÕES PLANEJADAS</span>
+                    <strong>@TotalRefeicoesPlanejadasRelatorio.ToString("N0", Cultura)</strong>
+                    <small>Quantidade total no período</small>
+                </article>
+                <article class="reports-v2-kpi">
+                    <span>CUSTO FINANCEIRO TOTAL</span>
+                    <strong>@CustoTotalPlanejadoRelatorio.ToString("C2", Cultura)</strong>
+                    <small>Custo unitário × quantidade planejada</small>
+                </article>
+                <article class="reports-v2-kpi">
+                    <span>CUSTO MÉDIO POR REFEIÇÃO</span>
+                    <strong>@CustoMedioPorRefeicaoRelatorio.ToString("C2", Cultura)</strong>
+                    <small>Média ponderada por quantidade</small>
+                </article>
+                <article class="reports-v2-kpi">
+                    <span>DIAS COM PLANEJAMENTO</span>
+                    <strong>@DiasComPlanejamentoRelatorio</strong>
+                    <small>Dias encontrados no período</small>
+                </article>
+            </div>
+
+            <div class="reports-cost-days">
+                @foreach (var dia in LinhasRelatorioCusto.GroupBy(x => x.Dia.Date).OrderBy(g => g.Key))
                 {
-                    <div class="reports-v2-bar-row"><span>@barra.Label</span><div class="reports-v2-track"><i style="width:@(barra.Percent)%"></i></div><strong>@barra.Value</strong></div>
+                    var totalDia = dia.Sum(x => x.CustoTotal);
+                    var quantidadeDia = dia.Sum(x => x.QuantidadePlanejada);
+                    <section class="reports-v2-table-card reports-cost-day-card">
+                        <div class="reports-v2-card-heading">
+                            <div>
+                                <h3>@dia.Key.ToString("dddd, dd 'de' MMMM 'de' yyyy", Cultura)</h3>
+                                <p>@quantidadeDia.ToString("N0", Cultura) refeições planejadas</p>
+                            </div>
+                            <strong class="reports-cost-day-total">@totalDia.ToString("C2", Cultura)</strong>
+                        </div>
+                        <div class="reports-table-wrap">
+                            <table class="reports-table reports-v2-table reports-cost-table">
+                                <thead>
+                                    <tr>
+                                        <th>AMBIENTE / TURMA / SETOR</th>
+                                        <th>REFEIÇÃO</th>
+                                        @if (AmbienteFiltroRelatorio == "Hospital")
+                                        {
+                                            <th>MODALIDADE</th>
+                                        }
+                                        <th>QTD. PLANEJADA</th>
+                                        <th>CUSTO UNITÁRIO</th>
+                                        <th>CUSTO TOTAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var linha in dia.OrderBy(x => x.Refeicao).ThenBy(x => x.Local).ThenBy(x => x.Modalidade))
+                                    {
+                                        <tr>
+                                            <td><strong>@linha.Local</strong></td>
+                                            <td>@linha.Refeicao</td>
+                                            @if (AmbienteFiltroRelatorio == "Hospital")
+                                            {
+                                                <td>@linha.Modalidade</td>
+                                            }
+                                            <td>@linha.QuantidadePlanejada.ToString("N0", Cultura)</td>
+                                            <td>@linha.CustoUnitario.ToString("C2", Cultura)</td>
+                                            <td><strong>@linha.CustoTotal.ToString("C2", Cultura)</strong></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="@(AmbienteFiltroRelatorio == "Hospital" ? 3 : 2)"><strong>Total financeiro do dia</strong></td>
+                                        <td><strong>@quantidadeDia.ToString("N0", Cultura)</strong></td>
+                                        <td>—</td>
+                                        <td><strong>@totalDia.ToString("C2", Cultura)</strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </section>
                 }
             </div>
-        </div>
-        <div class="reports-v2-table-card">
-            <div class="reports-v2-card-heading"><div><h3>Detalhamento</h3><p>Registros que compõem os indicadores apresentados</p></div><span class="reports-row-count">@LinhasExemploRelatorio.Count() itens</span></div>
-            <div class="reports-table-wrap">
-                <table class="reports-table reports-v2-table">
-                    <thead><tr><th>ITEM / INDICADOR</th><th>RESULTADO</th><th>OBSERVAÇÃO</th></tr></thead>
-                    <tbody>
-                        @foreach (var linha in LinhasExemploRelatorio)
-                        {
-                            <tr><td><strong>@linha.Item</strong></td><td>@linha.Resultado</td><td>@linha.Observacao</td></tr>
-                        }
-                    </tbody>
-                </table>
+
+            <div class="reports-v2-table-card reports-cost-period-total">
+                <div class="reports-v2-card-heading">
+                    <div>
+                        <h3>Fechamento financeiro do período</h3>
+                        <p>Soma dos custos unitários multiplicados pelas quantidades planejadas.</p>
+                    </div>
+                    <strong class="reports-cost-day-total">@CustoTotalPlanejadoRelatorio.ToString("C2", Cultura)</strong>
+                </div>
+                <div class="reports-table-wrap">
+                    <table class="reports-table reports-v2-table reports-cost-table">
+                        <thead>
+                            <tr><th>DATA</th><th>QUANTIDADE PLANEJADA</th><th>CUSTO TOTAL DO DIA</th></tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dia in LinhasRelatorioCusto.GroupBy(x => x.Dia.Date).OrderBy(g => g.Key))
+                            {
+                                <tr>
+                                    <td><strong>@dia.Key.ToString("dd/MM/yyyy")</strong></td>
+                                    <td>@dia.Sum(x => x.QuantidadePlanejada).ToString("N0", Cultura)</td>
+                                    <td><strong>@dia.Sum(x => x.CustoTotal).ToString("C2", Cultura)</strong></td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td><strong>TOTAL DO PERÍODO</strong></td>
+                                <td><strong>@TotalRefeicoesPlanejadasRelatorio.ToString("N0", Cultura)</strong></td>
+                                <td><strong>@CustoTotalPlanejadoRelatorio.ToString("C2", Cultura)</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
-        </div>
-        <div class="reports-v2-disclaimer"><span>i</span><p><strong>Ambiente de demonstração.</strong> Os dados exibidos são ilustrativos e servem para apresentar os recursos e a organização dos relatórios. Na utilização operacional, os indicadores serão alimentados pelos registros do SND Produção.</p></div>
+        }
+    }
+}
+else
+{
+    <div class="reports-v2-kpis">
+        @foreach (var kpi in IndicadoresDemoRelatorio)
+        {
+            <article class="reports-v2-kpi"><span>@kpi.Label</span><strong>@kpi.Value</strong><small>@kpi.Note</small></article>
+        }
     </div>
-    <footer class="reports-modal-footer">
-        <button type="button" class="reports-inline-secondary" @onclick="FecharVisualizacaoRelatorio">Fechar relatório</button>
-        <button type="button" class="reports-inline-primary" @onclick="ImprimirRelatorioCustoDiario">▣ Imprimir / Salvar PDF</button>
-    </footer>
+    <div class="reports-v2-chart-card">
+        <div class="reports-v2-card-heading"><div><h3>@TituloGraficoRelatorio</h3><p>Visualização consolidada dos dados do período</p></div><span class="reports-chart-legend"><i></i> Resultado</span></div>
+        <div class="reports-v2-bars">
+            @foreach (var barra in DadosGraficoRelatorio)
+            {
+                <div class="reports-v2-bar-row"><span>@barra.Label</span><div class="reports-v2-track"><i style="width:@(barra.Percent)%"></i></div><strong>@barra.Value</strong></div>
+            }
+        </div>
+    </div>
+    <div class="reports-v2-table-card">
+        <div class="reports-v2-card-heading"><div><h3>Detalhamento</h3><p>Registros que compõem os indicadores apresentados</p></div><span class="reports-row-count">@LinhasExemploRelatorio.Count() itens</span></div>
+        <div class="reports-table-wrap">
+            <table class="reports-table reports-v2-table">
+                <thead><tr><th>ITEM / INDICADOR</th><th>RESULTADO</th><th>OBSERVAÇÃO</th></tr></thead>
+                <tbody>
+                    @foreach (var linha in LinhasExemploRelatorio)
+                    {
+                        <tr><td><strong>@linha.Item</strong></td><td>@linha.Resultado</td><td>@linha.Observacao</td></tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+@if (CategoriaRelatorioSelecionada == "custos")
+{
+    <div class="reports-v2-disclaimer reports-cost-disclaimer"><span>i</span><p><strong>Critério de cálculo:</strong> o custo unitário por refeição é calculado pela soma do custo por porção das preparações vinculadas às fichas técnicas. A média do período é ponderada pelas quantidades planejadas. No relatório financeiro, o custo unitário é multiplicado pela quantidade prevista no planejamento. Ingredientes marcados como doados não entram no custo efetivo. Os preços utilizados são os valores registrados nas fichas técnicas no momento da consulta; o planejamento ainda não guarda um histórico congelado de preços.</p></div>
+}
+else
+{
+    <div class="reports-v2-disclaimer"><span>i</span><p><strong>Ambiente de demonstração.</strong> Os dados exibidos são ilustrativos e servem para apresentar os recursos e a organização dos relatórios. Na utilização operacional, os indicadores serão alimentados pelos registros do SND Produção.</p></div>
+}
+</div>
+<footer class="reports-modal-footer">
+    <button type="button" class="reports-inline-secondary" @onclick="FecharVisualizacaoRelatorio">Fechar relatório</button>
+    <button type="button" class="reports-inline-primary" @onclick="ImprimirRelatorioCustoDiario">▣ Imprimir / Salvar PDF</button>
+</footer>
 </section>
 </div>
 }
@@ -6173,7 +7425,6 @@
         <header class="stock-topbar">
             <div class="stock-heading-content">
                 <div class="stock-heading-row">
-                    <img class="stock-heading-icon" src="images/icons/ico_estoque.png" alt="" />
                     <div class="stock-heading-copy">
                         <h1>Estoque Interno</h1>
                         <p>@Descricao</p>
@@ -6189,7 +7440,7 @@
                     <article class="stock-category-card">
                         <div class="stock-category-main">
 
-                            <span class="stock-category-icon"><img src="images/icons/ico_alimentos.png" alt="" /></span>
+                            <span class="stock-category-icon"><img src="images/icons/ico_estoque_produtos.png" alt="" /></span>
 
                             <div class="stock-category-copy">
 
@@ -6207,7 +7458,7 @@
                     <article class="stock-category-card">
                         <div class="stock-category-main">
 
-                            <span class="stock-category-icon"><img src="images/icons/ico_recebimentos.png" alt="" /></span>
+                            <span class="stock-category-icon"><img src="images/icons/ico_estoque_recebimentos.png" alt="" /></span>
 
                             <div class="stock-category-copy">
 
@@ -6225,7 +7476,7 @@
                     <article class="stock-category-card">
                         <div class="stock-category-main">
 
-                            <span class="stock-category-icon"><img src="images/icons/ico_movimentacoes.png" alt="" /></span>
+                            <span class="stock-category-icon"><img src="images/icons/ico_estoque_movimentacoes.png" alt="" /></span>
 
                             <div class="stock-category-copy">
 
@@ -6243,7 +7494,7 @@
                     <article class="stock-category-card">
                         <div class="stock-category-main">
 
-                            <span class="stock-category-icon"><img src="images/icons/ico_inventario.png" alt="" /></span>
+                            <span class="stock-category-icon"><img src="images/icons/ico_estoque_inventario.png" alt="" /></span>
 
                             <div class="stock-category-copy">
 
@@ -6262,7 +7513,7 @@
                     <article class="stock-category-card">
                         <div class="stock-category-main">
 
-                            <span class="stock-category-icon"><img src="images/icons/ico_perdas_descartes.png" alt="" /></span>
+                            <span class="stock-category-icon"><img src="images/icons/ico_estoque_perdas.png" alt="" /></span>
 
                             <div class="stock-category-copy">
 
@@ -6280,7 +7531,7 @@
                     <article class="stock-category-card">
                         <div class="stock-category-main">
 
-                            <span class="stock-category-icon"><img src="images/icons/ico_configuracoes.png" alt="" /></span>
+                            <span class="stock-category-icon"><img src="images/icons/ico_estoque_configuracoes.png" alt="" /></span>
 
                             <div class="stock-category-copy">
 
@@ -6302,7 +7553,7 @@
                     <div class="stock-expiry-heading">
                         <div class="stock-expiry-heading-main">
                             <span class="stock-expiry-heading-icon" aria-hidden="true">
-                                <img src="images/icons/ico_estoque.png" alt="" />
+                                <img src="images/icons/ico_estoque_inventario.png" alt="" />
                             </span>
                             <div>
                                 <h2>Alertas de validade</h2>
@@ -6348,7 +7599,7 @@
                     else
                     {
                         <div class="stock-expiry-empty">
-                            <span class="stock-expiry-empty-icon" aria-hidden="true"><img src="images/icons/ico_estoque.png" alt="" /></span>
+                            <span class="stock-expiry-empty-icon" aria-hidden="true"><img src="images/icons/ico_estoque_inventario.png" alt="" /></span>
                             <div>
                                 <strong>Nenhum lote próximo do vencimento.</strong>
                                 <span>Os lotes dentro do prazo de alerta aparecerão aqui automaticamente.</span>
@@ -6366,7 +7617,7 @@
                             <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharSecaoEstoque">×</button>
                         </header>
                         <div class="stock-modal-hero">
-                            <img src="images/icons/ico_alimentos.png" alt="" />
+                            <img src="images/icons/ico_estoque_produtos.png" alt="" />
                             <div class="stock-modal-hero-copy"><span>ESTOQUE INTERNO</span><h2>Produtos em estoque</h2><p>Consulte os alimentos vinculados ao Cadastro de Alimentos da Produção.</p></div>
                         </div>
 
@@ -6413,7 +7664,7 @@
                             <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharSecaoEstoque">×</button>
                         </header>
                         <div class="stock-modal-hero">
-                            <img src="images/icons/ico_recebimentos.png" alt="" />
+                            <img src="images/icons/ico_estoque_recebimentos.png" alt="" />
                             <div class="stock-modal-hero-copy"><span>ESTOQUE INTERNO</span><h2>Histórico de recebimentos</h2><p>Acompanhe entregas conferidas, quantidades aceitas e recusadas.</p></div>
                         </div>
 
@@ -6456,7 +7707,7 @@
                         <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharSecaoEstoque">×</button>
                     </header>
                     <div class="stock-modal-hero">
-                        <img src="images/icons/ico_movimentacoes.png" alt="" />
+                        <img src="images/icons/ico_estoque_movimentacoes.png" alt="" />
                         <div class="stock-modal-hero-copy"><span>ESTOQUE INTERNO</span><h2>Histórico de movimentações</h2><p>Consulte entradas, consumo, devoluções, perdas e ajustes do estoque.</p></div>
                     </div>
 
@@ -6495,7 +7746,7 @@
                     <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharSecaoEstoque">×</button>
                 </header>
                 <div class="stock-modal-hero">
-                    <img src="images/icons/ico_inventario.png" alt="" />
+                    <img src="images/icons/ico_estoque_inventario.png" alt="" />
                     <div class="stock-modal-hero-copy"><span>ESTOQUE INTERNO</span><h2>Inventário físico</h2><p>Confira os saldos do sistema, registre contagens e trate divergências.</p></div>
                 </div>
 
@@ -6560,7 +7811,7 @@
                     <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharSecaoEstoque">×</button>
                 </header>
                 <div class="stock-modal-hero">
-                    <img src="images/icons/ico_perdas_descartes.png" alt="" />
+                    <img src="images/icons/ico_estoque_perdas.png" alt="" />
                     <div class="stock-modal-hero-copy"><span>ESTOQUE INTERNO</span><h2>Histórico de perdas e descartes</h2><p>Consulte as baixas registradas por produto, lote, quantidade e motivo.</p></div>
                 </div>
 
@@ -6602,7 +7853,7 @@ else if (secao == "configuracoes")
                 <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharSecaoEstoque">×</button>
             </header>
             <div class="stock-modal-hero">
-                <img src="images/icons/ico_configuracoes.png" alt="" />
+                <img src="images/icons/ico_estoque_configuracoes.png" alt="" />
                 <div class="stock-modal-hero-copy"><span>ESTOQUE INTERNO</span><h2>Parâmetros do estoque</h2><p>Ajuste antecedência de requisições e alertas de validade dos lotes.</p></div>
             </div>
 
@@ -6638,13 +7889,22 @@ else if (secao == "configuracoes")
                 <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharModalRecebimento">×</button>
             </header>
             <div class="stock-modal-hero">
-                <img src="images/icons/ico_recebimentos.png" alt="" />
+                <img src="images/icons/ico_estoque_recebimentos.png" alt="" />
                 <div class="stock-modal-hero-copy"><span>CONFERÊNCIA DE ENTREGA</span><h2>Novo recebimento</h2><p>Registre o documento, confira os itens e informe as quantidades aceitas e recusadas.</p></div>
             </div>
             <div class="stock-dialog-body">
                 <div class="stock-form-grid">
                     <label>Documento do almoxarifado *<input required @bind="FormRecebimento.Documento" placeholder="Nº da requisição/documento" /></label>
-                    <label>Responsável pela conferência *<input required @bind="FormRecebimento.Responsavel" /></label>
+                    <label>
+                        Responsável pela conferência *
+                        <select required @bind="FormRecebimento.Responsavel">
+                            <option value="">Selecione o responsável</option>
+                            @foreach (var responsavel in ResponsaveisRecebimento.OrderBy(x => x))
+                            {
+                                <option value="@responsavel">@responsavel</option>
+                            }
+                        </select>
+                    </label>
                     <label>
                         Produto *
                         <select required @bind="FormRecebimento.ProdutoId">
@@ -6683,7 +7943,7 @@ else if (secao == "configuracoes")
                 <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="() => ModalExtratoItem = false">×</button>
             </header>
             <div class="stock-modal-hero">
-                <img src="images/icons/ico_movimentacoes.png" alt="" />
+                <img src="images/icons/ico_estoque_movimentacoes.png" alt="" />
                 <div class="stock-modal-hero-copy"><span>ESTOQUE INTERNO</span><h2>Extrato do item</h2><p>Selecione um alimento para consultar todo o histórico de movimentações do estoque.</p></div>
             </div>
             <div class="stock-dialog-body">
@@ -6775,7 +8035,7 @@ else if (secao == "configuracoes")
                 <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharModalPerda">×</button>
             </header>
             <div class="stock-modal-hero">
-                <img src="images/icons/ico_perdas_descartes.png" alt="" />
+                <img src="images/icons/ico_estoque_perdas.png" alt="" />
                 <div class="stock-modal-hero-copy"><span>BAIXA DE ESTOQUE</span><h2>Registrar perda ou descarte</h2><p>Identifique o lote, informe a quantidade e registre o motivo da baixa.</p></div>
             </div>
             <div class="stock-dialog-body">
@@ -6815,65 +8075,32 @@ else if (secao == "configuracoes")
             else if (secaoSelecionada == "configuracoes")
 {
     <section class="settings-page">
-        <div class="settings-heading">
-            <div><h1>Configurações</h1><p>Gerencie os cadastros utilizados no planejamento e nas fichas técnicas do SND Produção.</p></div>
+        <div class="settings-heading settings-heading-modern">
+            <div><h1>Configurações</h1><p>Gerencie os cadastros e parâmetros utilizados nos módulos do SND Produção.</p></div>
         </div>
-        <div class="settings-intro"><span class="settings-intro-icon">⚙</span><div><strong>Cadastros gerais do módulo</strong><p>As opções cadastradas aqui ficam disponíveis nas telas correspondentes. Não inclui parâmetros técnicos nem gerenciamento de usuários.</p></div></div>
-        <div class="settings-grid">
-            <section class="settings-card">
-                <header><span class="settings-icon">◷</span><div><h2>Refeições</h2><p>Etapas de alimentação exibidas no planejamento de cardápios.</p></div><b>@RefeicoesPlanejamento.Count</b></header>
-                <div class="settings-add"><input @bind="NovaRefeicaoConfig" @bind:event="oninput" placeholder="Ex.: Lanche noturno" /><button @onclick="AdicionarRefeicaoConfig">＋ Adicionar</button></div>
-                <div class="settings-list">
-                    @foreach (var item in RefeicoesPlanejamento)
-                    {
-                        <div><span>@item</span><button title="Remover @item" disabled="@(RefeicoesPlanejamento.Count <= 1)" @onclick="() => RemoverRefeicaoConfig(item)">×</button></div>
-                    }
-                </div>
-            </section>
-            <section class="settings-card">
-                <header><span class="settings-icon">◉</span><div><h2>Modalidades</h2><p>Tipos de cardápio disponíveis para organização da produção.</p></div><b>@ModalidadesCardapio.Count</b></header>
-                <div class="settings-add"><input @bind="NovaModalidadeConfig" @bind:event="oninput" placeholder="Ex.: Dieta branda" /><button @onclick="AdicionarModalidadeConfig">＋ Adicionar</button></div>
-                <div class="settings-list">
-                    @foreach (var item in ModalidadesCardapio)
-                    {
-                        <div><span>@item</span><button title="Remover @item" disabled="@(ModalidadesCardapio.Count <= 1)" @onclick="() => RemoverModalidadeConfig(item)">×</button></div>
-                    }
-                </div>
-            </section>
-            <section class="settings-card">
-                <header><span class="settings-icon">♧</span><div><h2>Turmas da escolinha</h2><p>Cadastre turmas, faixas etárias e quantidade de crianças.</p></div><b>@TurmasEscolinha.Count(t => t.Ativa)</b></header>
-                <div class="settings-add settings-turma-add"><input @bind="NovaTurmaNome" placeholder="Nome da turma" /><input @bind="NovaTurmaFaixa" placeholder="Faixa etária" /><input type="number" min="0" @bind="NovaTurmaQuantidade" placeholder="Nº crianças" /><button @onclick="AdicionarTurmaEscolinha">＋ Adicionar</button></div>
-                <div class="settings-list">
-                    @foreach (var turma in TurmasEscolinha)
-                    {
-                        <div><span><strong>@turma.Nome</strong> · @turma.FaixaEtaria · @turma.QuantidadeCriancas crianças @(turma.Ativa ? "" : "· Inativa")</span><button @onclick="() => AlternarTurmaEscolinha(turma)">@(turma.Ativa ? "Desativar" : "Ativar")</button></div>
-                    }
-                </div>
-            </section>
-            <section class="settings-card">
-                <header><span class="settings-icon">▤</span><div><h2>Tipos de preparação</h2><p>Categorias utilizadas no cadastro de fichas técnicas.</p></div><b>@CategoriasPreparacao.Count</b></header>
-                <div class="settings-add"><input @bind="NovaCategoriaConfig" @bind:event="oninput" placeholder="Ex.: Caldo" /><button @onclick="AdicionarCategoriaConfig">＋ Adicionar</button></div>
-                <div class="settings-list">
-                    @foreach (var item in CategoriasPreparacao)
-                    {
-                        <div><span>@item</span><button title="Remover @item" disabled="@(CategoriasPreparacao.Count <= 1)" @onclick="() => RemoverCategoriaConfig(item)">×</button></div>
-                    }
-                </div>
-            </section>
-            <section class="settings-card">
-                <header><span class="settings-icon">⚖</span><div><h2>Unidades de medida</h2><p>Unidades padronizadas utilizadas no cadastro de alimentos.</p></div><b>@UnidadesMedida.Count</b></header>
-                <div class="settings-add"><input @bind="NovaUnidadeConfig" @bind:event="oninput" placeholder="kg, g, L, ml ou un" /><button @onclick="AdicionarUnidadeConfig">＋ Adicionar</button></div>
-                <div class="settings-list">
-                    @foreach (var item in UnidadesMedida)
-                    {
-                        <div><span>@item</span><button title="Remover @item" disabled="@(UnidadesMedida.Count <= 1)" @onclick="() => RemoverUnidadeConfig(item)">×</button></div>
-                    }
-                </div>
-            </section>
+        <div class="settings-grid settings-grid-modern">
+            <button type="button" class="settings-card settings-card-button" @onclick='() => AbrirModalConfiguracao("refeicoes")'>
+                <span class="settings-card-icon"><img src="images/icons/ico_refeicoes_3d.png" alt="" /></span><span class="settings-card-copy"><strong>Refeições</strong><small>Cadastros independentes para Hospital e Escolinha.</small></span><b>@(RefeicoesHospital.Count + RefeicoesEscolinha.Count)</b><span class="settings-card-action">Configurar →</span>
+            </button>
+            <button type="button" class="settings-card settings-card-button" @onclick='() => AbrirModalConfiguracao("modalidades")'>
+                <span class="settings-card-icon"><img src="images/icons/ico_modalidades_3d.png" alt="" /></span><span class="settings-card-copy"><strong>Modalidades</strong><small>Tipos de cardápio disponíveis para o hospital.</small></span><b>@ModalidadesCardapio.Count</b><span class="settings-card-action">Configurar →</span>
+            </button>
+            <button type="button" class="settings-card settings-card-button" @onclick='() => AbrirModalConfiguracao("responsaveis")'>
+                <span class="settings-card-icon"><img src="images/icons/ico_responsaveis_recebimento_3d.png" alt="" /></span><span class="settings-card-copy"><strong>Responsáveis pelo recebimento</strong><small>Nomes disponíveis na seleção do formulário de recebimento.</small></span><b>@ResponsaveisRecebimento.Count</b><span class="settings-card-action">Configurar →</span>
+            </button>
+            <button type="button" class="settings-card settings-card-button" @onclick='() => AbrirModalConfiguracao("turmas")'>
+                <span class="settings-card-icon"><img src="images/icons/ico_turmas_escolinha_3d.png" alt="" /></span><span class="settings-card-copy"><strong>Turmas da Escolinha</strong><small>Turmas, faixas etárias e quantidade de crianças.</small></span><b>@TurmasEscolinha.Count(t => t.Ativa)</b><span class="settings-card-action">Configurar →</span>
+            </button>
+            <button type="button" class="settings-card settings-card-button" @onclick='() => AbrirModalConfiguracao("categorias")'>
+                <span class="settings-card-icon"><img src="images/icons/ico_tipos_preparacao_3d.png" alt="" /></span><span class="settings-card-copy"><strong>Tipos de preparação</strong><small>Categorias utilizadas nas fichas técnicas.</small></span><b>@CategoriasPreparacao.Count</b><span class="settings-card-action">Configurar →</span>
+            </button>
+            <button type="button" class="settings-card settings-card-button" @onclick='() => AbrirModalConfiguracao("unidades")'>
+                <span class="settings-card-icon"><img src="images/icons/ico_unidades_medida_3d.png" alt="" /></span><span class="settings-card-copy"><strong>Unidades de medida</strong><small>Unidades padronizadas no cadastro de alimentos.</small></span><b>@UnidadesMedida.Count</b><span class="settings-card-action">Configurar →</span>
+            </button>
         </div>
-        <div class="settings-footnote">As alterações desta versão permanecem em memória durante a utilização. A persistência em banco de dados será conectada na etapa de integração.</div>
     </section>
 }
+
 else
 {
     <section class="prod-placeholder-page">
@@ -6889,6 +8116,96 @@ else
 
 
 </div>
+
+@if (ModalConfiguracaoAberto)
+{
+    <div class="settings-modal-backdrop" @onclick="FecharModalConfiguracao">
+        <section class="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle" @onclick:stopPropagation="true">
+            <header class="stock-dialog-brandbar settings-modal-brandbar">
+                <div class="stock-dialog-brand">
+                    <span class="stock-dialog-brand-mark">SND</span>
+                    <span>Produção <b>·</b> Configurações</span>
+                </div>
+                <button type="button" class="stock-dialog-close" aria-label="Fechar" @onclick="FecharModalConfiguracao">×</button>
+            </header>
+            <div class="settings-modal-heading">
+                <h2 id="settingsModalTitle">@TituloModalConfiguracao</h2>
+                <p>@DescricaoModalConfiguracao</p>
+            </div>
+            <div class="settings-modal-body">
+                @if (ModalConfiguracaoTipo == "refeicoes")
+                {
+                    <div class="settings-environment-tabs">
+                        <button type="button" class="@(AmbienteConfiguracaoRefeicoes == "Hospital" ? "active" : "")" @onclick='() => AmbienteConfiguracaoRefeicoes = "Hospital"'>Hospital</button>
+                        <button type="button" class="@(AmbienteConfiguracaoRefeicoes == "Escolinha" ? "active" : "")" @onclick='() => AmbienteConfiguracaoRefeicoes = "Escolinha"'>Escolinha</button>
+                    </div>
+                    <div class="settings-modal-add"><input @bind="NovaRefeicaoConfig" @bind:event="oninput" placeholder="Ex.: Lanche noturno" /><button type="button" @onclick="AdicionarRefeicaoConfig">＋ Adicionar refeição</button></div>
+                    <div class="settings-modal-list">
+                        @foreach (var item in RefeicoesConfiguracaoAtivas)
+                        {
+                            <div><span>@item</span><button type="button" title="Remover @item" disabled="@(RefeicoesConfiguracaoAtivas.Count <= 1)" @onclick="() => RemoverRefeicaoConfig(item)">×</button></div>
+                        }
+                    </div>
+                }
+                else if (ModalConfiguracaoTipo == "modalidades")
+                {
+                    <div class="settings-modal-add"><input @bind="NovaModalidadeConfig" @bind:event="oninput" placeholder="Ex.: Dieta branda" /><button type="button" @onclick="AdicionarModalidadeConfig">＋ Adicionar</button></div>
+                    <div class="settings-modal-list">
+                        @foreach (var item in ModalidadesCardapio)
+                        {
+                            <div><span>@item</span><button type="button" disabled="@(ModalidadesCardapio.Count <= 1)" @onclick="() => RemoverModalidadeConfig(item)">×</button></div>
+                        }
+                    </div>
+                }
+                else if (ModalConfiguracaoTipo == "responsaveis")
+                {
+                    <div class="settings-modal-add"><input @bind="NovoResponsavelRecebimento" @bind:event="oninput" placeholder="Nome completo do responsável" /><button type="button" @onclick="AdicionarResponsavelRecebimento">＋ Adicionar nome</button></div>
+                    <div class="settings-modal-list">
+                        @foreach (var nome in ResponsaveisRecebimento.OrderBy(x => x))
+                        {
+                            <div><span>@nome</span><button type="button" title="Remover @nome" @onclick="() => RemoverResponsavelRecebimento(nome)">×</button></div>
+                        }
+                    </div>
+                    @if (ResponsaveisRecebimento.Count == 0)
+                    {
+                        <p class="settings-modal-empty">Nenhum responsável cadastrado. Adicione os nomes que deverão aparecer no formulário de recebimento.</p>
+                    }
+                }
+                else if (ModalConfiguracaoTipo == "turmas")
+                {
+                    <div class="settings-modal-add settings-modal-add-turma"><input @bind="NovaTurmaNome" @bind:event="oninput" placeholder="Nome da turma" /><input @bind="NovaTurmaFaixa" @bind:event="oninput" placeholder="Faixa etária" /><button type="button" @onclick="AdicionarTurmaEscolinha">＋ Adicionar</button></div>
+                    <div class="settings-modal-list">
+                        @foreach (var turma in TurmasEscolinha)
+                        {
+                            <div @key="turma"><span><strong>@turma.Nome</strong> · @turma.FaixaEtaria</span><button type="button" class="settings-modal-remove" title="Remover turma @turma.Nome" aria-label="Remover turma @turma.Nome" @onclick="() => RemoverTurmaEscolinha(turma)">×</button></div>
+                        }
+                    </div>
+                }
+                else if (ModalConfiguracaoTipo == "categorias")
+                {
+                    <div class="settings-modal-add"><input @bind="NovaCategoriaConfig" @bind:event="oninput" placeholder="Ex.: Caldo" /><button type="button" @onclick="AdicionarCategoriaConfig">＋ Adicionar</button></div>
+                    <div class="settings-modal-list">
+                        @foreach (var item in CategoriasPreparacao)
+                        {
+                            <div><span>@item</span><button type="button" disabled="@(CategoriasPreparacao.Count <= 1)" @onclick="() => RemoverCategoriaConfig(item)">×</button></div>
+                        }
+                    </div>
+                }
+                else if (ModalConfiguracaoTipo == "unidades")
+                {
+                    <div class="settings-modal-add"><input @bind="NovaUnidadeConfig" @bind:event="oninput" placeholder="kg, g, L, ml ou un" /><button type="button" @onclick="AdicionarUnidadeConfig">＋ Adicionar</button></div>
+                    <div class="settings-modal-list">
+                        @foreach (var item in UnidadesMedida)
+                        {
+                            <div><span>@NomeUnidade(item)</span><button type="button" disabled="@(UnidadesMedida.Count <= 1)" @onclick="() => RemoverUnidadeConfig(item)">×</button></div>
+                        }
+                    </div>
+                }
+            </div>
+            <footer class="settings-modal-footer"><span>As alterações são aplicadas nesta sessão.</span><button type="button" @onclick="FecharModalConfiguracao">Concluir</button></footer>
+        </section>
+    </div>
+}
 
 <footer class="prod-footer">
     <strong>SND HOSPITALAR</strong>
@@ -7044,7 +8361,7 @@ else
             </header>
 
             <div class="food-modal-intro">
-                <img src="images/icons/ico_alimentos.png"
+                <img src="images/icons/ico_estoque_produtos.png"
                      class="food-modal-3d-icon"
                      alt="" />
                 <div class="food-modal-heading">
@@ -8123,10 +9440,10 @@ else
 
 
     /* =========================================================
-                               AJUSTE ESTÁVEL — PLANEJAMENTO DE CARDÁPIOS
-                               Cabeçalho 3D proporcional e recuperação da legibilidade.
-                               Escopo restrito ao Planejamento para não afetar outras abas.
-                               ========================================================= */
+                                                                       AJUSTE ESTÁVEL — PLANEJAMENTO DE CARDÁPIOS
+                                                                       Cabeçalho 3D proporcional e recuperação da legibilidade.
+                                                                       Escopo restrito ao Planejamento para não afetar outras abas.
+                                                                       ========================================================= */
     .prod-app .menu-planner-page {
         width: 100% !important;
         max-width: 1680px !important;
@@ -8918,7 +10235,7 @@ else
     }
 
     /* IMPRESSAO DO CARDAPIO: ocultar toda a barra de navegacao e configuracao.
-       O documento impresso inicia diretamente no cabecalho institucional. */
+                                               O documento impresso inicia diretamente no cabecalho institucional. */
     @@media print {
         html body .prod-app .menu-planner-page > .menu-planner-heading,
         html body .prod-app .menu-planner-page > .menu-planner-actions,
@@ -8949,7 +10266,6 @@ else
         html body .prod-app .menu-planner-page .menu-week-grid {
             margin-top: 0 !important;
         }
-
         /* Ocupa a folha desde o topo e aproveita toda a largura imprimivel. */
         @@page {
             size: A4 landscape;
@@ -8966,67 +10282,640 @@ else
             background: #fff !important;
         }
 
-        html body .prod-app,
-        html body .prod-app .prod-main,
-        html body .prod-app .prod-content,
-        html body .prod-app .menu-planner-page {
-            display: block !important;
-            width: 100% !important;
+            html body .prod-app,
+            html body .prod-app .prod-main,
+            html body .prod-app .prod-content,
+            html body .prod-app .menu-planner-page {
+                display: block !important;
+                width: 100% !important;
+                max-width: none !important;
+                height: auto !important;
+                min-height: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: visible !important;
+                transform: none !important;
+                background: #fff !important;
+            }
+
+                html body .prod-app .menu-planner-page .menu-print-header {
+                    margin: 0 0 5mm !important;
+                    padding: 0 0 3mm !important;
+                    text-align: center !important;
+                }
+
+                    html body .prod-app .menu-planner-page .menu-print-header h1 {
+                        margin-top: 0 !important;
+                    }
+
+                html body .prod-app .menu-planner-page .menu-week-grid {
+                    width: 100% !important;
+                    max-width: none !important;
+                    margin: 0 !important;
+                    overflow: visible !important;
+                    break-inside: avoid !important;
+                    page-break-inside: avoid !important;
+                    box-shadow: none !important;
+                }
+
+                html body .prod-app .menu-planner-page .menu-grid-head,
+                html body .prod-app .menu-planner-page .menu-modality-row {
+                    width: 100% !important;
+                    min-width: 0 !important;
+                    grid-template-columns: 17mm repeat(7, minmax(0, 1fr)) !important;
+                    break-inside: avoid !important;
+                    page-break-inside: avoid !important;
+                }
+
+                html body .prod-app .menu-planner-page .menu-modality-label,
+                html body .prod-app .menu-planner-page .menu-day-cell {
+                    padding: 5mm 2mm !important;
+                }
+
+                html body .prod-app .menu-planner-page .menu-modality-card {
+                    min-height: 16mm !important;
+                    padding: 3mm 2mm 3mm 3mm !important;
+                    break-inside: avoid !important;
+                    page-break-inside: avoid !important;
+                }
+
+                html body .prod-app .menu-planner-page .menu-print-footer {
+                    margin-top: 8mm !important;
+                    break-inside: avoid !important;
+                    page-break-inside: avoid !important;
+                }
+    }
+
+
+    /* =========================================================
+                                       CONFIGURACOES — 3 CARDS POR LINHA / ICONES 3D NOVOS
+                                       ========================================================= */
+    .prod-app .settings-grid-modern {
+        display: grid !important;
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        grid-auto-rows: 160px !important;
+        gap: 16px !important;
+        align-items: stretch !important;
+    }
+
+    .prod-app .settings-card-button {
+        min-height: 160px !important;
+        height: 160px !important;
+    }
+
+    .prod-app .settings-card-icon {
+        width: 64px !important;
+        height: 64px !important;
+        background: transparent !important;
+        border-radius: 0 !important;
+        overflow: visible !important;
+    }
+
+        .prod-app .settings-card-icon img {
+            width: 76px !important;
+            height: 76px !important;
             max-width: none !important;
-            height: auto !important;
-            min-height: 0 !important;
+            object-fit: contain !important;
+            filter: drop-shadow(0 4px 6px rgba(23,76,120,.16)) !important;
+        }
+
+    @@media (max-width: 1000px) {
+        .prod-app .settings-grid-modern {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+    }
+
+    @@media (max-width: 620px) {
+        .prod-app .settings-grid-modern {
+            grid-template-columns: 1fr !important;
+            grid-auto-rows: 150px !important;
+        }
+
+        .prod-app .settings-card-button {
+            height: 150px !important;
+            min-height: 150px !important;
+        }
+    }
+
+    /* Ajustes finais solicitados para o cabeçalho e os cards de Configurações */
+    .prod-app .settings-page {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .prod-app .settings-heading-modern {
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        gap: 0 !important;
+        margin: 0 0 22px !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+
+        .prod-app .settings-heading-modern > div {
+            align-items: flex-start !important;
+            text-align: left !important;
+        }
+
+    .prod-app .settings-card-button {
+        column-gap: 16px !important;
+    }
+
+    .prod-app .settings-card-icon {
+        width: 64px !important;
+        height: 64px !important;
+        flex: 0 0 64px !important;
+    }
+
+        .prod-app .settings-card-icon img {
+            width: 64px !important;
+            height: 64px !important;
+            max-width: 64px !important;
+            max-height: 64px !important;
+            object-fit: contain !important;
+        }
+
+    /* CABEÇALHOS SEM ÍCONES 3D — ALINHAMENTO COM OS CAMPOS DE TRABALHO */
+    .prod-app .food-page .food-page-heading {
+        align-items: flex-start !important;
+    }
+
+        .prod-app .food-page .food-page-heading .snd-page-title-group {
+            display: flex !important;
+            flex: 1 1 auto !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            gap: 0 !important;
+            min-width: 0 !important;
+            margin: 0 !important;
+        }
+
+        .prod-app .food-page .food-page-heading .snd-page-title-copy {
+            width: 100% !important;
             margin: 0 !important;
             padding: 0 !important;
-            overflow: visible !important;
-            transform: none !important;
-            background: #fff !important;
+            text-align: left !important;
         }
 
-        html body .prod-app .menu-planner-page .menu-print-header {
-            margin: 0 0 5mm !important;
-            padding: 0 0 3mm !important;
-            text-align: center !important;
+    .prod-app .recipe-page .recipe-lovable-hero .snd-page-title-group {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        gap: 0 !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+    }
+
+    .prod-app .recipe-page .recipe-lovable-hero .snd-page-title-copy {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+
+    .prod-app .menu-planner-page .menu-planner-heading .snd-page-title-group {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        gap: 0 !important;
+        min-width: 0 !important;
+        margin-left: 16px !important;
+    }
+
+    .prod-app .menu-planner-page .menu-planner-heading .snd-page-title-copy {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        text-align: left !important;
+    }
+
+    @@media(max-width:900px) {
+        .prod-app .menu-planner-page .menu-planner-heading .snd-page-title-group {
+            margin-left: 0 !important;
+        }
+    }
+
+    /* RELATÓRIOS — alinhamento e identidade visual alinhada à tela Configurações */
+    .prod-app .reports-page {
+        max-width: 1600px !important;
+        margin: 0 auto !important;
+        padding: 14px 8px 38px !important;
+        color: #244765 !important;
+    }
+
+        .prod-app .reports-page .reports-page-heading {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: 0 !important;
+            margin: 0 0 22px !important;
+            padding: 0 !important;
         }
 
-        html body .prod-app .menu-planner-page .menu-print-header h1 {
-            margin-top: 0 !important;
+        .prod-app .reports-page .reports-page-heading-icon {
+            display: none !important;
         }
 
-        html body .prod-app .menu-planner-page .menu-week-grid {
-            width: 100% !important;
-            max-width: none !important;
-            margin: 0 !important;
-            overflow: visible !important;
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
-            box-shadow: none !important;
-        }
-
-        html body .prod-app .menu-planner-page .menu-grid-head,
-        html body .prod-app .menu-planner-page .menu-modality-row {
-            width: 100% !important;
+        .prod-app .reports-page .reports-page-heading-copy {
             min-width: 0 !important;
-            grid-template-columns: 17mm repeat(7, minmax(0, 1fr)) !important;
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
+            width: 100% !important;
         }
 
-        html body .prod-app .menu-planner-page .menu-modality-label,
-        html body .prod-app .menu-planner-page .menu-day-cell {
-            padding: 5mm 2mm !important;
+        .prod-app .reports-page .reports-page-heading h1 {
+            margin: 0 0 6px !important;
+            color: #17395f !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 28px !important;
+            font-weight: 800 !important;
+            line-height: 1.2 !important;
+            letter-spacing: -.75px !important;
         }
 
-        html body .prod-app .menu-planner-page .menu-modality-card {
-            min-height: 16mm !important;
-            padding: 3mm 2mm 3mm 3mm !important;
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
+        .prod-app .reports-page .reports-page-heading p {
+            margin: 0 !important;
+            color: #647d97 !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            line-height: 1.55 !important;
         }
 
-        html body .prod-app .menu-planner-page .menu-print-footer {
-            margin-top: 8mm !important;
-            break-inside: avoid !important;
-            page-break-inside: avoid !important;
+        .prod-app .reports-page .reports-category-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 16px !important;
+            margin: 0 !important;
+        }
+
+        .prod-app .reports-page .reports-category-card {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            min-width: 0 !important;
+            min-height: 160px !important;
+            padding: 18px 20px 16px !important;
+            border: 1px solid #d9e5ef !important;
+            border-radius: 14px !important;
+            background: #fff !important;
+            box-shadow: 0 3px 12px rgba(25, 59, 91, .045) !important;
+            text-align: left !important;
+            transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease !important;
+        }
+
+            .prod-app .reports-page .reports-category-card:hover,
+            .prod-app .reports-page .reports-category-card:focus-visible {
+                border-color: #9bbfdc !important;
+                box-shadow: 0 7px 18px rgba(25, 59, 91, .09) !important;
+                transform: translateY(-2px) !important;
+                outline: none !important;
+            }
+
+        .prod-app .reports-page .reports-category-top {
+            display: flex !important;
+            align-items: center !important;
+            gap: 15px !important;
+            min-width: 0 !important;
+            margin: 0 0 15px !important;
+        }
+
+        /* Ícones 3D sem o quadrado azul de fundo */
+        .prod-app .reports-page .reports-category-icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            flex: 0 0 72px !important;
+            width: 72px !important;
+            height: 72px !important;
+            padding: 0 !important;
+            border: 0 !important;
+            border-radius: 0 !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            overflow: visible !important;
+        }
+
+            .prod-app .reports-page .reports-category-icon img {
+                display: block !important;
+                width: 68px !important;
+                height: 68px !important;
+                max-width: none !important;
+                max-height: none !important;
+                object-fit: contain !important;
+                background: transparent !important;
+                filter: drop-shadow(0 4px 5px rgba(27, 75, 116, .13)) !important;
+            }
+
+        .prod-app .reports-page .reports-category-copy {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            gap: 5px !important;
+            min-width: 0 !important;
+        }
+
+        .prod-app .reports-page .reports-category-card strong {
+            color: #173f62 !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 14px !important;
+            font-weight: 800 !important;
+            line-height: 1.35 !important;
+        }
+
+        .prod-app .reports-page .reports-category-card small {
+            color: #71869d !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 11px !important;
+            font-weight: 400 !important;
+            line-height: 1.5 !important;
+        }
+
+        .prod-app .reports-page .reports-category-action {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 9px !important;
+            width: min(100%, 250px) !important;
+            min-height: 40px !important;
+            margin: auto auto 0 !important;
+            padding: 0 16px !important;
+            border: 1px solid #0874bd !important;
+            border-radius: 9px !important;
+            background: linear-gradient(135deg, #1688cf, #0869ad) !important;
+            color: #fff !important;
+            font-family: Inter, "Segoe UI", Arial, sans-serif !important;
+            font-size: 12px !important;
+            font-weight: 800 !important;
+            line-height: 1 !important;
+            box-shadow: 0 4px 10px rgba(8, 105, 173, .16) !important;
+            transition: background .18s ease, box-shadow .18s ease, transform .18s ease !important;
+        }
+
+        .prod-app .reports-page .reports-category-card:hover .reports-category-action {
+            background: linear-gradient(135deg, #0879bd, #075d9b) !important;
+            box-shadow: 0 5px 13px rgba(8, 105, 173, .22) !important;
+        }
+
+        .prod-app .reports-page .reports-category-action b {
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            line-height: 1 !important;
+        }
+
+    @@media(max-width: 900px) {
+        .prod-app .reports-page .reports-category-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+    }
+
+    @@media(max-width: 600px) {
+        .prod-app .reports-page {
+            padding: 14px 8px 30px !important;
+        }
+
+            .prod-app .reports-page .reports-page-heading {
+                margin-bottom: 18px !important;
+            }
+
+                .prod-app .reports-page .reports-page-heading h1 {
+                    font-size: 24px !important;
+                }
+
+                .prod-app .reports-page .reports-page-heading p {
+                    font-size: 12px !important;
+                }
+
+            .prod-app .reports-page .reports-category-grid {
+                grid-template-columns: 1fr !important;
+                gap: 11px !important;
+            }
+
+            .prod-app .reports-page .reports-category-card {
+                min-height: 148px !important;
+                padding: 15px !important;
+            }
+
+            .prod-app .reports-page .reports-category-icon {
+                flex-basis: 62px !important;
+                width: 62px !important;
+                height: 62px !important;
+            }
+
+                .prod-app .reports-page .reports-category-icon img {
+                    width: 60px !important;
+                    height: 60px !important;
+                }
+
+            .prod-app .reports-page .reports-category-action {
+                width: min(100%, 250px) !important;
+            }
+    }
+
+    /* Central de Relatórios - custos reais do planejamento */
+    .reports-cost-filter-grid {
+        grid-template-columns: repeat(3,minmax(150px,1fr)) !important;
+    }
+
+    .reports-cost-kpis {
+        grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+    }
+
+        .reports-cost-kpis .reports-v2-kpi strong {
+            font-size: 21px !important;
+        }
+
+    .reports-cost-days {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .reports-cost-day-card {
+        overflow: hidden;
+    }
+
+    .reports-cost-day-total {
+        color: #1769aa;
+        font-size: 19px;
+        white-space: nowrap;
+    }
+
+    .reports-cost-matrix-card {
+        overflow: hidden;
+    }
+
+    .reports-cost-matrix-wrap {
+        overflow-x: auto;
+    }
+
+    .reports-cost-matrix {
+        min-width: 1050px;
+        table-layout: auto;
+    }
+
+        .reports-cost-matrix thead th {
+            text-align: center;
+            white-space: nowrap;
+            background: #f3f8fc;
+            color: #355b7b;
+            border-bottom: 1px solid #dce8f1;
+        }
+
+        .reports-cost-matrix thead tr:first-child th {
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .35px;
+        }
+
+        .reports-cost-matrix thead tr:nth-child(2) th {
+            font-size: 9px;
+            color: #6d8296;
+        }
+
+        .reports-cost-matrix tbody td {
+            text-align: center;
+            white-space: nowrap;
+        }
+
+            .reports-cost-matrix tbody td:first-child,
+            .reports-cost-matrix thead th:first-child,
+            .reports-cost-matrix tfoot td:first-child {
+                text-align: left;
+                position: sticky;
+                left: 0;
+                background: #fff;
+                z-index: 1;
+            }
+
+        .reports-cost-matrix .reports-cost-value-cell {
+            color: #315b7d;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .reports-cost-matrix .reports-cost-total-cell {
+            background: #f7fafc;
+            color: #1769aa;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .reports-cost-matrix tfoot td {
+            background: #edf5fb !important;
+            color: #1c527c;
+            font-weight: 850;
+            white-space: nowrap;
+        }
+
+    .reports-cost-matrix-note {
+        padding: 12px 16px;
+        background: #f8fbfd;
+        border-top: 1px solid #e4edf4;
+        color: #6e8295;
+        font-size: 11px;
+        line-height: 1.55;
+    }
+
+        .reports-cost-matrix-note strong {
+            color: #315b7d;
+        }
+
+    .reports-cost-period-total {
+        margin-top: 14px;
+    }
+
+    .reports-cost-kpis-compact {
+        grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+    }
+
+    @@media(max-width:700px) {
+        .reports-cost-kpis-compact {
+            grid-template-columns: 1fr !important;
+        }
+    }
+
+    .reports-cost-table {
+        min-width: 760px;
+    }
+
+        .reports-cost-table tfoot td {
+            background: #f3f8fc;
+            border-top: 1px solid #d9e6f0;
+            font-weight: 800;
+            color: #1d4d72;
+        }
+
+    .reports-cost-state {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 180px;
+        padding: 28px;
+        border: 1px dashed #cbdce9;
+        border-radius: 13px;
+        background: #fbfdff;
+        text-align: center;
+        color: #315777;
+    }
+
+        .reports-cost-state span:not(.reports-cost-spinner) {
+            max-width: 600px;
+            color: #71879a;
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+    .reports-cost-error {
+        border-color: #e8c5c2;
+        background: #fffafa;
+        color: #9b4943;
+    }
+
+        .reports-cost-error span {
+            color: #9b625d !important;
+        }
+
+    .reports-cost-spinner {
+        width: 25px;
+        height: 25px;
+        border: 3px solid #dbeaf5;
+        border-top-color: #237ab5;
+        border-radius: 50%;
+        animation: reports-cost-spin .8s linear infinite;
+    }
+
+    @@keyframes reports-cost-spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .reports-cost-disclaimer {
+        margin-top: 14px;
+    }
+
+    @@media(max-width:900px) {
+        .reports-cost-kpis {
+            grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+        }
+
+        .reports-cost-filter-grid {
+            grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+        }
+    }
+
+    @@media(max-width:560px) {
+        .reports-cost-kpis, .reports-cost-filter-grid {
+            grid-template-columns: 1fr !important;
+        }
+
+        .reports-cost-day-card .reports-v2-card-heading {
+            align-items: flex-start;
+            flex-direction: column;
         }
     }
 </style>
@@ -9040,15 +10929,109 @@ else
     private bool ModalSeletorRelatorioAberto;
     private bool ModalVisualizacaoRelatorioAberto;
     private string CategoriaRelatorioSelecionada = "custos";
-    private string RelatorioSelecionado = "Custo por refeição";
-    private string PeriodoRelatorio = "Semana atual";
+    private string RelatorioSelecionado = "Custo por refeição / paciente";
+    private string PeriodoRelatorio = "Mês atual";
     private DateTime DataInicialFiltroRelatorio = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
     private DateTime DataFinalFiltroRelatorio = DateTime.Today;
+    private string AmbienteFiltroRelatorio = "Hospital";
+    private string EscopoFiltroRelatorio = "Todos";
     private string RefeicaoFiltroRelatorio = "Todas";
     private string ModalidadeFiltroRelatorio = "Todas";
     private string PreparacaoFiltroRelatorio = "Todas";
     private bool FiltrosRelatorioAplicados;
-    private string ResumoFiltrosRelatorio => $"Período: {DataInicialFiltroRelatorio:dd/MM/yyyy} a {DataFinalFiltroRelatorio:dd/MM/yyyy} · Refeição: {RefeicaoFiltroRelatorio} · Modalidade: {ModalidadeFiltroRelatorio} · Preparação: {PreparacaoFiltroRelatorio}";
+    private bool CarregandoRelatorio;
+    private string ErroRelatorio = "";
+    private List<string> EscoposRelatorioDisponiveis = new();
+    private List<RelatorioCustoLinha> LinhasRelatorioCusto = new();
+    private string ResumoFiltrosRelatorio => CategoriaRelatorioSelecionada == "custos"
+        ? $"Ambiente: {AmbienteFiltroRelatorio} · Período: {DataInicialFiltroRelatorio:dd/MM/yyyy} a {DataFinalFiltroRelatorio:dd/MM/yyyy} · Local: {EscopoFiltroRelatorio} · Refeição: {RefeicaoFiltroRelatorio} · Modalidade: {ModalidadeFiltroRelatorio} · Preparação: {PreparacaoFiltroRelatorio}"
+        : $"Período: {DataInicialFiltroRelatorio:dd/MM/yyyy} a {DataFinalFiltroRelatorio:dd/MM/yyyy} · Refeição: {RefeicaoFiltroRelatorio} · Modalidade: {ModalidadeFiltroRelatorio} · Preparação: {PreparacaoFiltroRelatorio}";
+    private int TotalRefeicoesPlanejadasRelatorio => LinhasRelatorioCusto.Sum(x => x.QuantidadePlanejada);
+    private decimal CustoTotalPlanejadoRelatorio => LinhasRelatorioCusto.Sum(x => x.CustoTotal);
+    private decimal CustoMedioPorRefeicaoRelatorio => TotalRefeicoesPlanejadasRelatorio > 0 ? CustoTotalPlanejadoRelatorio / TotalRefeicoesPlanejadasRelatorio : 0m;
+    private int DiasComPlanejamentoRelatorio => LinhasRelatorioCusto.Select(x => x.Dia.Date).Distinct().Count();
+    private IEnumerable<(string Refeicao, decimal Custo)> CustosPorRefeicaoRelatorio => LinhasRelatorioCusto
+        .GroupBy(x => x.Refeicao)
+        .Select(g => (Refeicao: g.Key, Custo: g.Sum(x => x.CustoTotal)))
+        .OrderByDescending(x => x.Custo);
+    private List<string> ModalidadesExibicaoRelatorio => LinhasRelatorioCusto
+        .Select(x => x.Modalidade)
+        .Where(x => !string.IsNullOrWhiteSpace(x))
+        .Distinct(StringComparer.OrdinalIgnoreCase)
+        .OrderBy(x => OrdemModalidadeRelatorio(x))
+        .ThenBy(x => x, StringComparer.CurrentCultureIgnoreCase)
+        .ToList();
+
+    private List<string> RefeicoesExibicaoRelatorio
+    {
+        get
+        {
+            var ordem = AmbienteFiltroRelatorio == "Escolinha" ? RefeicoesEscolinha : RefeicoesHospital;
+            var presentes = LinhasRelatorioCusto.Select(x => x.Refeicao).Distinct(StringComparer.OrdinalIgnoreCase).ToList();
+            return ordem.Where(r => presentes.Contains(r, StringComparer.OrdinalIgnoreCase))
+                .Concat(presentes.Where(r => !ordem.Contains(r, StringComparer.OrdinalIgnoreCase)).OrderBy(r => r))
+                .ToList();
+        }
+    }
+
+    private static int OrdemModalidadeRelatorio(string modalidade) => modalidade.Trim().ToUpperInvariant() switch
+    {
+        "DM" => 0,
+        "SUS" => 1,
+        "PARTICULAR" => 2,
+        "PASTOSA" => 3,
+        _ => 10
+    };
+
+    private static string AbreviarModalidadeRelatorio(string modalidade) =>
+        modalidade.Equals("PARTICULAR", StringComparison.OrdinalIgnoreCase) ? "PART." :
+        modalidade.Equals("DIABETES", StringComparison.OrdinalIgnoreCase) ? "DM" :
+        modalidade.ToUpperInvariant();
+
+    private decimal? CustoUnitarioDiaRelatorio(DateTime dia, string refeicao, string modalidade)
+    {
+        var grupo = LinhasRelatorioCusto.Where(x =>
+            x.Dia.Date == dia.Date &&
+            x.Refeicao.Equals(refeicao, StringComparison.OrdinalIgnoreCase) &&
+            x.Modalidade.Equals(modalidade, StringComparison.OrdinalIgnoreCase)).ToList();
+
+        if (grupo.Count == 0) return null;
+        var quantidade = grupo.Sum(x => x.QuantidadePlanejada);
+        return quantidade > 0 ? grupo.Sum(x => x.CustoTotal) / quantidade : grupo.Average(x => x.CustoUnitario);
+    }
+
+    private decimal? MediaCustoRefeicaoModalidadeRelatorio(string refeicao, string modalidade)
+    {
+        var grupo = LinhasRelatorioCusto.Where(x =>
+            x.Refeicao.Equals(refeicao, StringComparison.OrdinalIgnoreCase) &&
+            x.Modalidade.Equals(modalidade, StringComparison.OrdinalIgnoreCase)).ToList();
+
+        if (grupo.Count == 0) return null;
+        var quantidade = grupo.Sum(x => x.QuantidadePlanejada);
+        return quantidade > 0 ? grupo.Sum(x => x.CustoTotal) / quantidade : grupo.Average(x => x.CustoUnitario);
+    }
+
+    private decimal? TotalUnitarioDiaModalidadeRelatorio(DateTime dia, string modalidade)
+    {
+        var valores = RefeicoesExibicaoRelatorio
+            .Select(refeicao => CustoUnitarioDiaRelatorio(dia, refeicao, modalidade))
+            .Where(x => x.HasValue)
+            .Select(x => x!.Value)
+            .ToList();
+
+        return valores.Count == 0 ? null : valores.Sum();
+    }
+
+    private decimal? MediaTotalUnitarioModalidadeRelatorio(string modalidade)
+    {
+        var valores = RefeicoesExibicaoRelatorio
+            .Select(refeicao => MediaCustoRefeicaoModalidadeRelatorio(refeicao, modalidade))
+            .Where(x => x.HasValue)
+            .Select(x => x!.Value)
+            .ToList();
+
+        return valores.Count == 0 ? null : valores.Sum();
+    }
 
     private readonly List<(string Key, string Title, string Description, string Icon)> CategoriasRelatorio = new()
     {
@@ -9061,19 +11044,21 @@ else
     };
     private string TituloCategoriaRelatorio => CategoriasRelatorio.FirstOrDefault(x => x.Key == CategoriaRelatorioSelecionada).Title ?? "Relatórios";
     private string DescricaoCategoriaRelatorio => CategoriasRelatorio.FirstOrDefault(x => x.Key == CategoriaRelatorioSelecionada).Description ?? "";
+    // Ícones 3D atualizados da Central de Relatórios.
+    // Instalar os PNGs em wwwroot/images/relatorios/.
     private string IconeCategoriaRelatorio(string key) => key switch
     {
-        "custos" => "images/icons/ico_movimentacoes.png",
-        "producao" => "images/icons/ico_estoque.png",
-        "cardapios" => "images/icons/ico_cardapios.png",
-        "doacoes" => "images/icons/ico_recebimentos.png",
-        "fichas" => "images/icons/ico_fichas_tecnicas.png",
-        "nutricional" => "images/icons/ico_composicao_nutricional.png",
-        _ => "images/icons/ico_relatorios.png"
+        "custos" => "images/relatorios/relatorio-custos.png",
+        "producao" => "images/relatorios/relatorio-producao.png",
+        "cardapios" => "images/relatorios/relatorio-cardapios.png",
+        "doacoes" => "images/relatorios/relatorio-doacoes.png",
+        "fichas" => "images/relatorios/relatorio-fichas-tecnicas.png",
+        "nutricional" => "images/relatorios/relatorio-nutricional.png",
+        _ => "images/relatorios/relatorio-custos.png"
     };
     private IEnumerable<string> OpcoesCategoriaSelecionada => CategoriaRelatorioSelecionada switch
     {
-        "custos" => new[] { "Custo por refeição", "Custo por modalidade", "Custo médio por paciente/refeição", "Custo diário, semanal e mensal", "Comparativo de custos entre períodos", "Preparações de maior e menor custo" },
+        "custos" => new[] { "Custo por refeição / paciente", "Custo total diário do planejamento" },
         "producao" => new[] { "Quantidade produzida por dia", "Quantidade por modalidade", "Total de refeições no mês", "Distribuição percentual por modalidade", "Evolução da produção ao longo dos meses" },
         "cardapios" => new[] { "Cardápios planejados por período", "Histórico de cardápios utilizados", "Frequência das preparações", "Preparações mais utilizadas", "Variedade de alimentos e preparações" },
         "doacoes" => new[] { "Valor total dos alimentos recebidos por doação", "Economia gerada pelas doações", "Ingredientes doados mais utilizados", "Participação das doações no custo total", "Custo de referência x custo efetivo" },
@@ -9164,22 +11149,36 @@ else
 
     private void FecharVisualizacaoRelatorio() => ModalVisualizacaoRelatorioAberto = false;
 
-    private void AplicarFiltrosRelatorio()
+    private async Task AplicarFiltrosRelatorio()
     {
         if (DataFinalFiltroRelatorio < DataInicialFiltroRelatorio)
             (DataInicialFiltroRelatorio, DataFinalFiltroRelatorio) = (DataFinalFiltroRelatorio, DataInicialFiltroRelatorio);
         FiltrosRelatorioAplicados = true;
+        if (CategoriaRelatorioSelecionada == "custos")
+            await CarregarRelatorioCustosAsync();
     }
 
-    private void LimparFiltrosRelatorio()
+    private async Task LimparFiltrosRelatorio()
     {
         DataInicialFiltroRelatorio = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
         DataFinalFiltroRelatorio = DateTime.Today;
+        AmbienteFiltroRelatorio = AmbienteCardapio;
+        EscopoFiltroRelatorio = "Todos";
         RefeicaoFiltroRelatorio = "Todas";
         ModalidadeFiltroRelatorio = "Todas";
         PreparacaoFiltroRelatorio = "Todas";
         PeriodoRelatorio = "Mês atual";
         FiltrosRelatorioAplicados = false;
+        if (CategoriaRelatorioSelecionada == "custos")
+            await CarregarRelatorioCustosAsync();
+    }
+
+    private async Task AlterarAmbienteFiltroRelatorio(ChangeEventArgs e)
+    {
+        AmbienteFiltroRelatorio = e.Value?.ToString() == "Escolinha" ? "Escolinha" : "Hospital";
+        EscopoFiltroRelatorio = "Todos";
+        ModalidadeFiltroRelatorio = "Todas";
+        await CarregarRelatorioCustosAsync();
     }
 
     private void AbrirSeletorRelatorio(string categoria)
@@ -9189,10 +11188,117 @@ else
         ModalSeletorRelatorioAberto = true;
     }
     private void FecharSeletorRelatorio() => ModalSeletorRelatorioAberto = false;
-    private void AbrirRelatorioSelecionado()
+    private async Task AbrirRelatorioSelecionado()
     {
         ModalSeletorRelatorioAberto = false;
         ModalVisualizacaoRelatorioAberto = true;
+        if (CategoriaRelatorioSelecionada == "custos")
+        {
+            AmbienteFiltroRelatorio = AmbienteCardapio;
+            EscopoFiltroRelatorio = "Todos";
+            await CarregarRelatorioCustosAsync();
+        }
+    }
+
+    private async Task CarregarRelatorioCustosAsync()
+    {
+        CarregandoRelatorio = true;
+        ErroRelatorio = "";
+        await InvokeAsync(StateHasChanged);
+        try
+        {
+            var inicio = DateOnly.FromDateTime(DataInicialFiltroRelatorio.Date);
+            var fim = DateOnly.FromDateTime(DataFinalFiltroRelatorio.Date);
+            var cardapios = await Db.Cardapios.AsNoTracking()
+                .Include(c => c.ModalidadeCardapio)
+                .Include(c => c.Refeicoes)
+                    .ThenInclude(r => r.Preparacoes)
+                        .ThenInclude(p => p.IngredientesDoados)
+                .Where(c => c.DataInicio <= fim && c.DataFim >= inicio)
+                .ToListAsync();
+
+            bool ehEscolinha(SNDClinico.Web.Data.Cardapio c) => c.Escopo.StartsWith("Escolinha|", StringComparison.OrdinalIgnoreCase);
+            var cardapiosAmbiente = cardapios
+                .Where(c => AmbienteFiltroRelatorio == "Escolinha" ? ehEscolinha(c) : !ehEscolinha(c))
+                .ToList();
+
+            string nomeLocal(SNDClinico.Web.Data.Cardapio c) => AmbienteFiltroRelatorio == "Escolinha"
+                ? c.Escopo.Substring("Escolinha|".Length)
+                : (string.IsNullOrWhiteSpace(c.Escopo) ? "Geral" : c.Escopo);
+
+            EscoposRelatorioDisponiveis = cardapiosAmbiente
+                .Select(nomeLocal)
+                .Where(x => !string.IsNullOrWhiteSpace(x))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .OrderBy(x => x)
+                .ToList();
+
+            var linhas = new List<RelatorioCustoLinha>();
+            foreach (var cardapio in cardapiosAmbiente)
+            {
+                var local = nomeLocal(cardapio);
+                if (EscopoFiltroRelatorio != "Todos" && !string.Equals(local, EscopoFiltroRelatorio, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                var modalidade = cardapio.ModalidadeCardapio?.Nome ?? "Não informada";
+                if (AmbienteFiltroRelatorio == "Hospital" && ModalidadeFiltroRelatorio != "Todas" && !string.Equals(modalidade, ModalidadeFiltroRelatorio, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                foreach (var refeicao in cardapio.Refeicoes.Where(r => r.Data >= inicio && r.Data <= fim))
+                {
+                    if (RefeicaoFiltroRelatorio != "Todas" && !string.Equals(refeicao.Nome, RefeicaoFiltroRelatorio, StringComparison.OrdinalIgnoreCase))
+                        continue;
+
+                    decimal custoUnitario = 0m;
+                    var nomesPreparacoes = new List<string>();
+                    foreach (var preparacao in refeicao.Preparacoes)
+                    {
+                        var nomePreparacao = preparacao.NomeSnapshot;
+                        if (PreparacaoFiltroRelatorio != "Todas" && !string.Equals(nomePreparacao, PreparacaoFiltroRelatorio, StringComparison.OrdinalIgnoreCase))
+                            continue;
+
+                        nomesPreparacoes.Add(nomePreparacao);
+                        var ficha = Fichas.FirstOrDefault(f => f.Id == preparacao.FichaTecnicaId);
+                        if (ficha is null || ficha.Porcoes <= 0) continue;
+                        var ingredientesDoados = preparacao.IngredientesDoados.Select(i => i.AlimentoId).ToHashSet();
+                        custoUnitario += ficha.Ingredientes
+                            .Where(i => !ingredientesDoados.Contains(i.AlimentoId))
+                            .Sum(CustoIngredienteReferencia) / ficha.Porcoes;
+                    }
+
+                    if (PreparacaoFiltroRelatorio != "Todas" && nomesPreparacoes.Count == 0) continue;
+                    var quantidade = Math.Max(0, refeicao.QuantidadePrevista);
+                    linhas.Add(new RelatorioCustoLinha
+                    {
+                        Dia = refeicao.Data.ToDateTime(TimeOnly.MinValue),
+                        Ambiente = AmbienteFiltroRelatorio,
+                        Local = local,
+                        Refeicao = refeicao.Nome,
+                        Modalidade = modalidade,
+                        QuantidadePlanejada = quantidade,
+                        CustoUnitario = custoUnitario,
+                        CustoTotal = custoUnitario * quantidade,
+                        Preparacoes = nomesPreparacoes
+                    });
+                }
+            }
+
+            LinhasRelatorioCusto = linhas
+                .OrderBy(x => x.Dia)
+                .ThenBy(x => x.Refeicao, StringComparer.CurrentCultureIgnoreCase)
+                .ThenBy(x => x.Local, StringComparer.CurrentCultureIgnoreCase)
+                .ThenBy(x => x.Modalidade, StringComparer.CurrentCultureIgnoreCase)
+                .ToList();
+        }
+        catch (Exception)
+        {
+            LinhasRelatorioCusto.Clear();
+            ErroRelatorio = "Não foi possível carregar os custos do planejamento. Verifique a conexão com o banco de dados e tente novamente.";
+        }
+        finally
+        {
+            CarregandoRelatorio = false;
+        }
     }
 
     private bool ModalAberto;
@@ -9226,7 +11332,6 @@ else
     private string TurmaSelecionada = "Maternal I";
     private string NovaTurmaNome = "";
     private string NovaTurmaFaixa = "";
-    private int NovaTurmaQuantidade;
     private List<TurmaEscolinha> TurmasEscolinha = new() { new() { Nome = "Berçário", FaixaEtaria = "0 a 1 ano" }, new() { Nome = "Maternal I", FaixaEtaria = "1 a 2 anos" }, new() { Nome = "Maternal II", FaixaEtaria = "2 a 3 anos" }, new() { Nome = "Pré-escola", FaixaEtaria = "4 a 5 anos" } };
     private IEnumerable<string> ModalidadesAtivas => AmbienteCardapio == "Hospital" ? ModalidadesCardapio : new[] { TurmaSelecionada };
     private string RefeicaoSelecionada = "Almoço";
@@ -9245,7 +11350,15 @@ else
     private bool UsarBaseGeral = true;
     private List<PreparacaoPlanejada> PreparacoesEdicao = new();
     private Dictionary<string, PlanoRefeicao> PlanosCardapio = new();
-    private List<string> RefeicoesPlanejamento = new() { "Desjejum", "Colação", "Almoço", "Lanche da tarde", "Jantar", "Ceia" };
+    private List<string> RefeicoesHospital = new() { "Desjejum", "Colação", "Almoço", "Lanche da tarde", "Jantar", "Ceia" };
+    private List<string> RefeicoesEscolinha = new() { "Desjejum", "Lanche da manhã", "Almoço", "Lanche da tarde" };
+    private List<string> RefeicoesPlanejamento => AmbienteCardapio == "Escolinha" ? RefeicoesEscolinha : RefeicoesHospital;
+    private List<string> RefeicoesConfiguracaoAtivas => AmbienteConfiguracaoRefeicoes == "Escolinha" ? RefeicoesEscolinha : RefeicoesHospital;
+    private string AmbienteConfiguracaoRefeicoes = "Hospital";
+    private bool ModalConfiguracaoAberto;
+    private string ModalConfiguracaoTipo = "";
+    private string NovoResponsavelRecebimento = "";
+    private List<string> ResponsaveisRecebimento = new();
     private List<string> ModalidadesCardapio = new() { "SUS", "PARTICULAR", "DM", "PASTOSA" };
     private List<string> UnidadesMedida = new() { "kg", "g", "l", "ml", "un" };
     private string NovaRefeicaoConfig = "";
@@ -9334,11 +11447,32 @@ else
     private void AdicionarTurmaEscolinha()
     {
         var nome = NovaTurmaNome.Trim();
-        if (nome.Length == 0 || TurmasEscolinha.Any(t => t.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase))) return;
-        TurmasEscolinha.Add(new TurmaEscolinha { Nome = nome, FaixaEtaria = string.IsNullOrWhiteSpace(NovaTurmaFaixa) ? "Não informada" : NovaTurmaFaixa.Trim(), QuantidadeCriancas = Math.Max(0, NovaTurmaQuantidade) });
-        NovaTurmaNome = NovaTurmaFaixa = ""; NovaTurmaQuantidade = 0;
+        var faixa = NovaTurmaFaixa.Trim();
+        if (nome.Length == 0 || faixa.Length == 0) return;
+        if (TurmasEscolinha.Any(t => t.Nome.Equals(nome, StringComparison.OrdinalIgnoreCase))) return;
+
+        TurmasEscolinha.Add(new TurmaEscolinha
+        {
+            Nome = nome,
+            FaixaEtaria = faixa
+        });
+
+        NovaTurmaNome = "";
+        NovaTurmaFaixa = "";
     }
-    private void AlternarTurmaEscolinha(TurmaEscolinha turma) { turma.Ativa = !turma.Ativa; if (!turma.Ativa && TurmaSelecionada == turma.Nome) { TurmaSelecionada = TurmasEscolinha.FirstOrDefault(t => t.Ativa)?.Nome ?? ""; EscopoCardapio = "Escolinha|" + TurmaSelecionada; } }
+
+    private void RemoverTurmaEscolinha(TurmaEscolinha turma)
+    {
+        if (turma is null) return;
+
+        TurmasEscolinha.Remove(turma);
+
+        if (TurmaSelecionada == turma.Nome)
+        {
+            TurmaSelecionada = TurmasEscolinha.FirstOrDefault(t => t.Ativa)?.Nome ?? "";
+            EscopoCardapio = "Escolinha|" + TurmaSelecionada;
+        }
+    }
 
     private static string ChavePlano(DateTime dia, string refeicao, string modalidade, string escopo) => $"{dia:yyyyMMdd}|{refeicao}|{modalidade}|{escopo}";
     private string ChavePlano(DateTime dia, string refeicao, string modalidade) => ChavePlano(dia, refeicao, modalidade, EscopoCardapio);
@@ -9741,7 +11875,20 @@ else
         .Select(g => (Ingrediente: g.Key, Utilizacoes: g.Sum(x => x.Utilizacoes), Economia: g.Sum(x => x.Economia)))
         .OrderByDescending(x => x.Economia);
 
-    private class TurmaEscolinha { public string Nome { get; set; } = ""; public string FaixaEtaria { get; set; } = ""; public int QuantidadeCriancas { get; set; } public bool Ativa { get; set; } = true; }
+    private class RelatorioCustoLinha
+    {
+        public DateTime Dia { get; set; }
+        public string Ambiente { get; set; } = "";
+        public string Local { get; set; } = "";
+        public string Refeicao { get; set; } = "";
+        public string Modalidade { get; set; } = "";
+        public int QuantidadePlanejada { get; set; }
+        public decimal CustoUnitario { get; set; }
+        public decimal CustoTotal { get; set; }
+        public List<string> Preparacoes { get; set; } = new();
+    }
+
+    private class TurmaEscolinha { public string Nome { get; set; } = ""; public string FaixaEtaria { get; set; } = ""; public bool Ativa { get; set; } = true; }
 
     private class PlanoRefeicao
     {
@@ -9880,6 +12027,12 @@ else
     private void AbrirRelatorios() => secaoSelecionada = "relatorios";
     private void AbrirEstoque() => secaoSelecionada = "estoque";
     private void AbrirConfiguracoes() => secaoSelecionada = "configuracoes";
+    private string TituloModalConfiguracao => ModalConfiguracaoTipo switch { "refeicoes" => "Refeições por ambiente", "modalidades" => "Modalidades", "responsaveis" => "Responsáveis pelo recebimento", "turmas" => "Turmas da Escolinha", "categorias" => "Tipos de preparação", "unidades" => "Unidades de medida", _ => "Configurações" };
+    private string DescricaoModalConfiguracao => ModalConfiguracaoTipo switch { "refeicoes" => "Mantenha os horários e etapas de alimentação separados por ambiente.", "responsaveis" => "Cadastre os nomes que serão selecionados na conferência de recebimentos.", "turmas" => "Gerencie as turmas, faixas etárias e quantidades de crianças.", "categorias" => "Organize as categorias utilizadas nas fichas técnicas.", "unidades" => "Defina as unidades utilizadas no cadastro de alimentos.", _ => "Gerencie as opções disponíveis no SND Produção." };
+    private void AbrirModalConfiguracao(string tipo) { ModalConfiguracaoTipo = tipo; ModalConfiguracaoAberto = true; }
+    private void FecharModalConfiguracao() { ModalConfiguracaoAberto = false; ModalConfiguracaoTipo = ""; }
+    private void AdicionarResponsavelRecebimento() { AdicionarItemConfiguracao(ResponsaveisRecebimento, NovoResponsavelRecebimento); NovoResponsavelRecebimento = ""; }
+    private void RemoverResponsavelRecebimento(string nome) { ResponsaveisRecebimento.Remove(nome); }
 
     private static void AdicionarItemConfiguracao(List<string> lista, string valor)
     {
