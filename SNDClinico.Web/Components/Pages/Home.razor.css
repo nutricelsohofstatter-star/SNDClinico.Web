@@ -1146,3 +1146,83 @@
     object-fit: contain;
     overflow: visible;
 }
+
+
+/* =====================================================
+   HOME - ILUSTRAÇÕES 3D EM DESTAQUE NOS CARDS
+   Ajuste somente da área inferior dos dois módulos.
+   ===================================================== */
+.snd-card-details {
+    min-height: 205px;
+    padding: 20px 24px 18px;
+}
+
+.snd-card-details > p {
+    max-width: calc(100% - 175px);
+    min-height: 48px;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.snd-card-bottom {
+    min-height: 76px;
+    justify-content: flex-start;
+    position: static;
+}
+
+.snd-card-decoration {
+    position: absolute;
+    right: 20px;
+    bottom: 7px;
+    width: 166px;
+    height: 166px;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.snd-card-decoration img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    filter: drop-shadow(0 9px 9px rgba(25, 54, 91, .17));
+}
+
+.snd-card-bottom .snd-action {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 1000px) {
+    .snd-card-details {
+        min-height: 190px;
+    }
+    .snd-card-decoration {
+        width: 145px;
+        height: 145px;
+        right: 12px;
+        bottom: 7px;
+    }
+    .snd-card-details > p {
+        max-width: calc(100% - 145px);
+    }
+}
+
+@media (max-width: 700px) {
+    .snd-card-details {
+        min-height: 180px;
+        padding: 16px;
+    }
+    .snd-card-details > p {
+        max-width: calc(100% - 118px);
+        min-height: 0;
+    }
+    .snd-card-decoration {
+        width: 118px;
+        height: 118px;
+        right: 8px;
+        bottom: 4px;
+    }
+}
