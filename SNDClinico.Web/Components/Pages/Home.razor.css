@@ -1158,7 +1158,7 @@
 }
 
 .snd-card-details > p {
-    max-width: calc(100% - 175px);
+    max-width: calc(100% - 150px);
     min-height: 48px;
     margin-bottom: 12px;
     position: relative;
@@ -1175,8 +1175,8 @@
     position: absolute;
     right: 20px;
     bottom: 7px;
-    width: 166px;
-    height: 166px;
+    width: 140px;
+    height: 140px;
     z-index: 1;
     pointer-events: none;
     opacity: 1;
@@ -1200,13 +1200,13 @@
         min-height: 190px;
     }
     .snd-card-decoration {
-        width: 145px;
-        height: 145px;
+        width: 123px;
+        height: 123px;
         right: 12px;
         bottom: 7px;
     }
     .snd-card-details > p {
-        max-width: calc(100% - 145px);
+        max-width: calc(100% - 130px);
     }
 }
 
@@ -1216,12 +1216,12 @@
         padding: 16px;
     }
     .snd-card-details > p {
-        max-width: calc(100% - 118px);
+        max-width: calc(100% - 105px);
         min-height: 0;
     }
     .snd-card-decoration {
-        width: 118px;
-        height: 118px;
+        width: 100px;
+        height: 100px;
         right: 8px;
         bottom: 4px;
     }
